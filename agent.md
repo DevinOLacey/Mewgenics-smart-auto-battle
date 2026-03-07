@@ -127,12 +127,52 @@ preferred_distance      (nombre, ou: mov, reach, mov+N, mov-N, mov+reach)
 total_distance_moved    cap_total_distance_moved
 face_closest_enemy      face_aggro_target       face_camera
 randomness
-danger_avoidance
-tall_grass              lava
+danger_avoidance        (float — évite les tuiles dangereuses : 0.5 léger, 3-5 normal, 20+ extrême)
+tall_grass              (float — attire vers TallGrassTile)
+lava                    (float — attire vers LavaTile, NE PAS utiliser pour les joueurs)
 count_nomove_in_eval    (bool)
 consider_aggro_target_enemy (bool)
 exclude_characters_tagged <tag>
 ```
+
+### Tuiles du jeu — catalogue complet (tiles.gon)
+```
+ID  Nom               Classe moteur
+ 0  Empty             —
+ 1  Water             WaterTile
+ 2  Grass             GrassTile / TallGrassTile (15%) / BlankTile (5%)
+ 3  Tall Grass        TallGrassTile (80%) / GrassTile (15%) / BlankTile (5%)
+ 4  Fire              FireTile
+ 5  Ice               IceTile
+ 6  Lava              LavaTile
+ 7  Metal             MetalTile
+ 8  Rock              RockTile
+ 9  Creep             CreepTile
+10  Oil               OilTile
+11  Toxic Sludge      ToxicTile
+12  Shadow            ShadowTile
+13  Glass Shards      GlassTile
+14  Snow              SnowTile
+15–18 Water Current   WaterTile_Current (N/S/E/W)
+19  Dirt              DirtTile
+20  Stalagmites       StalagmiteTile
+21  Road              RoadTile
+22  Brambles          BrambleTile
+23  Flowers           FlowerTile
+24  Tall Flowers      TallFlowerTile
+25  Supercooled Water SupercooledWater
+26  Glitch            GlitchTile
+```
+
+### Dangers environnementaux — ce qui est possible via les presets
+- **`danger_avoidance <N>`** : couvre toutes les tuiles que le moteur considère dangereuses (lava, fire, toxic, verre, brambles...) et les OBJETS dangereux (SpikyRock → Thorns 5). Seul levier disponible pour éviter les pièges.
+- **`tall_grass <N>`** : attire vers l'herbe haute (camouflage, utile Thief/Hunter)
+- **`distance_to_water <N>`** : attire/repousse des tuiles d'eau
+
+### Ce qui N'est PAS possible via les presets de mouvement
+- Éviter spécifiquement les harpons (HarpoonTrap = objet, pas tuile — géré par le moteur)
+- Éviter individuellement chaque type de tuile dangereuse (glace, toxic, feu...)
+- Le champ `danger_avoidance` est un budget global — pas de granularité par type de danger
 
 ---
 
@@ -182,8 +222,25 @@ exclude_characters_tagged <tag>
 
 ## Pistes d'amélioration (prochaines sessions)
 
-### Corrections appliquées le 2026-03-07 (session 1)
-- **Colorless** : `Collarless.merge` → `Colorless.merge` + renommage des presets ✅
+### Corrections appliquées le 2026-03-07 (session 4) — danger_avoidance et terrain
+Ajout de `danger_avoidance` à tous les presets de mouvement smart_* + `tall_grass` pour Thief, Druid, Hunter :
+
+| Preset | `danger_avoidance` | Notes |
+|---|---|---|
+| smart_fighter_move | 1 | Fonce, accepte le risque |
+| smart_hunter_move | 3 | Distance — évite les tuiles dangereuses + `tall_grass 1` |
+| smart_tank_move | 0.5 | Tank — encaisse, évite juste la lave |
+| smart_mage_move | 5 | Fragile — évite activement |
+| smart_cleric_move | 5 | Doit rester en vie pour soigner |
+| smart_thief_move | 3 | Mobile + `tall_grass 2` (embuscades) |
+| smart_butcher_move | 1 | Enragé — accepte le risque |
+| smart_psychic_move | 4 | Fragile, soutien |
+| smart_colorless_move | 2 | Générique |
+| smart_jester_move | 2 | Chaotique, limité |
+| smart_druid_move | 3 | + `tall_grass 1` (affinité naturelle) |
+| smart_monk_move | 1 | Fonce au contact |
+| smart_necromancer_move | 5 | Fragile — ne doit pas marcher dans la lave |
+| smart_tinkerer_move | 3 | Derrière les constructions |
 - **Monk** : `buff_self` réduit de 4 → 1 (évite `Meditate` Sleep 8 tours) ✅
 - **Tank** : `buff_self` et `buff_ally` réduits de 2 → 1 (évite Thorns/BarbedWire inutiles) ✅
 - **Mage** : ajout de `consider_aoe true` ✅
