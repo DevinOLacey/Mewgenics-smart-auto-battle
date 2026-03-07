@@ -94,10 +94,10 @@ smart_fighter.merge {
 // --- TANK (Protecteur & Contrôle) ---
 smart_tank.merge {
     damage_ally -100
-    damage_enemy 1
+    damage_enemy 2            // Remonté: le Tank doit attaquer, pas juste se buffer
     heal_ally 1
     heal_enemy -100
-    kill_enemy 5
+    kill_enemy 8              // Remonté: tuer est prioritaire sur buffing
     kill_ally -100
     debuff_ally -100
     buff_ally 1
@@ -105,7 +105,7 @@ smart_tank.merge {
     buff_enemy -100
     damage_self -0.1
     heal_self 2
-    buff_self 1           // Réduit: Porcupine/BarbedWire (Thorns) inutiles sans ennemi au mêlée
+    buff_self 0.3             // Très réduit: décourage fortement tous les self-buffs situationnels
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0
@@ -354,7 +354,7 @@ smart_druid.merge {
     buff_enemy -100
     damage_self -1
     heal_self 2
-    buff_self 1
+    buff_self 0.3             // Réduit: HardenSkin (1-tour) ne doit pas spammer
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0
@@ -386,7 +386,7 @@ smart_monk.merge {
     buff_enemy -100
     damage_self -1
     heal_self 3
-    buff_self 1           // Réduit: évite Meditate (Sleep 8 tours !) et Porcupine inutile
+    buff_self 0.3             // Réduit: évite Meditate (Sleep 8 tours !) et Porcupine spam
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0

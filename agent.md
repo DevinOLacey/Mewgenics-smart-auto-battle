@@ -21,16 +21,20 @@ mods/Smart_AutoBattle/
 ├── agent.md                               ← CE FICHIER
 ├── data/                                  ← FICHIERS DU MOD (patches)
 │   ├── abilities/                         ← Patches d'abilities par classe (ai_base_score / custom_additional_ai_weight)
-│   │   ├── monk_abilities.gon.patch       Porcupine (tile_close_to_enemy), Meditate (−99999 sleep 8t)
-│   │   ├── tank_abilities.gon.patch       BarbedWire (tile_close_to_enemy)
-│   │   ├── colorless_abilities.gon.patch  Rest (must_heal_most_missing_health), Brace (tile_close_to_enemy)
-│   │   ├── thief_abilities.gon.patch      CoinToss (−10, évite boucle ReloadOnGainCoins)
-│   │   ├── mage_abilities.gon.patch       Absorb (must_heal_most_missing_health), ManaMeld (−5)
-│   │   ├── necromancer_abilities.gon.patch Flatline (−99999 self-die), BloodGeyser (−20), GigaDrain (−5)
-│   │   ├── druid_abilities.gon.patch      ChaChaSlide (−99999 friendly-fire), HardenSkin (tile_close_to_enemy)
-│   │   ├── medic_abilities.gon.patch      BornAgain (−99999 sleep 4t), Zealot (tile_close_to_enemy)
-│   │   ├── butcher_abilities.gon.patch    SelfMutilate (−5), Fartoom (−10), LightenTheLoad (−10)
-│   │   └── jester_abilities.gon.patch     Bump (−99999 displaces allies)
+│   │   ├── monk_abilities.gon.patch       Porcupine (tile_close_to_enemy + ai_base_score -5), Meditate (−99999 sleep 8t)
+│   │   ├── tank_abilities.gon.patch       BarbedWire (tile_close_to_enemy + ai_base_score -5)
+│   │   ├── colorless_abilities.gon.patch  Rest (must_heal_most_missing_health), Brace (-5), Block (-3)
+│   │   ├── fighter_abilities.gon.patch    ChaosRampage/Enrage/Bloodzerk/Stoopzerk/ThinkTooHard2 (−99999), Counter (tile_close_to_enemy−5), Berserk/Juiced (−5), Exert (−10), Hurl (−10)
+│   │   ├── hunter_abilities.gon.patch     ChaosShot/Pheromones (−99999), StakeOut (−20), SoothingShot (−10), Extend (tile_close_to_enemy−5)
+│   │   ├── psychic_abilities.gon.patch    RealityScramble/ChaosSwap/ExtraTurnQuestion/MindCrack/Glare/ThinkDeep (−99999), Pass (−20), BlindingFlash (−10), Supernova/MassManaLeech/MindBlast (−50)
+│   │   ├── thief_abilities.gon.patch      CoinToss (−10), Cheat (−15), Pierce (tile−5), WindUp (−5), Jitter (−10), Outskirts2 (−5)
+│   │   ├── mage_abilities.gon.patch       Absorb (must_heal), ManaMeld (−5), DealWithTheDevil/Corrupt/BlackMagic (−20), ChainLightning (−20), ForbiddenFlame (−10), ForbiddenFlood/Telefrag/Divide/Magnify (−5), ForbiddenFrost (−10)
+│   │   ├── necromancer_abilities.gon.patch Flatline/SlitWrists/Seppuku/AbsorbSoul (−99999), Pestilence (−50), DemonicPact/ForbiddenFamine/Hush/Shriek (−20), BloodGeyser (−20), SoulTransfer/DonateBlood (−10), GigaDrain/TradeLife/LeechSwarm/BloodRain/WeAreOne (−5)
+│   │   ├── druid_abilities.gon.patch      ChaChaSlide (−99999 friendly-fire), HardenSkin (tile_close_to_enemy + ai_base_score -5)
+│   │   ├── medic_abilities.gon.patch      BornAgain (−99999 sleep 4t), Zealot (tile_close_to_enemy) [DivineShield persiste, pas 1-turn spam]
+│   │   ├── butcher_abilities.gon.patch    TaintedOffering/Tryptophan (−99999), SkullBash/Consume/MyTurn/Butcher (−20), SelfMutilate/Fartoom/LightenTheLoad (−5/−10), Binge/TaintedOffering2/Tromp/Chonkwalk/Reflux/Cough/Track (−5)
+│   │   ├── jester_abilities.gon.patch     Bump (−99999 displaces allies), PowerUp (−10)
+│   │   └── tinkerer_abilities.gon.patch   Shockwave (−30), ShoddyJetpack/EjectButton (−10), FreshOffTheForge/UnreliableShield (−5)
 │   ├── ai_presets/
 │   │   ├── decision_presets.gon.patch     14 presets (smart_default + 13 classes)
 │   │   └── move_presets.gon.patch         13 move presets par classe
@@ -250,7 +254,38 @@ Ajout de `danger_avoidance` à tous les presets de mouvement smart_* + `tall_gra
 ### Corrections appliquées le 2026-03-07 (session 2) — patches abilities
 - **Monk** : `Porcupine`/`Porcupine2` → `tile_close_to_enemy` ; `Meditate`/`Meditate2` → `ai_base_score -99999` ✅
 - **Tank** : `BarbedWire`/`BarbedWire2` → `tile_close_to_enemy` ✅
-- **Colorless** : `Rest`/`Rest2` → `must_heal_most_missing_health` ; `Brace`/`Brace2` → `tile_close_to_enemy` ✅
+
+### Corrections appliquées (session 5) — anti-spam 1-turn buffs
+Ajout de `ai_base_score -5` sur toutes les abilities avec `turns 1` + `expires_on_appliers_turn true` qui avaient seulement `tile_close_to_enemy` :
+
+| Fichier | Abilities | Avant | Après |
+|---|---|---|---|
+| `tank_abilities.gon.patch` | BarbedWire/2 | `tile_close_to_enemy` | + `ai_base_score -5` ✅ |
+| `monk_abilities.gon.patch` | Porcupine/2 | `tile_close_to_enemy` | + `ai_base_score -5` ✅ |
+| `colorless_abilities.gon.patch` | Brace/2 | `tile_close_to_enemy` | + `ai_base_score -5` ✅ |
+| `colorless_abilities.gon.patch` | Block/2 | `tile_close_to_enemy` | + `ai_base_score -3` ✅ (Shield persiste, pénalité plus légère) |
+| `druid_abilities.gon.patch` | HardenSkin/2 | `tile_close_to_enemy` | + `ai_base_score -5` ✅ |
+
+**Zealot (Medic)** : DivineShield persiste jusqu'à absorption (pas un buff 1-turn) → pas de spam possible → `tile_close_to_enemy` seul est correct ✅
+
+### Corrections appliquées (session 6) — préférer l'offensif sur les buffs situationnels
+**Problème confirmé :** Les buffs 1-tour sont cumulables (stacks), donc `avoid_redundant_debuffs` ne fonctionne pas — il faut `ai_base_score` négatif plus fort. `custom_additional_ai_weight` est un champ unique (non cumulable).
+
+**Double approche :**
+
+**1. `ai_base_score` relevé de -5 à -15 sur tous les buffs 1-tour stackables :**
+| Fichier | Abilities | Score |
+|---|---|---|
+| `tank_abilities.gon.patch` | BarbedWire/2 | -15 ✅ |
+| `monk_abilities.gon.patch` | Porcupine/2 | -15 ✅ |
+| `colorless_abilities.gon.patch` | Brace/2 | -15 ✅ |
+| `colorless_abilities.gon.patch` | Block/2 | -5 (Shield persiste) ✅ |
+| `druid_abilities.gon.patch` | HardenSkin/2 | -15 ✅ |
+
+**2. `buff_self` réduit à 0.3 dans les presets concernés :**
+- `smart_tank` : `buff_self 1` → `0.3` + `damage_enemy 1→2` + `kill_enemy 5→8` (Tank trop passif)
+- `smart_monk` : `buff_self 1` → `0.3`
+- `smart_druid` : `buff_self 1` → `0.3`- **Colorless** : `Rest`/`Rest2` → `must_heal_most_missing_health` ; `Brace`/`Brace2` → `tile_close_to_enemy` ✅
 - **Thief** : `CoinToss`/`CoinToss2` → `ai_base_score -10` ✅
 - **Mage** : `Absorb`/`Absorb2` → `must_heal_most_missing_health` ; `ManaMeld`/`ManaMeld2` → `ai_base_score -5` ✅
 - **Necromancer** : `Flatline`/`Flatline2` → `ai_base_score -99999` ; `BloodGeyser`/`BloodGeyser2` → `-20` ; `GigaDrain`/`GigaDrain2` → `-5` ✅
@@ -264,6 +299,21 @@ Ajout de `danger_avoidance` à tous les presets de mouvement smart_* + `tall_gra
 - **`BornAgain2` (Medic)** : version améliorée SANS le `self_damage Sleep` — ne pas patcher, c'est une bonne ability
 - Les patches sont dans `data/abilities/<classe>_abilities.gon.patch`
 - Format : `AbilityName.merge { damage_instance { ai_base_score N } }` ou `custom_additional_ai_weight <keyword>`
+
+### Corrections appliquées (session 7) — patches abilities Fighter, Hunter, Psychic + complétion de toutes les classes
+
+**Nouveaux fichiers créés :**
+- `fighter_abilities.gon.patch` — ChaosRampage, Enrage, Bloodzerk, Stoopzerk, ThinkTooHard2 → `-99999` ; Counter → `tile_close_to_enemy −5` ; Berserk, Juiced → `-5` ; Exert, Hurl → `-10`
+- `hunter_abilities.gon.patch` — ChaosShot, Pheromones → `-99999` ; StakeOut → `-20` ; SoothingShot → `-10` ; Extend → `tile_close_to_enemy −5`
+- `psychic_abilities.gon.patch` — RealityScramble, ChaosSwap, ExtraTurnQuestion, MindCrack, Glare, ThinkDeep → `-99999` ; Pass → `-20` ; BlindingFlash → `-10` ; MindBlast, Supernova, MassManaLeech → `-50`
+- `tinkerer_abilities.gon.patch` — Shockwave → `-30` ; ShoddyJetpack, EjectButton → `-10` ; FreshOffTheForge, UnreliableShield → `-5`
+
+**Fichiers existants complétés :**
+- `thief_abilities.gon.patch` — ajout Cheat (`−15`), Pierce (`tile_close_to_enemy −5`), WindUp (`−5`), Jitter (`−10`), Outskirts2 (`−5`)
+- `mage_abilities.gon.patch` — ajout DealWithTheDevil, Corrupt, BlackMagic, ChainLightning (`−20`) ; ForbiddenFlame, ForbiddenFrost (`−10`) ; ForbiddenFlood, Telefrag, Divide, Magnify (`−5`)
+- `necromancer_abilities.gon.patch` — ajout SlitWrists, Seppuku, AbsorbSoul (`−99999`) ; Pestilence (`−50`) ; DemonicPact, ForbiddenFamine, Hush, Shriek (`−20`) ; SoulTransfer, DonateBlood (`−10`) ; TradeLife, LeechSwarm, BloodRain, WeAreOne (`−5`)
+- `butcher_abilities.gon.patch` — ajout TaintedOffering v1, Tryptophan v1 (`−99999`) ; SkullBash v1, Consume, MyTurn, Butcher, Tryptophan2 (`−20`) ; SkullBash2 (`−10`) ; TaintedOffering2, Tromp, Chonkwalk, Reflux, Cough, Track, Binge (`−5`)
+- `jester_abilities.gon.patch` — ajout PowerUp (`−10`)
 
 ### Corrections appliquées le 2026-03-07 (session 3) — abilities colorless communes
 Les abilities `Colorless` sont communes à toutes les classes (équipables par n'importe qui).
@@ -310,7 +360,7 @@ Patchs ajoutés dans `data/abilities/colorless_abilities.gon.patch` :
 1. ~~**Corriger le bug `Collarless` → `Colorless`**~~ — FAIT ✅
 
 2. ~~**Patcher les abilities problématiques avec `ai_base_score` / `custom_additional_ai_weight`**~~ — FAIT ✅
-   - Toutes les 10 classes patchées (Monk, Tank, Colorless, Thief, Mage, Necromancer, Druid, Medic, Butcher, Jester)
+   - Toutes les 14 classes patchées (Fighter, Hunter, Psychic, Monk, Tank, Colorless, Thief, Mage, Necromancer, Druid, Medic, Butcher, Jester, Tinkerer)
 
 3. **Affiner les presets de décision par classe**
    - Étudier les capacités réelles de chaque classe (via `dataGame/abilities/`) pour ajuster les poids.

@@ -12,3 +12,17 @@ Bump2.merge {
         ai_base_score -99999
     }
 }
+
+// PowerUp: RandomStatusFromPool — self-buff with random 1-turn buffs, not catastrophic but unpredictable
+PowerUp.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// PowerUp2: variant of PowerUp, same concern
+PowerUp2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}

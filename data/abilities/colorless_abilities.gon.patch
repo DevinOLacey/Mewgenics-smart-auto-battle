@@ -26,31 +26,38 @@ CatNap.merge {
 
 // ── NEAR-ENEMY BUFFS ─────────────────────────────────────────────────────────
 
-// Brace: self-buff Brace for 1 turn — useless without an adjacent enemy
+// Brace: self-buff Brace cumulable, expire après 1 tour (expires_on_appliers_turn true)
+// tile_close_to_enemy: inutile sans ennemi adjacent
+// ai_base_score -15: décourage fortement le spam
 Brace.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -15
     }
 }
 
-// Brace2: self-buff Brace+Thorns for 1 turn — useless without an adjacent enemy
+// Brace2: Brace+Thorns cumulables, même logique
 Brace2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -15
     }
 }
 
-// Block: self-buff Shield — only useful when about to take hits
+// Block: self-buff Shield — persiste jusqu'à absorption (pas 1-tour), moins urgent
+// ai_base_score -5 seulement (Shield a une vraie valeur défensive)
 Block.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -5
     }
 }
 
-// Block2: variant of Block, same logic
+// Block2: même logique
 Block2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -5
     }
 }
 

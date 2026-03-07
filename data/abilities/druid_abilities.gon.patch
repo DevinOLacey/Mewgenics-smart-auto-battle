@@ -13,16 +13,20 @@ ChaChaSlide2.merge {
     }
 }
 
-// HardenSkin: self-buff Shield+Thorns+Brace for 1 turn — useless without adjacent enemy
+// HardenSkin: Shield+Thorns+Brace cumulables, expirent après 1 tour (expires_on_appliers_turn true)
+// tile_close_to_enemy: inutile sans ennemi adjacent
+// ai_base_score -15: décourage fortement le spam
 HardenSkin.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -15
     }
 }
 
-// HardenSkin2: variant of HardenSkin, same logic
+// HardenSkin2: même logique
 HardenSkin2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -15
     }
 }

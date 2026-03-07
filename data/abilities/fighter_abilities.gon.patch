@@ -1,0 +1,138 @@
+// Fighter abilities AI patches
+
+// ChaosRampage: TakeBonusTurnWithStatus { Madness 1 Confusion 1 } — gains extra turn but becomes confused and mad
+// Never use in auto-battle: friendly-fire guaranteed
+ChaosRampage.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// ChaosRampage2: variant of ChaosRampage, same issue
+ChaosRampage2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Enrage: applies StrengthUp + Confusion to self — confusion causes friendly-fire
+Enrage.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Enrage2: variant of Enrage, same issue
+Enrage2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Bloodzerk: SetHealth 1 — sets own HP to 1, near-suicidal
+Bloodzerk.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Bloodzerk2: variant of Bloodzerk, same issue
+Bloodzerk2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Stoopzerk: IntelligenceUp "min(-int, 0)" — reduces own intelligence to floor 0 (self-lobotomy)
+Stoopzerk.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Stoopzerk2: variant of Stoopzerk, same issue
+Stoopzerk2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// ThinkTooHard2: IntelligenceUp "min(-int, 0)" — reduces own intelligence (v2 is the bad version)
+ThinkTooHard2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Exert: applies Drowsy 1 to self (fatigue) as side-effect of the refresh
+// Slight penalty — not catastrophic but wastes a future turn
+Exert.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Exert2: variant of Exert, same concern
+Exert2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Counter: applies TempCounterAttack (1-turn buff) — only useful when adjacent to enemy
+Counter.merge {
+    damage_instance {
+        tile_close_to_enemy
+        ai_base_score -5
+    }
+}
+
+// Counter2: variant of Counter, same logic
+Counter2.merge {
+    damage_instance {
+        tile_close_to_enemy
+        ai_base_score -5
+    }
+}
+
+// Juiced: applies TempMovement (1-turn movement buff) — slight penalty to avoid spam
+Juiced.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Juiced2: variant of Juiced, same concern
+Juiced2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Berserk: StrengthUp + applies Bruise to self — self-injury as cost
+Berserk.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Berserk2: variant of Berserk, same concern
+Berserk2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Hurl: target_mode random_tile but must_have_enemy present — limited risk but random
+Hurl.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Hurl2: variant of Hurl, same concern
+Hurl2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}

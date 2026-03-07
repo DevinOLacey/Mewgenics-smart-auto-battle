@@ -28,3 +28,129 @@ ManaMeld2.merge {
 }
 
 // Note: ChaosTeleport (mana 1, template teleport) has no damage_instance — cannot be patched via this method
+
+// DealWithTheDevil: RandomInjury 1 + powerful self-buff — self-injury risk
+DealWithTheDevil.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// DealWithTheDevil2: variant, same concern
+DealWithTheDevil2.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// ForbiddenFlame: GainDisorderFromPool_PostCast — disorder on self after cast
+ForbiddenFlame.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// ForbiddenFlame2: variant, disorder from pool on self
+ForbiddenFlame2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// ForbiddenFlood: GainDisorderFromPool — disorder on self
+ForbiddenFlood.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// ForbiddenFlood2: variant
+ForbiddenFlood2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// ChainLightning (v1): arc that can hit allies — penalize to avoid friendly-fire
+ChainLightning.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// Telefrag: raw_damage to self (self_damage 5) as cost of the teleport
+Telefrag.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Telefrag2: variant, same concern
+Telefrag2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Corrupt: RandomInjury 1 + SpellDamageUp 3 on self — self-injury as cost
+Corrupt.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// Corrupt2: variant of Corrupt, same concern
+Corrupt2.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// BlackMagic: raw_damage X-1 on self (near-lethal self-damage) for mana gain
+BlackMagic.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// BlackMagic2: variant of BlackMagic, same concern
+BlackMagic2.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// ForbiddenFrost (v1): GainDisorderFromPool + hits allies (no Conditional_Ally override)
+ForbiddenFrost.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Divide: DamageUp "(-ceil(abs(X/2)))" — reduces own attack damage stat
+Divide.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Divide2: variant of Divide, same concern
+Divide2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Magnify: TempRangeUp + TempBasicAttackBonusAOE — both 1-turn buffs, slight penalty
+Magnify.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Magnify2: variant of Magnify, same concern
+Magnify2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}

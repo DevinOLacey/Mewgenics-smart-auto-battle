@@ -1,15 +1,19 @@
 // Monk abilities AI patches
-// Porcupine: self-buff Thorns+Brace for 1 turn — useless without an adjacent enemy
+// Porcupine: Thorns+Brace cumulables, expirent après 1 tour (expires_on_appliers_turn true)
+// tile_close_to_enemy: inutile sans ennemi adjacent
+// ai_base_score -15: décourage fortement le spam — l'offensif doit toujours scorer plus haut
 Porcupine.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -15
     }
 }
 
-// Porcupine2: variant of Porcupine, same issue
+// Porcupine2: même logique
 Porcupine2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -15
     }
 }
 

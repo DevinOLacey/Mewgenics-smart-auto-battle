@@ -1,0 +1,73 @@
+// Hunter abilities AI patches
+
+// ChaosShot: target_mode random_tile + must_have_animate_character — includes allies, causes friendly-fire
+ChaosShot.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// ChaosShot2: variant of ChaosShot, same issue
+ChaosShot2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Pheromones: applies Charmed 1 (no restriction) + TakeExtraTurn — Charmed causes friendly-fire
+Pheromones.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Pheromones2: variant of Pheromones, same issue
+Pheromones2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// StakeOut: applies EndTurn 1 — wastes the caster's turn entirely
+StakeOut.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// StakeOut2: variant of StakeOut, same issue
+StakeOut2.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// SoothingShot: heals target + applies Charmed 1 — could charm an ally and cause friendly-fire
+SoothingShot.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// SoothingShot2: variant of SoothingShot, same concern
+SoothingShot2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Extend: applies Temporary { MeleeRangeUp turns 1 } — 1-turn buff, only useful when in melee
+Extend.merge {
+    damage_instance {
+        tile_close_to_enemy
+        ai_base_score -5
+    }
+}
+
+// Extend2: variant of Extend, same logic
+Extend2.merge {
+    damage_instance {
+        tile_close_to_enemy
+        ai_base_score -5
+    }
+}

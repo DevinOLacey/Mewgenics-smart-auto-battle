@@ -13,3 +13,62 @@ CoinToss2.merge {
         ai_base_score -10
     }
 }
+
+// Cheat: LuckUp (1-turn stackable buff) — slight penalty to avoid spam
+Cheat.merge {
+    damage_instance {
+        ai_base_score -15
+    }
+}
+
+// Cheat2: variant of Cheat, same concern
+Cheat2.merge {
+    damage_instance {
+        ai_base_score -15
+    }
+}
+
+// Pierce: TempPenetrate + TempRangeUp — both are 1-turn buffs, only useful when about to attack
+Pierce.merge {
+    damage_instance {
+        tile_close_to_enemy
+        ai_base_score -5
+    }
+}
+
+// Pierce2: variant of Pierce, same logic
+Pierce2.merge {
+    damage_instance {
+        tile_close_to_enemy
+        ai_base_score -5
+    }
+}
+
+// WindUp (v1): TempRangeUp 1 — 1-turn range buff, slight penalty
+WindUp.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Jitter: applies Confusion 1 in small AoE around self without aoe_restrictions exclude_allies
+// Can confuse adjacent allies — moderate penalty
+Jitter.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Jitter2: variant of Jitter, same concern
+Jitter2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Outskirts2: applies TempDamageUp 2 after teleport — 1-turn buff stacks on top of teleport
+Outskirts2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
