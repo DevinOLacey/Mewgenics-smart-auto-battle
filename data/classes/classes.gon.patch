@@ -60,3 +60,13 @@ Thief.merge {
         }
     }
 }
+
+Colorless.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_colorless
+            move_weights smart_colorless_move
+        }
+    }
+}
