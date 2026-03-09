@@ -1,121 +1,165 @@
 // Psychic abilities AI patches
+// All abilities should have explicit ai_base_score for proper AI prioritization
 
-// RealityScramble: ScrambleEverything -- randomly shuffles everything on the map, chaotic friendly-fire
-RealityScramble.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+// ===== ATTACKS =====
+Telekinesis.merge { damage_instance { ai_base_score 0 } }
+Telekinesis2.merge { damage_instance { ai_base_score 0 } }
 
-// RealityScramble2: variant of RealityScramble, same issue
-RealityScramble2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+Suggestion.merge { damage_instance { ai_base_score 0 } }
+Suggestion2.merge { damage_instance { ai_base_score 0 } }
 
-// ChaosSwap: uses template swap, no damage_instance -- cannot patch via this mechanism
-// ChaosSwap2: has damage_instance Conditional_Enemy Confusion -- patchable
-ChaosSwap2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+MindControl.merge { damage_instance { ai_base_score 0 } }
+MindControl2.merge { damage_instance { ai_base_score 0 } }
 
-// ExtraTurnQuestion: TakeBonusTurnWithStatus Stun 1 -- gains extra turn but immediately stunned, useless
-ExtraTurnQuestion.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+MegaGrav.merge { damage_instance { ai_base_score 0 } }
+MegaGrav2.merge { damage_instance { ai_base_score 0 } }
 
-// ExtraTurnQuestion2: variant of ExtraTurnQuestion, same issue
-ExtraTurnQuestion2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+PsyFlutter.merge { damage_instance { ai_base_score 0 } }
+PsyFlutter2.merge { damage_instance { ai_base_score 0 } }
 
-// MindCrack (v1): aoe_mode all without exclude_allies -- applies MagicWeakness to entire map including allies
-MindCrack.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+MagnetPull.merge { damage_instance { ai_base_score 0 } }
+MagnetPull2.merge { damage_instance { ai_base_score 0 } }
 
-// Glare: applies Madness without target restriction -- can make allies attack each other
-Glare.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+PsychicChoke.merge { damage_instance { ai_base_score 0 } }
+PsychicChoke2.merge { damage_instance { ai_base_score 0 } }
 
-// Glare2: variant of Glare, same issue
-Glare2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+SkyShatter.merge { damage_instance { ai_base_score 0 } }
+SkyShatter2.merge { damage_instance { ai_base_score 0 } }
 
-// ThinkDeep: FillMana 1 + Sleep 1 -- fills mana but puts self to sleep
-ThinkDeep.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+AlterDNA.merge { damage_instance { ai_base_score 0 } }
+AlterDNA2.merge { damage_instance { ai_base_score 0 } }
 
-// ThinkDeep2: variant of ThinkDeep, same issue
-ThinkDeep2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+Flicker.merge { damage_instance { ai_base_score 0 } }
+Flicker2.merge { damage_instance { ai_base_score 0 } }
 
-// Pass: EndTurn 1 -- wastes the caster's turn entirely
-Pass.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+MindMeld.merge { damage_instance { ai_base_score 0 } }
+MindMeld2.merge { damage_instance { ai_base_score 0 } }
 
-// Pass2: variant of Pass, same issue
-Pass2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Vaccuum.merge { damage_instance { ai_base_score 0 } }
+Vaccuum2.merge { damage_instance { ai_base_score 0 } }
 
-// BlindingFlash v1: AoE blind around self -- can blind allies nearby
-BlindingFlash.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+GrowHead.merge { damage_instance { ai_base_score 0 } }
 
-// Supernova v1: aoe_mode all without exclude_allies -- hits allies
-Supernova.merge {
-    damage_instance {
-        ai_base_score -50
-    }
-}
+Ping.merge { damage_instance { ai_base_score 0 } }
+Ping2.merge { damage_instance { ai_base_score 0 } }
 
-// MassManaLeech: aoe_mode all without exclude_allies -- drains mana from allies too
-MassManaLeech.merge {
-    damage_instance {
-        ai_base_score -50
-    }
-}
+FlashForward.merge { damage_instance { ai_base_score 0 } }
+FlashForward2.merge { damage_instance { ai_base_score 0 } }
+FlashBack.merge { damage_instance { ai_base_score 0 } }
 
-// MassManaLeech2: variant of MassManaLeech, same issue
-MassManaLeech2.merge {
-    damage_instance {
-        ai_base_score -50
-    }
-}
+Order.merge { damage_instance { ai_base_score 0 } }
+Order2.merge { damage_instance { ai_base_score 0 } }
 
-// MindBlast v1: AoE Madness around self without exclude_allies
-MindBlast.merge {
-    damage_instance {
-        ai_base_score -50
-    }
-}
+TemporalShards.merge { damage_instance { ai_base_score 0 } }
+TemporalShards2.merge { damage_instance { ai_base_score 0 } }
+
+Snatch.merge { damage_instance { ai_base_score 0 } }
+Snatch2.merge { damage_instance { ai_base_score 0 } }
+
+FutureSight.merge { damage_instance { ai_base_score 0 } }
+FutureSight2.merge { damage_instance { ai_base_score 0 } }
+
+BecomeEntropy.merge { damage_instance { ai_base_score 0 } }
+BecomeEntropy2.merge { damage_instance { ai_base_score 0 } }
+
+FastForward.merge { damage_instance { ai_base_score 0 } }
+FastForward2.merge { damage_instance { ai_base_score 0 } }
+
+AncestralRecall.merge { damage_instance { ai_base_score 0 } }
+AncestralRecall2.merge { damage_instance { ai_base_score 0 } }
+
+CumulativeBlast.merge { damage_instance { ai_base_score 0 } }
+CumulativeBlast2.merge { damage_instance { ai_base_score 0 } }
+
+Hallucinate.merge { damage_instance { ai_base_score 0 } }
+Hallucinate2.merge { damage_instance { ai_base_score 0 } }
+
+MassHysteria.merge { damage_instance { ai_base_score 0 } }
+MassHysteria2.merge { damage_instance { ai_base_score 0 } }
+
+Reset.merge { damage_instance { ai_base_score 0 } }
+Reset2.merge { damage_instance { ai_base_score 0 } }
+
+Mimic.merge { damage_instance { ai_base_score 0 } }
+Mimic2.merge { damage_instance { ai_base_score 0 } }
+
+Asteroid.merge { damage_instance { ai_base_score 0 } }
+Asteroid2.merge { damage_instance { ai_base_score 0 } }
+
+Stasis.merge { damage_instance { ai_base_score 0 } }
+Stasis2.merge { damage_instance { ai_base_score 0 } }
+
+Puppet.merge { damage_instance { ai_base_score 0 } }
+Puppet2.merge { damage_instance { ai_base_score 0 } }
+
+YouSeeNothing.merge { damage_instance { ai_base_score 0 } }
+YouSeeNothing2.merge { damage_instance { ai_base_score 0 } }
+
+ForceBlast.merge { damage_instance { ai_base_score 0 } }
+ForceBlast2.merge { damage_instance { ai_base_score 0 } }
+
+IncreaseGravity.merge { damage_instance { ai_base_score 0 } }
+IncreaseGravity2.merge { damage_instance { ai_base_score 0 } }
+
+Manifest.merge { damage_instance { ai_base_score 0 } }
+Manifest2.merge { damage_instance { ai_base_score 0 } }
+
+Flip.merge { damage_instance { ai_base_score 0 } }
+Flip2.merge { damage_instance { ai_base_score 0 } }
+
+Withdraw.merge { damage_instance { ai_base_score 0 } }
+Withdraw2.merge { damage_instance { ai_base_score 0 } }
+
+ForceCone.merge { damage_instance { ai_base_score 0 } }
+ForceCone2.merge { damage_instance { ai_base_score 0 } }
+
+Inversion.merge { damage_instance { ai_base_score 0 } }
+Inversion2.merge { damage_instance { ai_base_score 0 } }
+
+ReadMind.merge { damage_instance { ai_base_score 0 } }
+ReadMind2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== PROBLEMATIC =====
+
+// RealityScramble: random shuffle - DISABLE
+RealityScramble.merge { damage_instance { ai_base_score -99999 } }
+RealityScramble2.merge { damage_instance { ai_base_score -99999 } }
+
+// ChaosSwap: template swap, no damage_instance - cannot patch
+ChaosSwap2.merge { damage_instance { ai_base_score -99999 } }
+
+// Glare: Madness without restriction
+Glare.merge { damage_instance { ai_base_score -99999 } }
+Glare2.merge { damage_instance { ai_base_score -99999 } }
+
+// ExtraTurnQuestion: stuns self
+ExtraTurnQuestion.merge { damage_instance { ai_base_score -99999 } }
+ExtraTurnQuestion2.merge { damage_instance { ai_base_score -99999 } }
+
+// MindCrack: AoE hits allies
+MindCrack.merge { damage_instance { ai_base_score -99999 } }
+MindCrack2.merge { damage_instance { ai_base_score -99999 } }
+
+// ThinkDeep: sleep on self
+ThinkDeep.merge { damage_instance { ai_base_score -99999 } }
+ThinkDeep2.merge { damage_instance { ai_base_score -99999 } }
+
+// Pass: wastes turn
+Pass.merge { damage_instance { ai_base_score -20 } }
+Pass2.merge { damage_instance { ai_base_score -20 } }
+
+// BlindingFlash: AoE can blind allies
+BlindingFlash.merge { damage_instance { ai_base_score -10 } }
+BlindingFlash2.merge { damage_instance { ai_base_score -10 } }
+
+// MindBlast: AoE Madness hits allies
+MindBlast.merge { damage_instance { ai_base_score -50 } }
+MindBlast2.merge { damage_instance { ai_base_score -50 } }
+
+// Supernova: AoE hits allies
+Supernova.merge { damage_instance { ai_base_score -50 } }
+Supernova2.merge { damage_instance { ai_base_score -50 } }
+
+// MassManaLeech: AoE drains allies too
+MassManaLeech.merge { damage_instance { ai_base_score -50 } }
+MassManaLeech2.merge { damage_instance { ai_base_score -50 } }

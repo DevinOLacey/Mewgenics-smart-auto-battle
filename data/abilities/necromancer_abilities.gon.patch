@@ -1,210 +1,177 @@
 // Necromancer abilities AI patches
-// Flatline: the caster safely kills themselves to spawn a shade clone -- never do this in auto-battle
-Flatline.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+// All abilities should have explicit ai_base_score for proper AI prioritization
 
-// Flatline2: variant of Flatline, same issue
-Flatline2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+// ===== SUMMONS =====
+MaggotArmy.merge { damage_instance { ai_base_score 0 } }
+MaggotArmy2.merge { damage_instance { ai_base_score 0 } }
 
-// BloodGeyser: deals damage but self-damages for 50% max HP -- very risky
-BloodGeyser.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Reanimate.merge { damage_instance { ai_base_score 0 } }
+Rebirth.merge { damage_instance { ai_base_score 0 } }
+Rebirth2.merge { damage_instance { ai_base_score 0 } }
 
-// BloodGeyser2: variant of BloodGeyser, same self-damage risk
-BloodGeyser2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+AnimateDead.merge { damage_instance { ai_base_score 0 } }
+AnimateDead2.merge { damage_instance { ai_base_score 0 } }
 
-// GigaDrain: melee attack, drains ALL current mana for damage -- slight penalty to avoid wasting full mana for weak hits
-GigaDrain.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+SummonShade.merge { damage_instance { ai_base_score 0 } }
+SummonShade2.merge { damage_instance { ai_base_score 0 } }
 
-// GigaDrain2: variant of GigaDrain, same concern
-GigaDrain2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+SummonBones.merge { damage_instance { ai_base_score 0 } }
+SummonBones2.merge { damage_instance { ai_base_score 0 } }
 
-// Pestilence: aoe_mode all without restriction -- hits allies too damage 1, but still
-Pestilence.merge {
-    damage_instance {
-        ai_base_score -50
-    }
-}
+RaiseTheDead.merge { damage_instance { ai_base_score 0 } }
+RaiseTheDead2.merge { damage_instance { ai_base_score 0 } }
 
-// Pestilence2: variant of Pestilence, same issue
-Pestilence2.merge {
-    damage_instance {
-        ai_base_score -50
-    }
-}
+// ===== ATTACKS =====
+Pestilence.merge { damage_instance { ai_base_score -50 } }
+Pestilence2.merge { damage_instance { ai_base_score -50 } }
 
-// SlitWrists: damage 2 type melee on self -- bonus ability that the AI should never use actively
-SlitWrists.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+Weakness.merge { damage_instance { ai_base_score 0 } }
+Weakness2.merge { damage_instance { ai_base_score 0 } }
 
-// Seppuku: Die 1 -- the caster kills themselves, never use in auto-battle
-Seppuku.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+SoulSuck.merge { damage_instance { ai_base_score 0 } }
+SoulSuck2.merge { damage_instance { ai_base_score 0 } }
 
-// AbsorbSoul: SafeDie 1 on an ally -- kills an ally to gain power
-AbsorbSoul.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+EvilIncarnate.merge { damage_instance { ai_base_score 0 } }
+EvilIncarnate2.merge { damage_instance { ai_base_score 0 } }
 
-// AbsorbSoul2: variant of AbsorbSoul, same issue
-AbsorbSoul2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+SoulLink.merge { damage_instance { ai_base_score 0 } }
+SoulLink2.merge { damage_instance { ai_base_score 0 } }
 
-// DemonicPact: RandomInjury 1 + TakeExtraTurn -- self-injury as cost
-DemonicPact.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+WeAreOne.merge { damage_instance { ai_base_score -5 } }
+WeAreOne2.merge { damage_instance { ai_base_score -5 } }
 
-// DemonicPact2: variant of DemonicPact, same concern
-DemonicPact2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+BloodRain.merge { damage_instance { ai_base_score -5 } }
+BloodRain2.merge { damage_instance { ai_base_score -5 } }
 
-// SoulTransfer: self_damage 4 + ConstitutionUp -1 -- hurts self and reduces stats
-SoulTransfer.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+DeathBloom.merge { damage_instance { ai_base_score 0 } }
+DeathBloom2.merge { damage_instance { ai_base_score 0 } }
 
-// SoulTransfer2: variant of SoulTransfer, same concern
-SoulTransfer2.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+Scare.merge { damage_instance { ai_base_score 0 } }
+Scare2.merge { damage_instance { ai_base_score 0 } }
 
-// DonateBlood: self_damage 10 to heal ally for 5 -- bad trade, net loss of HP
-DonateBlood.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+Whisper.merge { damage_instance { ai_base_score 0 } }
+Whisper2.merge { damage_instance { ai_base_score 0 } }
 
-// DonateBlood2: variant of DonateBlood, same concern
-DonateBlood2.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+DarkStep.merge { damage_instance { ai_base_score 0 } }
+DarkStep2.merge { damage_instance { ai_base_score 0 } }
 
-// TradeLife: swaps HP with an ally -- can leave caster dangerously low
-TradeLife.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Leeches.merge { damage_instance { ai_base_score 0 } }
+Leeches2.merge { damage_instance { ai_base_score 0 } }
 
-// TradeLife2: variant of TradeLife, same concern
-TradeLife2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+FullMoon.merge { damage_instance { ai_base_score 0 } }
+FullMoon2.merge { damage_instance { ai_base_score 0 } }
 
-// LeechSwarm: aoe_mode all without exclude_allies -- applies Leeches to allies too
-LeechSwarm.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Unearth.merge { damage_instance { ai_base_score 0 } }
+Unearth2.merge { damage_instance { ai_base_score 0 } }
 
-// LeechSwarm2: variant of LeechSwarm, same concern
-LeechSwarm2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Bloodletting.merge { damage_instance { ai_base_score 0 } }
+Bloodletting2.merge { damage_instance { ai_base_score 0 } }
 
-// ForbiddenFamine: ApplyToRandomPartyMemberIfPossible GainDisorderFromPool -- disorder on a random ally
-ForbiddenFamine.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+MassPsychosis.merge { damage_instance { ai_base_score 0 } }
+MassPsychosis2.merge { damage_instance { ai_base_score 0 } }
 
-// ForbiddenFamine2: variant of ForbiddenFamine, same concern
-ForbiddenFamine2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Debone.merge { damage_instance { ai_base_score 0 } }
+Debone2.merge { damage_instance { ai_base_score 0 } }
 
-// Hush: applies Sleep 1 without restriction -- can put allies to sleep max_range 1-4
-Hush.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Reap.merge { damage_instance { ai_base_score 0 } }
+Reap2.merge { damage_instance { ai_base_score 0 } }
 
-// Hush2: variant of Hush, same concern
-Hush2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Haunt.merge { damage_instance { ai_base_score 0 } }
 
-// Shriek: aoe_mode cone without aoe_restrictions -- Confusion + Madness can hit adjacent allies
-Shriek.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Spook.merge { damage_instance { ai_base_score 0 } }
 
-// Shriek2: variant of Shriek, same concern
-Shriek2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+CarrionShot.merge { damage_instance { ai_base_score 0 } }
+CarrionShot_Afterlife.merge { damage_instance { ai_base_score 0 } }
+CarrionShot2.merge { damage_instance { ai_base_score 0 } }
+CarrionShot_Afterlife2.merge { damage_instance { ai_base_score 0 } }
 
-// BloodRain: allies_only heal but self_damage 1 -- slight penalty for self-harm
-BloodRain.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+LifeDrain.merge { damage_instance { ai_base_score 0 } }
+LifeDrain_Afterlife.merge { damage_instance { ai_base_score 0 } }
+LifeDrain2.merge { damage_instance { ai_base_score 0 } }
+LifeDrain_Afterlife2.merge { damage_instance { ai_base_score 0 } }
 
-// WeAreOne: SoulLink on all enemies + self -- links own HP to enemies
-WeAreOne.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+CoffinFlop.merge { damage_instance { ai_base_score 0 } }
+CoffinFlop_Afterlife.merge { damage_instance { ai_base_score 0 } }
+CoffinFlop2.merge { damage_instance { ai_base_score 0 } }
+CoffinFlop_Afterlife2.merge { damage_instance { ai_base_score 0 } }
+
+Seance.merge { damage_instance { ai_base_score 0 } }
+Seance_Afterlife.merge { damage_instance { ai_base_score 0 } }
+Seance2.merge { damage_instance { ai_base_score 0 } }
+Seance_Afterlife2.merge { damage_instance { ai_base_score 0 } }
+
+GoLimp.merge { damage_instance { ai_base_score 0 } }
+GoLimp2.merge { damage_instance { ai_base_score 0 } }
+
+Curse.merge { damage_instance { ai_base_score 0 } }
+Curse2.merge { damage_instance { ai_base_score 0 } }
+
+RandomReap.merge { damage_instance { ai_base_score 0 } }
+RandomReap2.merge { damage_instance { ai_base_score 0 } }
+
+LastGasp.merge { damage_instance { ai_base_score 0 } }
+LastGasp2.merge { damage_instance { ai_base_score 0 } }
+
+Replace.merge { damage_instance { ai_base_score 0 } }
+Replace2.merge { damage_instance { ai_base_score 0 } }
+
+RandomSoulLink.merge { damage_instance { ai_base_score 0 } }
+RandomDualSoulLink.merge { damage_instance { ai_base_score 0 } }
+
+// ===== PROBLEMATIC =====
+
+// Flatline: kills self - DISABLE
+Flatline.merge { damage_instance { ai_base_score -99999 } }
+Flatline2.merge { damage_instance { ai_base_score -99999 } }
+
+// BloodGeyser: 50% HP self-damage
+BloodGeyser.merge { damage_instance { ai_base_score -20 } }
+BloodGeyser2.merge { damage_instance { ai_base_score -20 } }
+
+// SlitWrists: self-damage
+SlitWrists.merge { damage_instance { ai_base_score -99999 } }
+
+// Seppuku: kills self
+Seppuku.merge { damage_instance { ai_base_score -99999 } }
+
+// AbsorbSoul: kills ally
+AbsorbSoul.merge { damage_instance { ai_base_score -99999 } }
+AbsorbSoul2.merge { damage_instance { ai_base_score -99999 } }
+
+// GigaDrain: wastes mana
+GigaDrain.merge { damage_instance { ai_base_score -5 } }
+GigaDrain2.merge { damage_instance { ai_base_score -5 } }
+
+// SoulTransfer: self-damage + stat reduction
+SoulTransfer.merge { damage_instance { ai_base_score -10 } }
+SoulTransfer2.merge { damage_instance { ai_base_score -10 } }
+
+// DonateBlood: bad trade
+DonateBlood.merge { damage_instance { ai_base_score -10 } }
+DonateBlood_Afterlife.merge { damage_instance { ai_base_score -10 } }
+DonateBlood2.merge { damage_instance { ai_base_score -10 } }
+DonateBlood_Afterlife2.merge { damage_instance { ai_base_score -10 } }
+
+// TradeLife: swaps HP with ally
+TradeLife.merge { damage_instance { ai_base_score -5 } }
+TradeLife2.merge { damage_instance { ai_base_score -5 } }
+
+// LeechSwarm: AoE hits allies
+LeechSwarm.merge { damage_instance { ai_base_score -5 } }
+LeechSwarm2.merge { damage_instance { ai_base_score -5 } }
+
+// DemonicPact: self-injury
+DemonicPact.merge { damage_instance { ai_base_score -20 } }
+DemonicPact2.merge { damage_instance { ai_base_score -20 } }
+
+// ForbiddenFamine: disorder on random ally
+ForbiddenFamine.merge { damage_instance { ai_base_score -20 } }
+ForbiddenFamine2.merge { damage_instance { ai_base_score -20 } }
+
+// Hush: sleep can hit ally
+Hush.merge { damage_instance { ai_base_score -20 } }
+Hush2.merge { damage_instance { ai_base_score -20 } }
+
+// Shriek: AoE confusion can hit allies
+Shriek.merge { damage_instance { ai_base_score -20 } }
+Shriek2.merge { damage_instance { ai_base_score -20 } }

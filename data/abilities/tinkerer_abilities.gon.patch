@@ -1,64 +1,160 @@
 // Tinkerer abilities AI patches
+// All abilities should have explicit ai_base_score for proper AI prioritization
 
-// ShoddyJetpack v1: randomize_target_within_range 3 -- lands in random +-3 tile zone
-ShoddyJetpack.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+// ===== ATTACKS =====
+Research.merge { damage_instance { ai_base_score 0 } }
+Research2.merge { damage_instance { ai_base_score 0 } }
 
-// FreshOffTheForge: Shield 7 + Burn 3 on self -- sets self on fire as a cost
-FreshOffTheForge.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Discharge.merge { damage_instance { ai_base_score 0 } }
+Discharge2.merge { damage_instance { ai_base_score 0 } }
 
-// FreshOffTheForge2: variant of FreshOffTheForge, same concern
-FreshOffTheForge2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Repair.merge { damage_instance { ai_base_score 0 } }
+Repair2.merge { damage_instance { ai_base_score 0 } }
 
-// EjectButton: RandomDistanceDisplace min_dist 4 -- teleports self far away randomly, sabotages positioning
-EjectButton.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+SpawnDecoy.merge { damage_instance { ai_base_score 0 } }
+SpawnDecoy2.merge { damage_instance { ai_base_score 0 } }
 
-// EjectButton2: variant of EjectButton, same concern
-EjectButton2.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+DecoySwap.merge { damage_instance { ai_base_score 0 } }
+DecoyExplode.merge { damage_instance { ai_base_score 0 } }
 
-// UnreliableShield: Shield + Temporary Brace, only activates 25%/33% of the time -- situational
-UnreliableShield.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Switcheroo.merge { damage_instance { ai_base_score 0 } }
+Switcheroo2.merge { damage_instance { ai_base_score 0 } }
 
-// UnreliableShield2: variant of UnreliableShield, same concern
-UnreliableShield2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+SpringShoes.merge { damage_instance { ai_base_score 0 } }
+SpringShoes2.merge { damage_instance { ai_base_score 0 } }
 
-// Shockwave: aoe_mode all + aoe_excludes_self true BUT no exclude_allies -- hits all allies on the map
-Shockwave.merge {
-    damage_instance {
-        ai_base_score -30
-    }
-}
+Flamethrower.merge { damage_instance { ai_base_score 0 } }
+TurretShot.merge { damage_instance { ai_base_score 0 } }
+RocketTurretShot.merge { damage_instance { ai_base_score 0 } }
 
-// Shockwave2: variant of Shockwave, same issue
-Shockwave2.merge {
-    damage_instance {
-        ai_base_score -30
-    }
-}
+AutoPilot.merge { damage_instance { ai_base_score 0 } }
+AutoPilot2.merge { damage_instance { ai_base_score 0 } }
+
+Recycle.merge { damage_instance { ai_base_score 0 } }
+Recycle2.merge { damage_instance { ai_base_score 0 } }
+
+BuildTurret.merge { damage_instance { ai_base_score 0 } }
+BuildTurret2.merge { damage_instance { ai_base_score 0 } }
+
+RocketSkates.merge { damage_instance { ai_base_score 0 } }
+RocketSkates2.merge { damage_instance { ai_base_score 0 } }
+RocketSkates_Bombchu.merge { damage_instance { ai_base_score 0 } }
+
+DrillDown.merge { damage_instance { ai_base_score 0 } }
+DrillDown2.merge { damage_instance { ai_base_score 0 } }
+
+ArmorUp.merge { damage_instance { ai_base_score 0 } }
+ArmorUp2.merge { damage_instance { ai_base_score 0 } }
+
+ElectricNail.merge { damage_instance { ai_base_score 0 } }
+ElectricNail2.merge { damage_instance { ai_base_score 0 } }
+
+Craft.merge { damage_instance { ai_base_score 0 } }
+Craft2.merge { damage_instance { ai_base_score 0 } }
+
+Math.merge { damage_instance { ai_base_score 0 } }
+Math2.merge { damage_instance { ai_base_score 0 } }
+
+Reprogram.merge { damage_instance { ai_base_score 0 } }
+Reprogram2.merge { damage_instance { ai_base_score 0 } }
+
+Improve.merge { damage_instance { ai_base_score 0 } }
+Improve2.merge { damage_instance { ai_base_score 0 } }
+
+Catbot.merge { damage_instance { ai_base_score 0 } }
+Catbot2.merge { damage_instance { ai_base_score 0 } }
+
+Bombchu.merge { damage_instance { ai_base_score 0 } }
+Bombchu2.merge { damage_instance { ai_base_score 0 } }
+
+RemoteDetonator.merge { damage_instance { ai_base_score 0 } }
+RemoteDetonator2.merge { damage_instance { ai_base_score 0 } }
+
+ShortCircuit.merge { damage_instance { ai_base_score 0 } }
+ShortCircuit2.merge { damage_instance { ai_base_score 0 } }
+
+Electrolyze.merge { damage_instance { ai_base_score 0 } }
+Electrolyze2.merge { damage_instance { ai_base_score 0 } }
+
+Firecrackers.merge { damage_instance { ai_base_score 0 } }
+Firecrackers2.merge { damage_instance { ai_base_score 0 } }
+
+Upgrade.merge { damage_instance { ai_base_score 0 } }
+Upgrade2.merge { damage_instance { ai_base_score 0 } }
+
+Eureka.merge { damage_instance { ai_base_score 0 } }
+Eureka2.merge { damage_instance { ai_base_score 0 } }
+
+PunchBot.merge { damage_instance { ai_base_score 0 } }
+PunchBot2.merge { damage_instance { ai_base_score 0 } }
+
+FastHands.merge { damage_instance { ai_base_score 0 } }
+FastHands2.merge { damage_instance { ai_base_score 0 } }
+
+MechSuitPunch.merge { damage_instance { ai_base_score 0 } }
+MechSuitEject.merge { damage_instance { ai_base_score 0 } }
+MechSuitBarrage.merge { damage_instance { ai_base_score 0 } }
+MechSuitDash.merge { damage_instance { ai_base_score 0 } }
+
+MechExplode.merge { damage_instance { ai_base_score 0 } }
+
+MechSuit.merge { damage_instance { ai_base_score 0 } }
+MechSuit2.merge { damage_instance { ai_base_score 0 } }
+
+UnreliableMissile.merge { damage_instance { ai_base_score 0 } }
+UnreliableMissile2.merge { damage_instance { ai_base_score 0 } }
+
+SpareParts.merge { damage_instance { ai_base_score 0 } }
+SpareParts2.merge { damage_instance { ai_base_score 0 } }
+
+BatteryNuke.merge { damage_instance { ai_base_score 0 } }
+BatteryNuke2.merge { damage_instance { ai_base_score 0 } }
+
+ExperimentalTeleporter.merge { damage_instance { ai_base_score 0 } }
+ExperimentalTeleporter2.merge { damage_instance { ai_base_score 0 } }
+
+ShockTherapy.merge { damage_instance { ai_base_score 0 } }
+ShockTherapy2.merge { damage_instance { ai_base_score 0 } }
+
+BuildNuke.merge { damage_instance { ai_base_score 0 } }
+BuildNuke2.merge { damage_instance { ai_base_score 0 } }
+
+InstantBarrier.merge { damage_instance { ai_base_score 0 } }
+InstantBarrier2.merge { damage_instance { ai_base_score 0 } }
+
+VoltTackle.merge { damage_instance { ai_base_score 0 } }
+VoltTackle2.merge { damage_instance { ai_base_score 0 } }
+
+Smash.merge { damage_instance { ai_base_score 0 } }
+Smash2.merge { damage_instance { ai_base_score 0 } }
+
+ShedScrap.merge { damage_instance { ai_base_score 0 } }
+ShedScrap2.merge { damage_instance { ai_base_score 0 } }
+
+RepairArmor.merge { damage_instance { ai_base_score 0 } }
+RepairArmor2.merge { damage_instance { ai_base_score 0 } }
+
+RocketRide.merge { damage_instance { ai_base_score 0 } }
+RocketRide2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== PROBLEMATIC =====
+
+// ShoddyJetpack: random landing
+ShoddyJetpack.merge { damage_instance { ai_base_score -10 } }
+ShoddyJetpack2.merge { damage_instance { ai_base_score -10 } }
+
+// FreshOffTheForge: self-burn
+FreshOffTheForge.merge { damage_instance { ai_base_score -5 } }
+FreshOffTheForge2.merge { damage_instance { ai_base_score -5 } }
+
+// EjectButton: random teleport
+EjectButton.merge { damage_instance { ai_base_score -10 } }
+EjectButton2.merge { damage_instance { ai_base_score -10 } }
+
+// UnreliableShield: unreliable
+UnreliableShield.merge { damage_instance { ai_base_score -5 } }
+UnreliableShield2.merge { damage_instance { ai_base_score -5 } }
+
+// Shockwave: AoE hits allies
+Shockwave.merge { damage_instance { ai_base_score -30 } }
+Shockwave2.merge { damage_instance { ai_base_score -30 } }

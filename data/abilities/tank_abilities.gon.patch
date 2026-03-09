@@ -1,18 +1,262 @@
 // Tank abilities AI patches
-// BarbedWire: Thorns stackable, expires after 1 turn expires_on_appliers_turn true
-// tile_close_to_enemy: useless without adjacent enemy
-// ai_base_score -15: strongly discourages spam -- offense should always score higher
+// All abilities should have explicit ai_base_score for proper AI prioritization
+
+// ===== ATTACK ABILITIES =====
+// These should have normal priority (score 0 or positive)
+
+// HeadButt: melee stun - primary attack
+HeadButt.merge { damage_instance { ai_base_score 0 } }
+HeadButt2.merge { damage_instance { ai_base_score 0 } }
+
+// ThrowShield: ranged shield throw
+ThrowShield.merge { damage_instance { ai_base_score 0 } }
+ThrowShield2.merge { damage_instance { ai_base_score 0 } }
+
+// ChewCud: self heal - useful, but not offensive
+ChewCud.merge { damage_instance { ai_base_score 0 } }
+ChewCud2.merge { damage_instance { ai_base_score 0 } }
+
+// AssBlast: AoE knockback - good offensive
+AssBlast.merge { damage_instance { ai_base_score 0 } }
+AssBlast2.merge { damage_instance { ai_base_score 0 } }
+
+// Chew: melee leech/bleed
+Chew.merge { damage_instance { ai_base_score 0 } }
+Chew2.merge { damage_instance { ai_base_score 0 } }
+
+// BatterUp: melee knockback attack
+BatterUp.merge { damage_instance { ai_base_score 0 } }
+BatterUp2.merge { damage_instance { ai_base_score 0 } }
+
+// BackBreaker: melee immobility
+BackBreaker.merge { damage_instance { ai_base_score 0 } }
+BackBreaker2.merge { damage_instance { ai_base_score 0 } }
+
+// Suplex: melee displace
+Suplex.merge { damage_instance { ai_base_score 0 } }
+Suplex2.merge { damage_instance { ai_base_score 0 } }
+
+// Intimidate: fear
+Intimidate.merge { damage_instance { ai_base_score 0 } }
+Intimidate2.merge { damage_instance { ai_base_score 0 } }
+
+// Toss: ranged attack
+Toss.merge { damage_instance { ai_base_score 0 } }
+Toss2.merge { damage_instance { ai_base_score 0 } }
+
+// BonusToss: free toss (cantrip)
+BonusToss.merge { damage_instance { ai_base_score 0 } }
+BonusToss2.merge { damage_instance { ai_base_score 0 } }
+
+// NubbyToss: free toss
+NubbyToss.merge { damage_instance { ai_base_score 0 } }
+NubbyToss2.merge { damage_instance { ai_base_score 0 } }
+
+// BellyFlop: jump attack
+BellyFlop.merge { damage_instance { ai_base_score 0 } }
+BellyFlop2.merge { damage_instance { ai_base_score 0 } }
+
+// TankTrample: trample dash
+TankTrample.merge { damage_instance { ai_base_score 0 } }
+TankTrample2.merge { damage_instance { ai_base_score 0 } }
+
+// TankSwap: swap with ally
+TankSwap.merge { damage_instance { ai_base_score 0 } }
+TankSwap2.merge { damage_instance { ai_base_score 0 } }
+
+// ToTheRescue: jump to ally + damage
+ToTheRescue.merge { damage_instance { ai_base_score 0 } }
+ToTheRescue2.merge { damage_instance { ai_base_score 0 } }
+
+// TankTantrum: AoE + self-damage from SpawnRock
+// Slight penalty for self-damage risk
+TankTantrum.merge { damage_instance { ai_base_score -5 } }
+TankTantrum2.merge { damage_instance { ai_base_score -5 } }
+
+// Earthquake: AoE damage
+Earthquake.merge { damage_instance { ai_base_score 0 } }
+Earthquake2.merge { damage_instance { ai_base_score 0 } }
+
+// RockToss: ranged stun
+RockToss.merge { damage_instance { ai_base_score 0 } }
+RockToss2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== BUFF/DEFENSIVE ABILITIES =====
+// These need specific weights based on usefulness
+
+// Taunt: makes enemies attack you - very useful for tank
+Taunt.merge { damage_instance { ai_base_score 0 } }
+Taunt2.merge { damage_instance { ai_base_score 0 } }
+
+// BarbedWire: Thorns stackable, expires 1 turn - HIGH SPAM RISK
+// Must be near enemy to be useful
 BarbedWire.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -15
+        ai_base_score -999
     }
 }
-
-// BarbedWire2: same logic, range 20 instead of 5
 BarbedWire2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -15
+        ai_base_score -999
     }
 }
+
+// DrawAttention: forces enemy to move toward you - useful aggro
+DrawAttention.merge { damage_instance { ai_base_score 0 } }
+DrawAttention2.merge { damage_instance { ai_base_score 0 } }
+
+// BowlOver: movement ability
+BowlOver.merge { damage_instance { ai_base_score 0 } }
+BowlOver2.merge { damage_instance { ai_base_score 0 } }
+
+// Clap: knockback
+Clap.merge { damage_instance { ai_base_score 0 } }
+Clap2.merge { damage_instance { ai_base_score 0 } }
+
+// TankRockSong: spawn rocks around
+TankRockSong.merge { damage_instance { ai_base_score 0 } }
+TankRockSong2.merge { damage_instance { ai_base_score 0 } }
+
+// RockCrusher: targets rocks
+RockCrusher.merge { damage_instance { ai_base_score 0 } }
+RockCrusher2.merge { damage_instance { ai_base_score 0 } }
+
+// BodyGuard: swap with ally when they take damage
+BodyGuard.merge { damage_instance { ai_base_score 0 } }
+BodyGuard2.merge { damage_instance { ai_base_score 0 } }
+
+// Gore: dash attack
+Gore.merge { damage_instance { ai_base_score 0 } }
+Gore2.merge { damage_instance { ai_base_score 0 } }
+
+// RockBlast: spawn rock
+RockBlast.merge { damage_instance { ai_base_score 0 } }
+RockBlast2.merge { damage_instance { ai_base_score 0 } }
+
+// RockTomb: petrify
+RockTomb.merge { damage_instance { ai_base_score 0 } }
+RockTomb2.merge { damage_instance { ai_base_score 0 } }
+
+// BearHug: grab
+BearHug.merge { damage_instance { ai_base_score 0 } }
+BearHug2.merge { damage_instance { ai_base_score 0 } }
+
+// Fissure: AoE petrify
+Fissure.merge { damage_instance { ai_base_score 0 } }
+Fissure2.merge { damage_instance { ai_base_score 0 } }
+
+// BigRock: spawn boulder
+BigRock.merge { damage_instance { ai_base_score 0 } }
+BigRock2.merge { damage_instance { ai_base_score 0 } }
+
+// FlipFlop: jump
+FlipFlop.merge { damage_instance { ai_base_score 0 } }
+FlipFlop2.merge { damage_instance { ai_base_score 0 } }
+
+// Lunge: dash attack
+Lunge.merge { damage_instance { ai_base_score 0 } }
+Lunge2.merge { damage_instance { ai_base_score 0 } }
+
+// Nudge: melee knockback
+Nudge.merge { damage_instance { ai_base_score 0 } }
+Nudge2.merge { damage_instance { ai_base_score 0 } }
+
+// StoneGaze: line petrify
+StoneGaze.merge { damage_instance { ai_base_score 0 } }
+StoneGaze2.merge { damage_instance { ai_base_score 0 } }
+
+// Medusa: AoE petrify
+Medusa.merge { damage_instance { ai_base_score 0 } }
+Medusa2.merge { damage_instance { ai_base_score 0 } }
+
+// Anchor: Brace buff, expires on move - 1 turn stackable
+// Slight penalty to avoid spam
+Anchor.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -10
+    }
+}
+Anchor2.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -10
+    }
+}
+
+// EatRock: requires rock target - situational
+EatRock.merge { damage_instance { ai_base_score -5 } }
+EatRock2.merge { damage_instance { ai_base_score -5 } }
+
+// PlantFeet: conditional shield/speed
+PlantFeet.merge { damage_instance { ai_base_score 0 } }
+PlantFeet2.merge { damage_instance { ai_base_score 0 } }
+
+// IronHead: dash knockback + self shield
+IronHead.merge { damage_instance { ai_base_score 0 } }
+IronHead2.merge { damage_instance { ai_base_score 0 } }
+
+// GangUp: mass attack
+GangUp.merge { damage_instance { ai_base_score 0 } }
+GangUp2.merge { damage_instance { ai_base_score 0 } }
+
+// Aftershock: Earth tile AoE
+Aftershock.merge { damage_instance { ai_base_score 0 } }
+Aftershock2.merge { damage_instance { ai_base_score 0 } }
+
+// SteelSkin: Brace buff, expires on begin turn - 1 turn stackable
+// Slight penalty to avoid spam
+SteelSkin.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -10
+    }
+}
+SteelSkin2.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+        ai_base_score -10
+    }
+}
+
+// FaultLine: line AoE
+FaultLine.merge { damage_instance { ai_base_score 0 } }
+FaultLine2.merge { damage_instance { ai_base_score 0 } }
+
+// Demolish: terrain destruction
+Demolish.merge { damage_instance { ai_base_score 0 } }
+Demolish2.merge { damage_instance { ai_base_score 0 } }
+
+// FollowUpDash: utility ability
+FollowUpDash.merge { damage_instance { ai_base_score 0 } }
+FollowUpDash2.merge { damage_instance { ai_base_score 0 } }
+
+// CatapultJump: movement
+CatapultJump.merge { damage_instance { ai_base_score 0 } }
+CatapultJump2.merge { damage_instance { ai_base_score 0 } }
+
+// PushThrough: movement + damage
+PushThrough.merge { damage_instance { ai_base_score 0 } }
+PushThrough2.merge { damage_instance { ai_base_score 0 } }
+
+// Spur: Thorns buff - permanent until hit, not stackable per turn
+Spur.merge { damage_instance { ai_base_score 0 } }
+Spur2.merge { damage_instance { ai_base_score 0 } }
+
+// Supper: heal + debuff self, once_per_fight - very useful
+Supper.merge { damage_instance { ai_base_score 5 } }
+Supper2.merge { damage_instance { ai_base_score 5 } }
+
+// FullForce: jump attack
+FullForce.merge { damage_instance { ai_base_score 0 } }
+FullForce2.merge { damage_instance { ai_base_score 0 } }
+
+// Sandstorm: stacking self-buff - risk of spam
+Sandstorm.merge { damage_instance { ai_base_score -10 } }
+Sandstorm2.merge { damage_instance { ai_base_score -10 } }
+
+// Thicken: knockback buffs
+Thicken.merge { damage_instance { ai_base_score 0 } }
+Thicken2.merge { damage_instance { ai_base_score 0 } }

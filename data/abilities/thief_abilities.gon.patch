@@ -1,42 +1,162 @@
 // Thief abilities AI patches
-// CoinToss: costs 1 coin + mana, has passive ReloadOnGainCoins 1 creating a loop
-// Penalize to discourage spam -- the AI already has spend_mana_scale .5 from decision_presets
-CoinToss.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+// All abilities should have explicit ai_base_score for proper AI prioritization
 
-// CoinToss2: variant of CoinToss, same loop risk
-CoinToss2.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+// ===== ATTACKS =====
+Assassinate.merge { damage_instance { ai_base_score 0 } }
+Assassinate2.merge { damage_instance { ai_base_score 0 } }
 
-// Cheat: LuckUp 1-turn stackable buff -- slight penalty to avoid spam
-Cheat.merge {
-    damage_instance {
-        ai_base_score -15
-    }
-}
+PoisonGas.merge { damage_instance { ai_base_score 0 } }
+PoisonGas2.merge { damage_instance { ai_base_score 0 } }
 
-// Cheat2: variant of Cheat, same concern
-Cheat2.merge {
-    damage_instance {
-        ai_base_score -15
-    }
-}
+PoisonNail.merge { damage_instance { ai_base_score 0 } }
+PoisonNail2.merge { damage_instance { ai_base_score 0 } }
 
-// Pierce: TempPenetrate + TempRangeUp -- both are 1-turn buffs, only useful when about to attack
+WeakeningNail.merge { damage_instance { ai_base_score 0 } }
+WeakeningNail2.merge { damage_instance { ai_base_score 0 } }
+
+SharpNail.merge { damage_instance { ai_base_score 0 } }
+SharpNail2.merge { damage_instance { ai_base_score 0 } }
+
+Double.merge { damage_instance { ai_base_score 0 } }
+Double2.merge { damage_instance { ai_base_score 0 } }
+
+MoveAgain.merge { damage_instance { ai_base_score 0 } }
+MoveAgain2.merge { damage_instance { ai_base_score 0 } }
+
+AttackAgain.merge { damage_instance { ai_base_score 0 } }
+AttackAgain2.merge { damage_instance { ai_base_score 0 } }
+
+Distract.merge { damage_instance { ai_base_score 0 } }
+Distract2.merge { damage_instance { ai_base_score 0 } }
+
+Rebound.merge { damage_instance { ai_base_score 0 } }
+Rebound2.merge { damage_instance { ai_base_score 0 } }
+
+CutPurse.merge { damage_instance { ai_base_score 0 } }
+CutPurse2.merge { damage_instance { ai_base_score 0 } }
+
+EagleEye.merge { damage_instance { ai_base_score 0 } }
+EagleEye2.merge { damage_instance { ai_base_score 0 } }
+
+PickPocket.merge { damage_instance { ai_base_score 0 } }
+PickPocket2.merge { damage_instance { ai_base_score 0 } }
+
+NailFlurry.merge { damage_instance { ai_base_score 0 } }
+NailFlurry2.merge { damage_instance { ai_base_score 0 } }
+
+Declaw.merge { damage_instance { ai_base_score 0 } }
+Declaw2.merge { damage_instance { ai_base_score 0 } }
+
+Slice.merge { damage_instance { ai_base_score 0 } }
+Slice2.merge { damage_instance { ai_base_score 0 } }
+
+Nightshade.merge { damage_instance { ai_base_score 0 } }
+Nightshade2.merge { damage_instance { ai_base_score 0 } }
+
+PierceShot.merge { damage_instance { ai_base_score 0 } }
+PierceShot2.merge { damage_instance { ai_base_score 0 } }
+
+VenomBarrage.merge { damage_instance { ai_base_score 0 } }
+VenomBarrage2.merge { damage_instance { ai_base_score 0 } }
+
+SeverArtery.merge { damage_instance { ai_base_score 0 } }
+SeverArtery2.merge { damage_instance { ai_base_score 0 } }
+
+TripleNails.merge { damage_instance { ai_base_score 0 } }
+TripleNails2.merge { damage_instance { ai_base_score 0 } }
+
+Chakram.merge { damage_instance { ai_base_score 0 } }
+Chakram2.merge { damage_instance { ai_base_score 0 } }
+
+Shank.merge { damage_instance { ai_base_score 0 } }
+Shank2.merge { damage_instance { ai_base_score 0 } }
+
+StealKidney.merge { damage_instance { ai_base_score 0 } }
+StealKidney2.merge { damage_instance { ai_base_score 0 } }
+
+StealLuck.merge { damage_instance { ai_base_score 0 } }
+StealLuck2.merge { damage_instance { ai_base_score 0 } }
+
+ThiefSwap.merge { damage_instance { ai_base_score 0 } }
+ThiefSwap2.merge { damage_instance { ai_base_score 0 } }
+ThiefSwapBack.merge { damage_instance { ai_base_score 0 } }
+
+SneakUp.merge { damage_instance { ai_base_score 0 } }
+SneakUp2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== BUFFS & MOVEMENT =====
+BoostBackstab.merge { damage_instance { ai_base_score 0 } }
+BoostBackstab2.merge { damage_instance { ai_base_score 0 } }
+
+Camouflage.merge { damage_instance { ai_base_score 0 } }
+Camouflage2.merge { damage_instance { ai_base_score 0 } }
+
+Shadow.merge { damage_instance { ai_base_score 0 } }
+Shadow2.merge { damage_instance { ai_base_score 0 } }
+
+TimeWalk.merge { damage_instance { ai_base_score 0 } }
+TimeWalk2.merge { damage_instance { ai_base_score 0 } }
+
+DoubleLoot.merge { damage_instance { ai_base_score 0 } }
+DoubleLoot2.merge { damage_instance { ai_base_score 0 } }
+
+Backflip.merge { damage_instance { ai_base_score 0 } }
+Backflip2.merge { damage_instance { ai_base_score 0 } }
+BackflipDodge.merge { damage_instance { ai_base_score 0 } }
+
+Blur.merge { damage_instance { ai_base_score 0 } }
+Blur2.merge { damage_instance { ai_base_score 0 } }
+
+GreedStep.merge { damage_instance { ai_base_score 0 } }
+GreedStep2.merge { damage_instance { ai_base_score 0 } }
+
+Stalk.merge { damage_instance { ai_base_score 0 } }
+Stalk2.merge { damage_instance { ai_base_score 0 } }
+
+QuickRoll.merge { damage_instance { ai_base_score 0 } }
+QuickRoll2.merge { damage_instance { ai_base_score 0 } }
+
+PocketSand.merge { damage_instance { ai_base_score 0 } }
+PocketSand2.merge { damage_instance { ai_base_score 0 } }
+
+Shadowshift.merge { damage_instance { ai_base_score 0 } }
+Shadowshift2.merge { damage_instance { ai_base_score 0 } }
+
+SlingShade.merge { damage_instance { ai_base_score 0 } }
+SlingShade2.merge { damage_instance { ai_base_score 0 } }
+
+Caltrops.merge { damage_instance { ai_base_score 0 } }
+Caltrops2.merge { damage_instance { ai_base_score 0 } }
+
+Fade.merge { damage_instance { ai_base_score 0 } }
+Fade2.merge { damage_instance { ai_base_score 0 } }
+
+SharpenNail.merge { damage_instance { ai_base_score 0 } }
+SharpenNail2.merge { damage_instance { ai_base_score 0 } }
+
+SkinDisguise.merge { damage_instance { ai_base_score 0 } }
+SkinDisguise2.merge { damage_instance { ai_base_score 0 } }
+
+LootCorpse.merge { damage_instance { ai_base_score 0 } }
+LootCorpse2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== SPECIAL CASES =====
+
+// CoinToss: can loop with ReloadOnGainCoins - penalize
+CoinToss.merge { damage_instance { ai_base_score -10 } }
+CoinToss2.merge { damage_instance { ai_base_score -10 } }
+
+// Cheat: LuckUp 1-turn stackable - slight penalty
+Cheat.merge { damage_instance { ai_base_score -15 } }
+Cheat2.merge { damage_instance { ai_base_score -15 } }
+
+// Pierce: 1-turn buffs
 Pierce.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
         ai_base_score -5
     }
 }
-
-// Pierce2: variant of Pierce, same logic
 Pierce2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
@@ -44,26 +164,10 @@ Pierce2.merge {
     }
 }
 
-// WindUp v1: TempRangeUp 1 -- 1-turn range buff, slight penalty
-WindUp.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+// WindUp: 1-turn range buff
+WindUp.merge { damage_instance { ai_base_score -5 } }
+WindUp2.merge { damage_instance { ai_base_score -5 } }
 
-// Jitter: applies Confusion 1 in small AoE around self without aoe_restrictions exclude_allies
-// Can confuse adjacent allies -- moderate penalty
-Jitter.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
-
-// Jitter2: variant of Jitter, same concern
-Jitter2.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
-
-// Outskirts2: variant_of Outskirts, uses self_damage not damage_instance -- cannot patch
+// Jitter: Confusion AoE around self can hit allies
+Jitter.merge { damage_instance { ai_base_score -10 } }
+Jitter2.merge { damage_instance { ai_base_score -10 } }

@@ -1,22 +1,166 @@
 // Medic abilities AI patches
-// BornAgain: revives a dead ally BUT caster sleeps for 4 turns -- never use in auto-battle
-// BornAgain2 does NOT have the sleep cost -- only patch BornAgain
-BornAgain.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+// All abilities should have explicit ai_base_score for proper AI prioritization
 
-// Zealot: self-buff DivineShield -- only useful when taking hits, useless out of range
+// ===== HEALS =====
+RangedHeal.merge { damage_instance { ai_base_score 0 } }
+RangedHeal2.merge { damage_instance { ai_base_score 0 } }
+
+MeleeHeal.merge { damage_instance { ai_base_score 0 } }
+MeleeHeal2.merge { damage_instance { ai_base_score 0 } }
+
+Prayer.merge { damage_instance { ai_base_score 0 } }
+Prayer2.merge { damage_instance { ai_base_score 0 } }
+
+Cleanse.merge { damage_instance { ai_base_score 0 } }
+Cleanse2.merge { damage_instance { ai_base_score 0 } }
+
+Wish.merge { damage_instance { ai_base_score 0 } }
+Wish2.merge { damage_instance { ai_base_score 0 } }
+
+Revive.merge { damage_instance { ai_base_score 0 } }
+Revive2.merge { damage_instance { ai_base_score 0 } }
+
+HolyLight.merge { damage_instance { ai_base_score 0 } }
+HolyLight2.merge { damage_instance { ai_base_score 0 } }
+
+HealingFall.merge { damage_instance { ai_base_score 0 } }
+HealingFall2.merge { damage_instance { ai_base_score 0 } }
+
+RallyCharge.merge { damage_instance { ai_base_score 0 } }
+RallyCharge2.merge { damage_instance { ai_base_score 0 } }
+
+Emergency.merge { damage_instance { ai_base_score 0 } }
+Emergency2.merge { damage_instance { ai_base_score 0 } }
+
+GuardianAngel.merge { damage_instance { ai_base_score 0 } }
+GuardianAngel2.merge { damage_instance { ai_base_score 0 } }
+
+Baptism.merge { damage_instance { ai_base_score 0 } }
+Baptism2.merge { damage_instance { ai_base_score 0 } }
+
+Pray.merge { damage_instance { ai_base_score 0 } }
+Pray2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== ATTACKS =====
+Malaise.merge { damage_instance { ai_base_score 0 } }
+Malaise2.merge { damage_instance { ai_base_score 0 } }
+
+OpenWounds.merge { damage_instance { ai_base_score 0 } }
+OpenWounds2.merge { damage_instance { ai_base_score 0 } }
+
+Convert.merge { damage_instance { ai_base_score 0 } }
+Convert2.merge { damage_instance { ai_base_score 0 } }
+
+Rebuke.merge { damage_instance { ai_base_score 0 } }
+Rebuke2.merge { damage_instance { ai_base_score 0 } }
+
+Crusade.merge { damage_instance { ai_base_score 0 } }
+Crusade2.merge { damage_instance { ai_base_score 0 } }
+
+WrathOfGod.merge { damage_instance { ai_base_score 0 } }
+WrathOfGod2.merge { damage_instance { ai_base_score 0 } }
+
+BlindingLight.merge { damage_instance { ai_base_score 0 } }
+BlindingLight2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== BUFFS =====
+Purge.merge { damage_instance { ai_base_score 0 } }
+Purge2.merge { damage_instance { ai_base_score 0 } }
+
+HereticMark.merge { damage_instance { ai_base_score 0 } }
+HereticMark2.merge { damage_instance { ai_base_score 0 } }
+
+// Zealot: DivineShield - useful when near enemies
 Zealot.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
     }
 }
-
-// Zealot2: variant of Zealot, same logic
 Zealot2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
     }
 }
+
+Haste.merge { damage_instance { ai_base_score 0 } }
+Haste2.merge { damage_instance { ai_base_score 0 } }
+
+Rally.merge { damage_instance { ai_base_score 0 } }
+Rally2.merge { damage_instance { ai_base_score 0 } }
+
+BuddyUp.merge { damage_instance { ai_base_score 0 } }
+BuddyUp2.merge { damage_instance { ai_base_score 0 } }
+
+ReverseDamage.merge { damage_instance { ai_base_score 0 } }
+ReverseDamage2.merge { damage_instance { ai_base_score 0 } }
+
+WitchHunt.merge { damage_instance { ai_base_score 0 } }
+WitchHunt2.merge { damage_instance { ai_base_score 0 } }
+
+FriendOrFoe.merge { damage_instance { ai_base_score 0 } }
+FriendOrFoe2.merge { damage_instance { ai_base_score 0 } }
+
+Ethereal.merge { damage_instance { ai_base_score 0 } }
+Ethereal2.merge { damage_instance { ai_base_score 0 } }
+
+Benediction.merge { damage_instance { ai_base_score 0 } }
+Benediction2.merge { damage_instance { ai_base_score 0 } }
+
+HallowedGround.merge { damage_instance { ai_base_score 0 } }
+HallowedGround2.merge { damage_instance { ai_base_score 0 } }
+
+Enlighten.merge { damage_instance { ai_base_score 0 } }
+Enlighten2.merge { damage_instance { ai_base_score 0 } }
+
+Anoint.merge { damage_instance { ai_base_score 0 } }
+Anoint2.merge { damage_instance { ai_base_score 0 } }
+
+EyeForAnEye.merge { damage_instance { ai_base_score 0 } }
+EyeForAnEye2.merge { damage_instance { ai_base_score 0 } }
+
+Adoubement.merge { damage_instance { ai_base_score 0 } }
+Adoubement2.merge { damage_instance { ai_base_score 0 } }
+
+DivineProtection.merge { damage_instance { ai_base_score 0 } }
+DivineProtection2.merge { damage_instance { ai_base_score 0 } }
+
+ChosenWarrior.merge { damage_instance { ai_base_score 0 } }
+ChosenWarrior2.merge { damage_instance { ai_base_score 0 } }
+
+SwiftSanctify.merge { damage_instance { ai_base_score 0 } }
+SwiftSanctify2.merge { damage_instance { ai_base_score 0 } }
+
+DivineGift.merge { damage_instance { ai_base_score 0 } }
+DivineGift2.merge { damage_instance { ai_base_score 0 } }
+
+HolyWeapon.merge { damage_instance { ai_base_score 0 } }
+HolyWeapon2.merge { damage_instance { ai_base_score 0 } }
+
+GetDown.merge { damage_instance { ai_base_score 0 } }
+GetDown2.merge { damage_instance { ai_base_score 0 } }
+
+MedicObey.merge { damage_instance { ai_base_score 0 } }
+MedicObey2.merge { damage_instance { ai_base_score 0 } }
+
+Awaken.merge { damage_instance { ai_base_score 0 } }
+Awaken2.merge { damage_instance { ai_base_score 0 } }
+
+Booster.merge { damage_instance { ai_base_score 0 } }
+Booster2.merge { damage_instance { ai_base_score 0 } }
+
+Stimulants.merge { damage_instance { ai_base_score 0 } }
+Stimulants2.merge { damage_instance { ai_base_score 0 } }
+
+CircleOfProtection.merge { damage_instance { ai_base_score 0 } }
+CircleOfProtection2.merge { damage_instance { ai_base_score 0 } }
+
+CallOver.merge { damage_instance { ai_base_score 0 } }
+CallOver2.merge { damage_instance { ai_base_score 0 } }
+
+Grace.merge { damage_instance { ai_base_score 0 } }
+Grace2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== PROBLEMATIC =====
+
+// BornAgain: caster sleeps 4 turns - DISABLE
+BornAgain.merge { damage_instance { ai_base_score -99999 } }

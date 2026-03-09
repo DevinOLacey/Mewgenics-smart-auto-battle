@@ -1,15 +1,162 @@
 // Monk abilities AI patches
-// Porcupine: Thorns+Brace stackable, expires after 1 turn expires_on_appliers_turn true
-// tile_close_to_enemy: useless without adjacent enemy
-// ai_base_score -15: strongly discourages spam -- offense should always score higher
+// All abilities should have explicit ai_base_score for proper AI prioritization
+
+// ===== ATTACKS =====
+Propell.merge { damage_instance { ai_base_score 0 } }
+Propell2.merge { damage_instance { ai_base_score 0 } }
+
+Hadouken.merge { damage_instance { ai_base_score 0 } }
+Hadouken2.merge { damage_instance { ai_base_score 0 } }
+
+StoneFists.merge { damage_instance { ai_base_score 0 } }
+StoneFists2.merge { damage_instance { ai_base_score 0 } }
+
+HipToss.merge { damage_instance { ai_base_score 0 } }
+HipToss2.merge { damage_instance { ai_base_score 0 } }
+
+Bruise.merge { damage_instance { ai_base_score 0 } }
+Bruise2.merge { damage_instance { ai_base_score 0 } }
+
+Slapback.merge { damage_instance { ai_base_score 0 } }
+Slapback2.merge { damage_instance { ai_base_score 0 } }
+
+Finisher.merge { damage_instance { ai_base_score 0 } }
+Finisher2.merge { damage_instance { ai_base_score 0 } }
+
+Reverberate.merge { damage_instance { ai_base_score 0 } }
+Reverberate2.merge { damage_instance { ai_base_score 0 } }
+
+ComboThrow.merge { damage_instance { ai_base_score 0 } }
+ComboThrow2.merge { damage_instance { ai_base_score 0 } }
+
+ComboPull.merge { damage_instance { ai_base_score 0 } }
+ComboPull2.merge { damage_instance { ai_base_score 0 } }
+
+DoomPunch.merge { damage_instance { ai_base_score 0 } }
+DoomPunch2.merge { damage_instance { ai_base_score 0 } }
+
+KiBurst.merge { damage_instance { ai_base_score 0 } }
+KiBurst2.merge { damage_instance { ai_base_score 0 } }
+
+DragonPunch.merge { damage_instance { ai_base_score 0 } }
+DragonPunch2.merge { damage_instance { ai_base_score 0 } }
+
+HundredHandSlap.merge { damage_instance { ai_base_score 0 } }
+HundredHandSlap2.merge { damage_instance { ai_base_score 0 } }
+
+Pummel.merge { damage_instance { ai_base_score 0 } }
+Pummel2.merge { damage_instance { ai_base_score 0 } }
+
+QuickAttack.merge { damage_instance { ai_base_score 0 } }
+QuickAttack2.merge { damage_instance { ai_base_score 0 } }
+
+FlyingFist.merge { damage_instance { ai_base_score 0 } }
+FlyingFist2.merge { damage_instance { ai_base_score 0 } }
+
+SpiritBomb.merge { damage_instance { ai_base_score 0 } }
+SpiritBomb2.merge { damage_instance { ai_base_score 0 } }
+
+ThrowSpiritBomb.merge { damage_instance { ai_base_score 0 } }
+ThrowSpiritBomb2.merge { damage_instance { ai_base_score 0 } }
+
+OnePunch.merge { damage_instance { ai_base_score 0 } }
+OnePunch2.merge { damage_instance { ai_base_score 0 } }
+
+UnbridledHits.merge { damage_instance { ai_base_score 0 } }
+UnbridledHits2.merge { damage_instance { ai_base_score 0 } }
+
+Kamehameha.merge { damage_instance { ai_base_score 0 } }
+Kamehameha2.merge { damage_instance { ai_base_score 0 } }
+
+DoubleDragon.merge { damage_instance { ai_base_score 0 } }
+DoubleDragon2.merge { damage_instance { ai_base_score 0 } }
+
+FistOfFate.merge { damage_instance { ai_base_score 0 } }
+FistOfFate2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== MOVEMENT =====
+Cartwheel.merge { damage_instance { ai_base_score 0 } }
+Cartwheel2.merge { damage_instance { ai_base_score 0 } }
+
+OneWithTheWind.merge { damage_instance { ai_base_score 0 } }
+OneWithTheWind2.merge { damage_instance { ai_base_score 0 } }
+
+Pogo.merge { damage_instance { ai_base_score 0 } }
+Pogo2.merge { damage_instance { ai_base_score 0 } }
+
+ReallyFastRun.merge { damage_instance { ai_base_score 0 } }
+ReallyFastRun2.merge { damage_instance { ai_base_score 0 } }
+
+SideStep.merge { damage_instance { ai_base_score 0 } }
+SideStep2.merge { damage_instance { ai_base_score 0 } }
+
+UnimpededLunge.merge { damage_instance { ai_base_score 0 } }
+UnimpededLunge2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== BUFFS =====
+Transcend.merge { damage_instance { ai_base_score 0 } }
+Transcend2.merge { damage_instance { ai_base_score 0 } }
+
+TrainArms.merge { damage_instance { ai_base_score 0 } }
+TrainArms2.merge { damage_instance { ai_base_score 0 } }
+
+Anneal.merge { damage_instance { ai_base_score 0 } }
+Anneal2.merge { damage_instance { ai_base_score 0 } }
+
+DeepDive.merge { damage_instance { ai_base_score 0 } }
+DeepDive2.merge { damage_instance { ai_base_score 0 } }
+
+HopAndBlock.merge { damage_instance { ai_base_score 0 } }
+HopAndBlock2.merge { damage_instance { ai_base_score 0 } }
+
+TrainMind.merge { damage_instance { ai_base_score 0 } }
+TrainMind2.merge { damage_instance { ai_base_score 0 } }
+
+TrainLegs.merge { damage_instance { ai_base_score 0 } }
+TrainLegs2.merge { damage_instance { ai_base_score 0 } }
+
+DetectWeakness.merge { damage_instance { ai_base_score 0 } }
+DetectWeakness2.merge { damage_instance { ai_base_score 0 } }
+
+KineticCharge.merge { damage_instance { ai_base_score 0 } }
+KineticCharge2.merge { damage_instance { ai_base_score 0 } }
+
+AirBurst.merge { damage_instance { ai_base_score 0 } }
+AirBurst2.merge { damage_instance { ai_base_score 0 } }
+
+TrainBody.merge { damage_instance { ai_base_score 0 } }
+TrainBody2.merge { damage_instance { ai_base_score 0 } }
+
+ReleaseEnergy.merge { damage_instance { ai_base_score 0 } }
+ReleaseEnergy2.merge { damage_instance { ai_base_score 0 } }
+
+PerfectForm.merge { damage_instance { ai_base_score 0 } }
+PerfectForm2.merge { damage_instance { ai_base_score 0 } }
+
+WarmupStretch.merge { damage_instance { ai_base_score 0 } }
+WarmupStretch2.merge { damage_instance { ai_base_score 0 } }
+
+RapidFlowSpin.merge { damage_instance { ai_base_score 0 } }
+RapidFlowSpin2.merge { damage_instance { ai_base_score 0 } }
+
+DonateEnergy.merge { damage_instance { ai_base_score 0 } }
+DonateEnergy2.merge { damage_instance { ai_base_score 0 } }
+
+Nirvana.merge { damage_instance { ai_base_score 0 } }
+Nirvana2.merge { damage_instance { ai_base_score 0 } }
+
+EmptyMind.merge { damage_instance { ai_base_score 0 } }
+EmptyMind2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== PROBLEMATIC =====
+
+// Porcupine: 1-turn stackable buff
 Porcupine.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
         ai_base_score -15
     }
 }
-
-// Porcupine2: same logic
 Porcupine2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
@@ -17,16 +164,6 @@ Porcupine2.merge {
     }
 }
 
-// Meditate: self-buff that heals + gives Shield BUT also inflicts Sleep 8 turns -- never use in auto-battle
-Meditate.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
-
-// Meditate2: same as Meditate (mana 6 instead of 8), same sleep problem
-Meditate2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+// Meditate: sleep 8 turns - DISABLE
+Meditate.merge { damage_instance { ai_base_score -99999 } }
+Meditate2.merge { damage_instance { ai_base_score -99999 } }

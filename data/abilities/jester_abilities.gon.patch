@@ -1,28 +1,20 @@
 // Jester abilities AI patches
-// Bump: randomly displaces any unit up to 20 tiles -- can displace allies into danger
-Bump.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+// All abilities should have explicit ai_base_score for proper AI prioritization
 
-// Bump2: variant of Bump, same issue
-Bump2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+// ===== ATTACKS =====
+RNGCannon.merge { damage_instance { ai_base_score 0 } }
+RNGCannon2.merge { damage_instance { ai_base_score 0 } }
 
-// PowerUp: RandomStatusFromPool -- self-buff with random 1-turn buffs, not catastrophic but unpredictable
-PowerUp.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+// ===== SPECIAL =====
 
-// PowerUp2: variant of PowerUp, same concern
-PowerUp2.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+// SmartMetronome: random action - DISABLE
+SmartMetronome.merge { damage_instance { ai_base_score -99999 } }
+SmartMetronome2.merge { damage_instance { ai_base_score -99999 } }
+
+// Bump: random displacement - DISABLE
+Bump.merge { damage_instance { ai_base_score -99999 } }
+Bump2.merge { damage_instance { ai_base_score -99999 } }
+
+// PowerUp: random buff
+PowerUp.merge { damage_instance { ai_base_score -10 } }
+PowerUp2.merge { damage_instance { ai_base_score -10 } }

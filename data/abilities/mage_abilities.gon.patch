@@ -1,156 +1,167 @@
 // Mage abilities AI patches
-// Absorb: self-buff that heals based on current mana costs ALL mana -- only useful when hurt
-Absorb.merge {
-    damage_instance {
-        custom_additional_ai_weight must_heal_most_missing_health
-    }
-}
+// All abilities should have explicit ai_base_score for proper AI prioritization
 
-// Absorb2: variant of Absorb, same logic
-Absorb2.merge {
-    damage_instance {
-        custom_additional_ai_weight must_heal_most_missing_health
-    }
-}
+// ===== ATTACKS =====
+Surf.merge { damage_instance { ai_base_score 0 } }
+Surf2.merge { damage_instance { ai_base_score 0 } }
 
-// ManaMeld: transfers ALL current mana to an ally -- strong situational spell, slight penalty to avoid spam
-ManaMeld.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Bolt.merge { damage_instance { ai_base_score 0 } }
+Bolt2.merge { damage_instance { ai_base_score 0 } }
 
-// ManaMeld2: variant of ManaMeld, same logic
-ManaMeld2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Fireball.merge { damage_instance { ai_base_score 0 } }
+Fireball2.merge { damage_instance { ai_base_score 0 } }
 
-// Note: ChaosTeleport mana 1, template teleport has no damage_instance -- cannot be patched via this method
+FreezeRay.merge { damage_instance { ai_base_score 0 } }
+FreezeRay2.merge { damage_instance { ai_base_score 0 } }
 
-// DealWithTheDevil: RandomInjury 1 + powerful self-buff -- self-injury risk
-DealWithTheDevil.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Blast.merge { damage_instance { ai_base_score 0 } }
+Blast2.merge { damage_instance { ai_base_score 0 } }
 
-// DealWithTheDevil2: variant, same concern
-DealWithTheDevil2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+MagicMissile.merge { damage_instance { ai_base_score 0 } }
+MagicMissile2.merge { damage_instance { ai_base_score 0 } }
 
-// ForbiddenFlame: GainDisorderFromPool_PostCast -- disorder on self after cast
-ForbiddenFlame.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+WallOfFire.merge { damage_instance { ai_base_score 0 } }
+WallOfFire2.merge { damage_instance { ai_base_score 0 } }
 
-// ForbiddenFlame2: variant, disorder from pool on self
-ForbiddenFlame2.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+HyperBeam.merge { damage_instance { ai_base_score 0 } }
+HyperBeam2.merge { damage_instance { ai_base_score 0 } }
 
-// ForbiddenFlood: GainDisorderFromPool -- disorder on self
-ForbiddenFlood.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+MeteorStorm.merge { damage_instance { ai_base_score 0 } }
+MeteorStorm2.merge { damage_instance { ai_base_score 0 } }
 
-// ForbiddenFlood2: variant
-ForbiddenFlood2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+MegaBlast.merge { damage_instance { ai_base_score 0 } }
+MegaBlast2.merge { damage_instance { ai_base_score 0 } }
 
-// ChainLightning (v1): arc that can hit allies -- penalize to avoid friendly-fire
-ChainLightning.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Slow.merge { damage_instance { ai_base_score 0 } }
+Slow2.merge { damage_instance { ai_base_score 0 } }
 
-// Telefrag: raw_damage to self self_damage 5 as cost of the teleport
-Telefrag.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Enlarge.merge { damage_instance { ai_base_score 0 } }
+Enlarge2.merge { damage_instance { ai_base_score 0 } }
 
-// Telefrag2: variant, same concern
-Telefrag2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+WindSlash.merge { damage_instance { ai_base_score 0 } }
+WindSlash2.merge { damage_instance { ai_base_score 0 } }
 
-// Corrupt: RandomInjury 1 + SpellDamageUp 3 on self -- self-injury as cost
-Corrupt.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+Warp.merge { damage_instance { ai_base_score 0 } }
+Warp2.merge { damage_instance { ai_base_score 0 } }
 
-// Corrupt2: variant of Corrupt, same concern
-Corrupt2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+MageTeleport.merge { damage_instance { ai_base_score 0 } }
+MageTeleport2.merge { damage_instance { ai_base_score 0 } }
 
-// BlackMagic: raw_damage X-1 on self near-lethal self-damage for mana gain
-BlackMagic.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+MageSwap.merge { damage_instance { ai_base_score 0 } }
+MageSwap2.merge { damage_instance { ai_base_score 0 } }
 
-// BlackMagic2: variant of BlackMagic, same concern
-BlackMagic2.merge {
-    damage_instance {
-        ai_base_score -20
-    }
-}
+CryoHeal.merge { damage_instance { ai_base_score 0 } }
+CryoHeal2.merge { damage_instance { ai_base_score 0 } }
 
-// ForbiddenFrost v1: GainDisorderFromPool + hits allies no Conditional_Ally override
-ForbiddenFrost.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+Gust.merge { damage_instance { ai_base_score 0 } }
+Gust2.merge { damage_instance { ai_base_score 0 } }
 
-// Divide: DamageUp -- reduces own attack damage stat
-Divide.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+Blizzard.merge { damage_instance { ai_base_score 0 } }
+Blizzard2.merge { damage_instance { ai_base_score 0 } }
 
-// Divide2: variant of Divide, same concern
-Divide2.merge {
-    damage_instance {
-        ai_base_score -10
-    }
-}
+Inferno.merge { damage_instance { ai_base_score 0 } }
+Inferno2.merge { damage_instance { ai_base_score 0 } }
 
-// Magnify: TempRangeUp + TempBasicAttackBonusAOE -- both 1-turn buffs, slight penalty
-Magnify.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Thunderburst.merge { damage_instance { ai_base_score 0 } }
+Thunderburst2.merge { damage_instance { ai_base_score 0 } }
 
-// Magnify2: variant of Magnify, same concern
-Magnify2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+Shatter.merge { damage_instance { ai_base_score 0 } }
+Shatter2.merge { damage_instance { ai_base_score 0 } }
+
+ForbiddenFulmination.merge { damage_instance { ai_base_score 0 } }
+ForbiddenFulmination2.merge { damage_instance { ai_base_score 0 } }
+
+FireBolt.merge { damage_instance { ai_base_score 0 } }
+FireBolt2.merge { damage_instance { ai_base_score 0 } }
+
+IcicleTaser.merge { damage_instance { ai_base_score 0 } }
+IcicleTaser2.merge { damage_instance { ai_base_score 0 } }
+
+FreezerBurn.merge { damage_instance { ai_base_score 0 } }
+FreezerBurn2.merge { damage_instance { ai_base_score 0 } }
+
+Jolt.merge { damage_instance { ai_base_score 0 } }
+Jolt2.merge { damage_instance { ai_base_score 0 } }
+
+Smolder.merge { damage_instance { ai_base_score 0 } }
+Smolder2.merge { damage_instance { ai_base_score 0 } }
+
+FireSurge.merge { damage_instance { ai_base_score 0 } }
+FireSurge2.merge { damage_instance { ai_base_score 0 } }
+
+IceSurge.merge { damage_instance { ai_base_score 0 } }
+IceSurge2.merge { damage_instance { ai_base_score 0 } }
+
+LightningSurge.merge { damage_instance { ai_base_score 0 } }
+LightningSurge2.merge { damage_instance { ai_base_score 0 } }
+
+Creshendo.merge { damage_instance { ai_base_score 0 } }
+Creshendo2.merge { damage_instance { ai_base_score 0 } }
+
+Teach.merge { damage_instance { ai_base_score 0 } }
+Teach2.merge { damage_instance { ai_base_score 0 } }
+
+HomingBlasts.merge { damage_instance { ai_base_score 0 } }
+HomingBlasts2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== BUFFS =====
+IceArmor.merge { damage_instance { ai_base_score 0 } }
+IceArmor2.merge { damage_instance { ai_base_score 0 } }
+
+FireArmor.merge { damage_instance { ai_base_score 0 } }
+FireArmor2.merge { damage_instance { ai_base_score 0 } }
+
+Inspire.merge { damage_instance { ai_base_score 0 } }
+Inspire2.merge { damage_instance { ai_base_score 0 } }
+
+// ===== SPECIAL CASES =====
+
+// Absorb: heals based on mana - use when hurt
+Absorb.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+Absorb2.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+
+// ManaMeld: transfers mana - slight penalty
+ManaMeld.merge { damage_instance { ai_base_score -5 } }
+ManaMeld2.merge { damage_instance { ai_base_score -5 } }
+
+// Telefrag: self-damage for teleport
+Telefrag.merge { damage_instance { ai_base_score -5 } }
+Telefrag2.merge { damage_instance { ai_base_score -5 } }
+
+// ChainLightning: can arc to allies
+ChainLightning.merge { damage_instance { ai_base_score -20 } }
+ChainLightning2.merge { damage_instance { ai_base_score -20 } }
+
+// DealWithTheDevil: self-injury
+DealWithTheDevil.merge { damage_instance { ai_base_score -20 } }
+DealWithTheDevil2.merge { damage_instance { ai_base_score -20 } }
+
+// ForbiddenFlame: disorder on self
+ForbiddenFlame.merge { damage_instance { ai_base_score -10 } }
+ForbiddenFlame2.merge { damage_instance { ai_base_score -10 } }
+
+// ForbiddenFlood: disorder on self
+ForbiddenFlood.merge { damage_instance { ai_base_score -5 } }
+ForbiddenFlood2.merge { damage_instance { ai_base_score -5 } }
+
+// Corrupt: self-injury
+Corrupt.merge { damage_instance { ai_base_score -20 } }
+Corrupt2.merge { damage_instance { ai_base_score -20 } }
+
+// BlackMagic: near-lethal self-damage
+BlackMagic.merge { damage_instance { ai_base_score -20 } }
+BlackMagic2.merge { damage_instance { ai_base_score -20 } }
+
+// ForbiddenFrost: can hit allies
+ForbiddenFrost.merge { damage_instance { ai_base_score -10 } }
+ForbiddenFrost2.merge { damage_instance { ai_base_score -10 } }
+
+// Divide: reduces own attack
+Divide.merge { damage_instance { ai_base_score -10 } }
+Divide2.merge { damage_instance { ai_base_score -10 } }
+
+// Magnify: 1-turn buffs
+Magnify.merge { damage_instance { ai_base_score -5 } }
+Magnify2.merge { damage_instance { ai_base_score -5 } }
+
+// ChaosTeleport: template teleport, no damage_instance - cannot patch
