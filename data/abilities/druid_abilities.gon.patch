@@ -25,10 +25,10 @@ HydroPump2.merge { damage_instance { ai_base_score 0 } }
 Timber.merge { damage_instance { ai_base_score 0 } }
 
 // ===== SUMMONS =====
-SquirrelSquad.merge { damage_instance { ai_base_score 0 } }
+SquirrelSquad.merge { damage_instance { ai_base_score 20 } }
 SquirrelSquad2.merge { damage_instance { ai_base_score 0 } }
 
-SummonSquirrel.merge { damage_instance { ai_base_score 0 } }
+SummonSquirrel.merge { damage_instance { ai_base_score 15 } }
 SummonSquirrel2.merge { damage_instance { ai_base_score 0 } }
 
 SummonSnake.merge { damage_instance { ai_base_score 0 } }
@@ -111,7 +111,7 @@ ControlWaterPartTwo.merge { damage_instance { ai_base_score 0 } }
 ControlWaterPartTwo2.merge { damage_instance { ai_base_score 0 } }
 
 // ===== FORMS =====
-TigerForm.merge { damage_instance { ai_base_score 0 } }
+TigerForm.merge { damage_instance { ai_base_score 15 } }
 TigerForm2.merge { damage_instance { ai_base_score 0 } }
 TigerSwipes.merge { damage_instance { ai_base_score 0 } }
 TigerSwipes2.merge { damage_instance { ai_base_score 0 } }

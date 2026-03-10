@@ -148,8 +148,8 @@ Awaken2.merge { damage_instance { ai_base_score 0 } }
 Booster.merge { damage_instance { ai_base_score 0 } }
 Booster2.merge { damage_instance { ai_base_score 0 } }
 
-Stimulants.merge { damage_instance { ai_base_score 0 } }
-Stimulants2.merge { damage_instance { ai_base_score 0 } }
+Stimulants.merge { damage_instance { ai_base_score 20 } }
+Stimulants2.merge { damage_instance { ai_base_score 20 } }
 
 CircleOfProtection.merge { damage_instance { ai_base_score 0 } }
 CircleOfProtection2.merge { damage_instance { ai_base_score 0 } }

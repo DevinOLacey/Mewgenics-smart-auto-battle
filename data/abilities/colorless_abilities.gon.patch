@@ -123,7 +123,7 @@ PushMove2.merge { damage_instance { ai_base_score 0 } }
 Gamble.merge { damage_instance { ai_base_score 0 } }
 Gamble2.merge { damage_instance { ai_base_score 0 } }
 
-SoulReap.merge { damage_instance { ai_base_score 0 } }
+SoulReap.merge { damage_instance { ai_base_score 15 } }
 SoulReap2.merge { damage_instance { ai_base_score 0 } }
 
 Hunt.merge { damage_instance { ai_base_score 0 } }

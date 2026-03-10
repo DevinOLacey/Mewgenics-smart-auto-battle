@@ -1,5 +1,5 @@
 smart_hunter_move.merge {
-    distance_to_enemy -1
+    distance_to_enemy 2
     distance_to_ally 0
     distance_to_character 0
     // max weapon range
@@ -9,7 +9,7 @@ smart_hunter_move.merge {
     // stays at range, avoids dangerous tiles
     danger_avoidance 3
     // hides in tall grass when possible
-    tall_grass 1
+    tall_grass 2
 }
 
 smart_fighter_move.merge {
@@ -37,7 +37,7 @@ smart_tank_move.merge {
 }
 
 smart_mage_move.merge {
-    distance_to_enemy -1
+    distance_to_enemy 2
     distance_to_ally 0
     distance_to_character 0
     preferred_distance reach
@@ -87,15 +87,15 @@ smart_butcher_move.merge {
 }
 
 smart_psychic_move.merge {
-    distance_to_enemy -1
+    distance_to_enemy 3
     distance_to_ally -1
     distance_to_character 0
     // keeps a safe distance
-    preferred_distance mov
+    preferred_distance 8
     total_distance_moved 0.01
     face_closest_enemy 1
     // fragile support -- avoids dangers
-    danger_avoidance 4
+    danger_avoidance 5
 }
 
 // Colorless is a hybrid brawler, seeks contact but stays flexible

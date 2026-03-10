@@ -20,13 +20,13 @@ SharpNail2.merge { damage_instance { ai_base_score 0 } }
 Double.merge { damage_instance { ai_base_score 0 } }
 Double2.merge { damage_instance { ai_base_score 0 } }
 
-MoveAgain.merge { damage_instance { ai_base_score 0 } }
-MoveAgain2.merge { damage_instance { ai_base_score 0 } }
+MoveAgain.merge { damage_instance { ai_base_score 25 } }
+MoveAgain2.merge { damage_instance { ai_base_score 25 } }
 
 AttackAgain.merge { damage_instance { ai_base_score 0 } }
 AttackAgain2.merge { damage_instance { ai_base_score 0 } }
 
-Distract.merge { damage_instance { ai_base_score 0 } }
+Distract.merge { damage_instance { ai_base_score 15 } }
 Distract2.merge { damage_instance { ai_base_score 0 } }
 
 Rebound.merge { damage_instance { ai_base_score 0 } }
@@ -110,7 +110,7 @@ Blur2.merge { damage_instance { ai_base_score 0 } }
 GreedStep.merge { damage_instance { ai_base_score 0 } }
 GreedStep2.merge { damage_instance { ai_base_score 0 } }
 
-Stalk.merge { damage_instance { ai_base_score 0 } }
+Stalk.merge { damage_instance { ai_base_score 15 } }
 Stalk2.merge { damage_instance { ai_base_score 0 } }
 
 QuickRoll.merge { damage_instance { ai_base_score 0 } }
@@ -171,3 +171,5 @@ WindUp2.merge { damage_instance { ai_base_score -5 } }
 // Jitter: Confusion AoE around self can hit allies
 Jitter.merge { damage_instance { ai_base_score -10 } }
 Jitter2.merge { damage_instance { ai_base_score -10 } }
+
+Outskirts.merge { damage_instance { ai_base_score 20 } }

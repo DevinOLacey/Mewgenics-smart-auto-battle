@@ -47,8 +47,8 @@ LastHit2.merge { damage_instance { ai_base_score 0 } }
 CupidsArrow.merge { damage_instance { ai_base_score 0 } }
 CupidsArrow2.merge { damage_instance { ai_base_score 0 } }
 
-ArrowFlurry.merge { damage_instance { ai_base_score 0 } }
-ArrowFlurry2.merge { damage_instance { ai_base_score 0 } }
+ArrowFlurry.merge { damage_instance { ai_base_score 15 } }
+ArrowFlurry2.merge { damage_instance { ai_base_score 15 } }
 
 HeavyShot.merge { damage_instance { ai_base_score 0 } }
 HeavyShot2.merge { damage_instance { ai_base_score 0 } }
@@ -72,11 +72,11 @@ SpawnMaggotFriend2.merge { damage_instance { ai_base_score 0 } }
 SpawnPooterFriend.merge { damage_instance { ai_base_score 0 } }
 SpawnPooterFriend2.merge { damage_instance { ai_base_score 0 } }
 
-Marked.merge { damage_instance { ai_base_score 0 } }
-Marked2.merge { damage_instance { ai_base_score 0 } }
+Marked.merge { damage_instance { ai_base_score 15 } }
+Marked2.merge { damage_instance { ai_base_score 15 } }
 
-BearTrap.merge { damage_instance { ai_base_score 0 } }
-BearTrap2.merge { damage_instance { ai_base_score 0 } }
+BearTrap.merge { damage_instance { ai_base_score 20 } }
+BearTrap2.merge { damage_instance { ai_base_score 20 } }
 
 SpawnBaitTrap.merge { damage_instance { ai_base_score 0 } }
 SpawnBaitTrap2.merge { damage_instance { ai_base_score 0 } }

@@ -35,8 +35,8 @@ Flicker2.merge { damage_instance { ai_base_score 0 } }
 MindMeld.merge { damage_instance { ai_base_score 0 } }
 MindMeld2.merge { damage_instance { ai_base_score 0 } }
 
-Vaccuum.merge { damage_instance { ai_base_score 0 } }
-Vaccuum2.merge { damage_instance { ai_base_score 0 } }
+Vaccuum.merge { damage_instance { ai_base_score 20 } }
+Vaccuum2.merge { damage_instance { ai_base_score 20 } }
 
 GrowHead.merge { damage_instance { ai_base_score 0 } }
 
