@@ -1,170 +1,153 @@
 // =====================================================================
-// PATCH OPTIMISÉ DE L'IA DU TANK - MUR INFRANCHISSABLE ET PROTECTEUR
+// SMART_AUTOBATTLE : TANK_ABILITIES.GON.PATCH (REVISION ULTIME V2)
 // =====================================================================
 
-// --- 1. PRIORISATION ABSOLUE DE L'AGGRO (PROVOCATION) ---
-// Ces capacités forcent les Boss à attaquer le Tank, sauvant ainsi le reste de l'équipe.
-// L'IA doit les utiliser dès qu'un ennemi est à portée.
-Taunt.merge { damage_instance { ai_base_score 80 } }
-Taunt2.merge { damage_instance { ai_base_score 80 } }
-
-DrawAttention.merge { damage_instance { ai_base_score 75 } }
-DrawAttention2.merge { damage_instance { ai_base_score 75 } }
-
-Intimidate.merge { damage_instance { ai_base_score 70 } } // Applique Peur, excellent debuff défensif.
-Intimidate2.merge { damage_instance { ai_base_score 70 } }
-
-BodyGuard.merge { damage_instance { ai_base_score 85 } } // Permet d'encaisser à la place d'un allié.
-BodyGuard2.merge { damage_instance { ai_base_score 85 } }
+// --- 1. EXECUTIONS MAJEURES (Seuil : 25 Degats) ---
+Demolish.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
+Demolish2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
 
 
-// --- 2. GESTION DES REPOUSSEMENTS LOURDS ET CONTRÔLE DE FOULE ---
-// Si un Boss est trop proche, le Tank doit l'envoyer valser au loin.
-Toss.merge { damage_instance { ai_base_score 60 } }
-Toss2.merge { damage_instance { ai_base_score 60 } }
-BonusToss.merge { damage_instance { ai_base_score 60 } }
-BonusToss2.merge { damage_instance { ai_base_score 60 } }
-NubbyToss.merge { damage_instance { ai_base_score 60 } }
-NubbyToss2.merge { damage_instance { ai_base_score 60 } }
-
-BatterUp.merge { damage_instance { ai_base_score 50 } } // Énorme recul.
-BatterUp2.merge { damage_instance { ai_base_score 50 } }
-
-Suplex.merge { damage_instance { ai_base_score 45 } } // Immobilise et déplace.
-Suplex2.merge { damage_instance { ai_base_score 45 } }
-
-RockTomb.merge { damage_instance { ai_base_score 65 } } // Pétrifie (étourdissement solide).
-RockTomb2.merge { damage_instance { ai_base_score 65 } }
-
-Fissure.merge { damage_instance { ai_base_score 65 } } // Pétrifie en zone.
-Fissure2.merge { damage_instance { ai_base_score 65 } }
-
-StoneGaze.merge { damage_instance { ai_base_score 65 } } // Pétrifie en ligne.
-StoneGaze2.merge { damage_instance { ai_base_score 65 } }
-
-Medusa.merge { damage_instance { ai_base_score 70 } } // AoE massive de pétrification.
-Medusa2.merge { damage_instance { ai_base_score 70 } }
+// --- 2. EXECUTIONS LOURDES ET PRISES (Seuil : 15 Degats) ---
+Suplex.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+Suplex2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Immobile FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+BackBreaker.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Immobile FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+BackBreaker2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Immobile FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+RockCrusher.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+RockCrusher2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+BigRock.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+BigRock2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
 
 
-// --- 3. VÉRIFICATION DE FRAPPE LÉTALE (MÊLÉE) ---
-// Le Tank ne doit frapper un Boss au corps-à-corps QUE s'il peut l'achever.
-HeadButt.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
-HeadButt2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
-
-Chew.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
-Chew2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
-
-BackBreaker.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
-BackBreaker2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
-
-Gore.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 2 } Else { FlatAIBonus -999999 } } } } } }
-Gore2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 4 } Else { FlatAIBonus -999999 } } } } } }
-
-Lunge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
-Lunge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
-
-Nudge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 0 } Else { FlatAIBonus -999999 } } } } } }
-Nudge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 0 } Else { FlatAIBonus -999999 } } } } } }
-
-// FullForce dépend de la constitution (CON) du lanceur, difficile à prévoir précisément, on interdit sur les Boss sauf si on est très sûr.
-FullForce.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
-FullForce2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+// --- 3. EXECUTIONS MOYENNES (Seuil : 10 Degats) ---
+FullForce.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+FullForce2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
 
 
-// --- 4. DÉSACTIVATION DES SORTS AUTO-DESTRUCTEURS OU CASSANT LE POSITIONNEMENT ---
-// TankTantrum crée des rochers aléatoires qui peuvent blesser l'équipe et bloquer les chemins.
-TankTantrum.merge { damage_instance { ai_base_score -99999 } }
-TankTantrum2.merge { damage_instance { ai_base_score -99999 } }
+// --- 4. ATTAQUES STANDARDS DE BASE (Seuil : 5 Degats) ---
+HeadButt.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+HeadButt2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+BatterUp.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+BatterUp2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Gore.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Gore2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+IronHead.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+IronHead2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+PushThrough.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+PushThrough2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+BowlOver.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+BowlOver2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+BearHug.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Grappled FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+BearHug2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Grappled FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+GangUp.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+GangUp2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 
-// BellyFlop et CatapultJump sont des sauts qui vont isoler le Tank au milieu des ennemis, 
-// brisant sa ligne de front et exposant le reste du groupe.
-BellyFlop.merge { damage_instance { ai_base_score -99999 } }
-BellyFlop2.merge { damage_instance { ai_base_score -99999 } }
-CatapultJump.merge { damage_instance { ai_base_score -99999 } }
-CatapultJump2.merge { damage_instance { ai_base_score -99999 } }
-FlipFlop.merge { damage_instance { ai_base_score -99999 } }
-FlipFlop2.merge { damage_instance { ai_base_score -99999 } }
-
-// TankSwap peut échanger sa place avec le Mage ou le Chasseur, les mettant en première ligne ! Fatal.
-TankSwap.merge { damage_instance { ai_base_score -99999 } }
-TankSwap2.merge { damage_instance { ai_base_score -99999 } }
-
-
-// --- 5. GESTION DES BUFFS ET DE LA DÉFENSE (Score modéré) ---
-// L'IA les utilisera s'il n'y a pas d'urgence à repousser un ennemi ou à provoquer.
-ThrowShield.merge { damage_instance { ai_base_score 30 custom_additional_ai_weight favor_if_unshielded } }
-ThrowShield2.merge { damage_instance { ai_base_score 30 custom_additional_ai_weight favor_if_unshielded } }
-
-ChewCud.merge { damage_instance { ai_base_score 20 custom_additional_ai_weight must_heal_most_missing_health } }
-ChewCud2.merge { damage_instance { ai_base_score 20 custom_additional_ai_weight must_heal_most_missing_health } }
-
-Supper.merge { damage_instance { ai_base_score 25 custom_additional_ai_weight must_heal_most_missing_health } }
-Supper2.merge { damage_instance { ai_base_score 25 custom_additional_ai_weight must_heal_most_missing_health } }
-
-PlantFeet.merge { damage_instance { ai_base_score 20 custom_additional_ai_weight favor_if_unshielded } }
-PlantFeet2.merge { damage_instance { ai_base_score 20 custom_additional_ai_weight favor_if_unshielded } }
-
-Spur.merge { damage_instance { ai_base_score 20 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Thorns FlatAIBonus -999999 } } } } }
-Spur2.merge { damage_instance { ai_base_score 20 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Thorns FlatAIBonus -999999 } } } } }
-
-Thicken.merge { damage_instance { ai_base_score 15 } }
-Thicken2.merge { damage_instance { ai_base_score 15 } }
-
-// BarbedWire, Anchor et SteelSkin sont des buffs utiles mais qui ont un risque de spam. 
-// Les pénalités d'origine (-10 / -999) sont un peu fortes. On les équilibre à 0 pour une utilisation normale.
-BarbedWire.merge { damage_instance { ai_base_score 30 custom_additional_ai_weight tile_close_to_enemy effects { Conditional_Speculative { Conditional_SourceHasStatus { status Thorns FlatAIBonus -999999 } } } } }
-BarbedWire2.merge { damage_instance { ai_base_score 30 custom_additional_ai_weight tile_close_to_enemy effects { Conditional_Speculative { Conditional_SourceHasStatus { status Thorns FlatAIBonus -999999 } } } } }
-
-// Anchor donne Ancrage (Brace). Ne se lance que si l'ennemi est proche ET qu'il n'a pas déjà Brace.
-Anchor.merge { damage_instance { ai_base_score 30 custom_additional_ai_weight tile_close_to_enemy effects { Conditional_Speculative { Conditional_SourceHasStatus { status Brace FlatAIBonus -999999 } } } } }
-Anchor2.merge { damage_instance { ai_base_score 30 custom_additional_ai_weight tile_close_to_enemy effects { Conditional_Speculative { Conditional_SourceHasStatus { status Brace FlatAIBonus -999999 } } } } }
-
-// SteelSkin donne Ancrage (Brace). Pareil, sécurité anti-spam.
-SteelSkin.merge { damage_instance { ai_base_score 30 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Brace FlatAIBonus -999999 } } } } }
-SteelSkin2.merge { damage_instance { ai_base_score 30 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Brace FlatAIBonus -999999 } } } } }
+// Projectiles de Tank
+ThrowShield.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+ThrowShield2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+RockToss.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+RockToss2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+RockBlast_AI.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+RockBlast.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+RockBlast2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+RockTomb.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Petrify FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+RockTomb2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Petrify FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
 
 
-// --- 6. ATTAQUES DE ZONE, CRÉATION DE TERRAIN ET CHARGES ---
-// Laissées au score organique (0) en fonction des dégâts projetés.
-AssBlast.merge { damage_instance { ai_base_score 0 } }
-AssBlast2.merge { damage_instance { ai_base_score 0 } }
-TankTrample.merge { damage_instance { ai_base_score 0 } }
-TankTrample2.merge { damage_instance { ai_base_score 0 } }
-Earthquake.merge { damage_instance { ai_base_score 0 } }
-Earthquake2.merge { damage_instance { ai_base_score 0 } }
-RockToss.merge { damage_instance { ai_base_score 0 } }
-RockToss2.merge { damage_instance { ai_base_score 0 } }
-BowlOver.merge { damage_instance { ai_base_score 0 } }
-BowlOver2.merge { damage_instance { ai_base_score 0 } }
-Clap.merge { damage_instance { ai_base_score 0 } }
-Clap2.merge { damage_instance { ai_base_score 0 } }
-TankRockSong.merge { damage_instance { ai_base_score 0 } }
-TankRockSong2.merge { damage_instance { ai_base_score 0 } }
-RockCrusher.merge { damage_instance { ai_base_score 0 } }
-RockCrusher2.merge { damage_instance { ai_base_score 0 } }
-RockBlast.merge { damage_instance { ai_base_score 0 } }
-RockBlast2.merge { damage_instance { ai_base_score 0 } }
-BearHug.merge { damage_instance { ai_base_score 0 } }
-BearHug2.merge { damage_instance { ai_base_score 0 } }
-BigRock.merge { damage_instance { ai_base_score 0 } }
-BigRock2.merge { damage_instance { ai_base_score 0 } }
-EatRock.merge { damage_instance { ai_base_score 0 } }
-EatRock2.merge { damage_instance { ai_base_score 0 } }
-IronHead.merge { damage_instance { ai_base_score 0 } }
-IronHead2.merge { damage_instance { ai_base_score 0 } }
-GangUp.merge { damage_instance { ai_base_score 0 } }
-GangUp2.merge { damage_instance { ai_base_score 0 } }
-Aftershock.merge { damage_instance { ai_base_score 0 } }
-Aftershock2.merge { damage_instance { ai_base_score 0 } }
-FaultLine.merge { damage_instance { ai_base_score 0 } }
-FaultLine2.merge { damage_instance { ai_base_score 0 } }
-Demolish.merge { damage_instance { ai_base_score 0 } }
-Demolish2.merge { damage_instance { ai_base_score 0 } }
-PushThrough.merge { damage_instance { ai_base_score 0 } }
-PushThrough2.merge { damage_instance { ai_base_score 0 } }
-Sandstorm.merge { damage_instance { ai_base_score 0 } }
-Sandstorm2.merge { damage_instance { ai_base_score 0 } }
-FollowUpDash.merge { damage_instance { ai_base_score 0 } }
-FollowUpDash2.merge { damage_instance { ai_base_score 0 } }
+// --- 5. ATTAQUES LEGERES (Seuil : 3 et 1 Degats) ---
+Chew.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
+Chew2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
+Lunge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
+Lunge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
+Nudge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
+Nudge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
+
+
+// --- 6. DEGATS DE ZONE ET ONDES DE CHOC (Consider AoE + Anti-Ally + Anti-Freeze) ---
+AssBlast.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+AssBlast2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Earthquake.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Petrify FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } } 
+Earthquake2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Petrify FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } } 
+TankTantrum.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+TankTantrum2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Clap.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Clap2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+FaultLine.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+FaultLine2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Fissure.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Petrify FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } } 
+Fissure2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Petrify FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } } 
+Sandstorm.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Sandstorm2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Aftershock.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Aftershock2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+TankTrample.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+TankTrample2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } } 
+BellyFlop.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+BellyFlop2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+BellyFlop_BasicMove.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+FlipFlop.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+FlipFlop2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+ToadJump_BasicMove.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+BarbedWire.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Thorns FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } } 
+BarbedWire2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Thorns FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } } 
+
+
+// --- 7. PROVOCATIONS ET DEBUFFS (Anti-doublon et Anti-Freeze, Requires Enemy) ---
+Taunt.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Taunt2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Intimidate.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Fear FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+Intimidate2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Fear FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+DrawAttention.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+DrawAttention2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+StoneGaze.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+StoneGaze2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+Medusa.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+Medusa2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } 
+
+TankRockSong.merge { damage_instance { ai_base_score 0  } }
+TankRockSong2.merge { damage_instance { ai_base_score 0  } }
+
+
+// --- 8. BUFFS ET ARMURE (Exigent un ennemi a proximite) ---
+ChewCud.merge { damage_instance { ai_base_score 0  } }
+ChewCud2.merge { damage_instance { ai_base_score 0  } }
+EatRock.merge { damage_instance { ai_base_score 0  } }
+EatRock2.merge { damage_instance { ai_base_score 0  } }
+PlantFeet.merge { damage_instance { ai_base_score 0  } }
+PlantFeet2.merge { damage_instance { ai_base_score 0  } }
+Anchor.merge { damage_instance { ai_base_score 0  } }
+Anchor2.merge { damage_instance { ai_base_score 0  } }
+BodyGuard.merge { damage_instance { ai_base_score 0  } }
+BodyGuard2.merge { damage_instance { ai_base_score 0  } }
+Supper.merge { damage_instance { ai_base_score 0  } }
+Supper2.merge { damage_instance { ai_base_score 0  } }
+
+// Buffs avec verification du statut pour l'economie d'actions
+SteelSkin.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -999999 } } } } }
+SteelSkin2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -999999 } } } } }
+Thicken.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -999999 } } } } }
+Thicken2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -999999 } } } } }
+
+
+// --- 9. MOBILITE ET POSITIONNEMENT (Scores a 0) ---
+TankSwap.merge { damage_instance { ai_base_score 0 } }
+TankSwap2.merge { damage_instance { ai_base_score 0 } }
 ToTheRescue.merge { damage_instance { ai_base_score 0 } }
 ToTheRescue2.merge { damage_instance { ai_base_score 0 } }
+BodyGuardSwap.merge { damage_instance { ai_base_score 0 } }
+BodyGuardSwap2.merge { damage_instance { ai_base_score 0 } }
+SwapPositions_WideLoad.merge { damage_instance { ai_base_score 0 } }
+SwapPositions_WideLoad2.merge { damage_instance { ai_base_score 0 } }
+FollowUpDash.merge { damage_instance { ai_base_score 0 } }
+FollowUpDash2.merge { damage_instance { ai_base_score 0 } }
+CatapultJump.merge { damage_instance { ai_base_score 0 } }
+CatapultJump2.merge { damage_instance { ai_base_score 0 } }
+
+
+// --- 10. BLACKLIST ABSOLUE (Ne JAMAIS lancer d'allies ! Danger mortel) ---
+Toss.merge { damage_instance { ai_base_score -99999 } }
+Toss2.merge { damage_instance { ai_base_score -99999 } }
+BonusToss.merge { damage_instance { ai_base_score -99999 } }
+BonusToss2.merge { damage_instance { ai_base_score -99999 } }
+NubbyToss.merge { damage_instance { ai_base_score -99999 } }
+Spur.merge { damage_instance { ai_base_score -99999 } }
+Spur2.merge { damage_instance { ai_base_score -99999 } }

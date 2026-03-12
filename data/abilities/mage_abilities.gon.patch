@@ -1,274 +1,142 @@
 // =====================================================================
-// PATCH OPTIMISÉ DE L'IA DU MAGE - ARTILLERIE LOURDE ET CONTRÔLE
+// SMART_AUTOBATTLE : MAGE_ABILITIES.GON.PATCH (REVISION ULTIME)
 // =====================================================================
 
-// --- 1. INTERDICTION DES FRAPPES DE MÊLÉE ET SUICIDES LÉTALS ---
-// La règle "kill_enemy 100" dans les decisions suffit. On met juste le score de base à 0 ou on interdit les pires.
+// --- 1. EXECUTIONS MAJEURES (Seuil : 25 Degats) ---
+MegaBlast.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
+MegaBlast2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
 
-Shatter.merge {
-    damage_instance {
-        ai_base_score 0
-    }
-}
-Shatter2.merge {
-    damage_instance {
-        ai_base_score 0
-    }
-}
+// --- 2. EXECUTIONS LOURDES (Seuil : 15 Degats) ---
+HyperBeam.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+HyperBeam2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+TriAttack.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+TriAttack2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
 
-// Telefrag téléporte sur la cible. Interdiction stricte.
-Telefrag.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
-Telefrag2.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
+// --- 3. EXECUTIONS MOYENNES (Seuil : 10 Degats) ---
+Blast.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+Blast2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+MagicMissile.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+MagicMissile2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+
+// EXCEPTION : Shatter brise la glace. On NE MET PAS le filtre Anti-Freeze !
+Shatter.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Shatter FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+Shatter2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Shatter FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -9999999 } } } } } } }
 
 
-// --- 2. CONTRÔLE DE FOULE (CROWD CONTROL) & ANTI-SPAM ---
-// L'IA privilégie ces sorts pour bloquer les ennemis, mais ne les lance pas si l'ennemi a déjà le débuff.
+// --- 4. ATTAQUES STANDARDS (Filtres Explosifs sur le Feu) ---
+// On interdit au mage de lancer des boules de feu sur des barils/bombes explosifs.
+Fireball.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 Else { Conditional_HasTag { tag explosive FlatAIBonus -999999 } } } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Fireball2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 Else { Conditional_HasTag { tag explosive FlatAIBonus -999999 } } } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+FireBolt.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 Else { Conditional_HasTag { tag explosive FlatAIBonus -999999 } } } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+FireBolt2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 Else { Conditional_HasTag { tag explosive FlatAIBonus -999999 } } } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Smolder.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 Else { Conditional_HasTag { tag explosive FlatAIBonus -999999 } } } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasStatus { status SpeedUp FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Smolder2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 Else { Conditional_HasTag { tag explosive FlatAIBonus -999999 } } } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasStatus { status SpeedUp FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 
-FreezeRay.merge {
-    damage_instance {
-        ai_base_score 75
-        custom_additional_ai_weight avoid_redundant_debuffs
-    }
-}
-FreezeRay2.merge {
-    damage_instance {
-        ai_base_score 75
-        custom_additional_ai_weight avoid_redundant_debuffs
-    }
-}
-
-Slow.merge {
-    damage_instance {
-        ai_base_score 70
-        custom_additional_ai_weight avoid_redundant_debuffs
-    }
-}
-Slow2.merge {
-    damage_instance {
-        ai_base_score 70
-        custom_additional_ai_weight avoid_redundant_debuffs
-    }
-}
-
-Blizzard.merge {
-    damage_instance {
-        ai_base_score 65
-    }
-}
-Blizzard2.merge {
-    damage_instance {
-        ai_base_score 65
-    }
-}
-
-Thunderburst.merge {
-    damage_instance {
-        ai_base_score 65
-    }
-}
-Thunderburst2.merge {
-    damage_instance {
-        ai_base_score 65
-    }
-}
-
-Bolt.merge {
-    damage_instance {
-        ai_base_score 60
-    }
-}
-Bolt2.merge {
-    damage_instance {
-        ai_base_score 60
-    }
-}
-
-IcicleTaser.merge {
-    damage_instance {
-        ai_base_score 60
-    }
-}
-IcicleTaser2.merge {
-    damage_instance {
-        ai_base_score 60
-    }
-}
-
-Jolt.merge {
-    damage_instance {
-        ai_base_score 50
-    }
-}
-Jolt2.merge {
-    damage_instance {
-        ai_base_score 50
-    }
-}
+// Autres attaques standards
+Bolt.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Bolt2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+FreezeRay.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+FreezeRay2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+WindSlash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+WindSlash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+IcicleTaser.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+IcicleTaser2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Jolt.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Jolt2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 
 
-// --- 3. DÉFENSE (BOUCLIERS) ET ANTI-SPAM ---
-// Le Mage se protège s'il n'a pas déjà de bouclier.
+// --- 5. ATTAQUES DE ZONE (Consider AoE + Anti-Ally + Anti-Freeze) ---
+Surf.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+Surf2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+WallOfFire.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+WallOfFire2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+MeteorStorm.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } } } } }
+MeteorStorm2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } } } } }
+Gust.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+Gust2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+Blizzard.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } } } } }
+Blizzard2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } } } } }
+Inferno.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+Inferno2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+Thunderburst.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } } } } }
+Thunderburst2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } } } } }
+WaterSphere.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Confusion FlatAIBonus -999999 } } } } }
+WaterSphere2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Confusion FlatAIBonus -999999 } } } } }
+ChainLightning.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+ChainLightning2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+FreezerBurn.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } } } } }
+FreezerBurn2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } } } } }
+FireSurge.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+FireSurge2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+IceSurge.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } Conditional_HasStatus { status Immobile FlatAIBonus -999999 } } } } }
+IceSurge2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 } Conditional_HasStatus { status Immobile FlatAIBonus -999999 } } } } }
+LightningSurge.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } } } } }
+LightningSurge2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } } } } }
+Creshendo.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+Creshendo2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+HomingBlasts.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+HomingBlasts2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+HomingBlasts_sub.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+HomingBlasts2_sub.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
-IceArmor.merge {
-    damage_instance {
-        ai_base_score 40
-        custom_additional_ai_weight favor_if_unshielded
-    }
-}
-IceArmor2.merge {
-    damage_instance {
-        ai_base_score 40
-        custom_additional_ai_weight favor_if_unshielded
-    }
-}
 
-FireArmor.merge {
-    damage_instance {
-        ai_base_score 40
-        custom_additional_ai_weight favor_if_unshielded
-    }
-}
-FireArmor2.merge {
-    damage_instance {
-        ai_base_score 40
-        custom_additional_ai_weight favor_if_unshielded
-    }
-}
+// --- 6. DEBUFFS SPECIFIQUES (Check strict des doublons imbriques) ---
+// Verification exacte du statut applique, SINON verification du Freeze.
+Slow.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+Slow2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Slow FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+Corrupt.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Corrupted FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+Corrupt2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Corrupted FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
 
 
-// --- 4. DÉSACTIVATION DES SORTS SUICIDAIRES ET MAGIE NOIRE ---
-// Ces sorts réduisent la vie du mage à 1, appliquent des blessures, ou touchent les alliés.
+// --- 7. BUFFS ET SOUTIEN (Economie de mana, requiere des ennemis, Check Doublon) ---
+Enlarge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Enlarge FlatAIBonus -999999 } } } } }
+Enlarge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Enlarge FlatAIBonus -999999 } } } } }
+Absorb.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Absorb FlatAIBonus -999999 } } } } }
+Absorb2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Absorb FlatAIBonus -999999 } } } } }
+IceArmor.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status IceArmor FlatAIBonus -999999 } } } } }
+IceArmor2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status IceArmor FlatAIBonus -999999 } } } } }
+FireArmor.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status FireArmor FlatAIBonus -999999 } } } } }
+FireArmor2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status FireArmor FlatAIBonus -999999 } } } } }
+ManaMeld.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status ManaMeld FlatAIBonus -999999 } } } } }
+ManaMeld2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status ManaMeld FlatAIBonus -999999 } } } } }
+Inspire.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Inspire FlatAIBonus -999999 } } } } }
+Inspire2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Inspire FlatAIBonus -999999 } } } } }
 
-BlackMagic.merge { damage_instance { ai_base_score -99999 } }
-BlackMagic2.merge { damage_instance { ai_base_score -99999 } }
+Teach.merge { damage_instance { ai_base_score 0  } }
+Teach2.merge { damage_instance { ai_base_score 0  } }
+Replicate.merge { damage_instance { ai_base_score 0  } }
+Replicate2.merge { damage_instance { ai_base_score 0  } }
+Magnify.merge { damage_instance { ai_base_score 0  } }
+Magnify2.merge { damage_instance { ai_base_score 0  } }
+Divide.merge { damage_instance { ai_base_score 0  } }
+Divide2.merge { damage_instance { ai_base_score 0  } }
+CryoHeal.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+CryoHeal2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
+
+// --- 8. MOBILITE ET PLACEMENT (Scores naturels a 0) ---
+Warp.merge { damage_instance { ai_base_score 0 } }
+Warp2.merge { damage_instance { ai_base_score 0 } }
+MageTeleport.merge { damage_instance { ai_base_score 0 } }
+MageTeleport2.merge { damage_instance { ai_base_score 0 } }
+MageSwap.merge { damage_instance { ai_base_score 0 } }
+MageSwap2.merge { damage_instance { ai_base_score 0 } }
+
+
+// --- 9. BLACKLIST ABSOLUE (Magies Interdites, Suicides, Echanges destructeurs) ---
+Telefrag.merge { damage_instance { ai_base_score -99999 } }
+Telefrag2.merge { damage_instance { ai_base_score -99999 } }
+ChaosTeleport.merge { damage_instance { ai_base_score -99999 } }
+ChaosTeleport2.merge { damage_instance { ai_base_score -99999 } }
 DealWithTheDevil.merge { damage_instance { ai_base_score -99999 } }
 DealWithTheDevil2.merge { damage_instance { ai_base_score -99999 } }
-
-Corrupt.merge { damage_instance { ai_base_score -99999 } }
-Corrupt2.merge { damage_instance { ai_base_score -99999 } }
-
-Divide.merge { damage_instance { ai_base_score -99999 } }
-Divide2.merge { damage_instance { ai_base_score -99999 } }
-
-ChainLightning.merge { damage_instance { ai_base_score -99999 } }
-ChainLightning2.merge { damage_instance { ai_base_score 0 } } // Sûr (enemies only)
-
-ForbiddenFrost.merge { damage_instance { ai_base_score -99999 } }
-ForbiddenFrost2.merge { damage_instance { ai_base_score -50 } }
-
 ForbiddenFlame.merge { damage_instance { ai_base_score -99999 } }
 ForbiddenFlame2.merge { damage_instance { ai_base_score -99999 } }
-
 ForbiddenFlood.merge { damage_instance { ai_base_score -99999 } }
 ForbiddenFlood2.merge { damage_instance { ai_base_score -99999 } }
-
-
-// --- 5. SORTS DE DÉGÂTS STANDARDS (ARTILLERIE LOURDE) ---
-// L'IA dépensera activement son mana pour infliger des dégâts massifs à distance.
-
-MagicMissile.merge { damage_instance { ai_base_score 20 } }
-MagicMissile2.merge { damage_instance { ai_base_score 25 } }
-Blast.merge { damage_instance { ai_base_score 20 } }
-Blast2.merge { damage_instance { ai_base_score 25 } }
-Surf.merge { damage_instance { ai_base_score 20 } }
-Surf2.merge { damage_instance { ai_base_score 25 } }
-FireBolt.merge { damage_instance { ai_base_score 20 } }
-FireBolt2.merge { damage_instance { ai_base_score 25 } }
-Gust.merge { damage_instance { ai_base_score 20 } }
-Gust2.merge { damage_instance { ai_base_score 25 } }
-
-Fireball.merge { damage_instance { ai_base_score 30 } }
-Fireball2.merge { damage_instance { ai_base_score 35 } }
-WallOfFire.merge { damage_instance { ai_base_score 30 } }
-WallOfFire2.merge { damage_instance { ai_base_score 35 } }
-WindSlash.merge { damage_instance { ai_base_score 30 } }
-WindSlash2.merge { damage_instance { ai_base_score 35 } }
-
-// Smolder et Freezerburn ont un système anti-spam de debuff combiné avec de l'attaque.
-FreezerBurn.merge {
-    damage_instance {
-        ai_base_score 30
-        custom_additional_ai_weight avoid_redundant_debuffs
-    }
-}
-FreezerBurn2.merge {
-    damage_instance {
-        ai_base_score 35
-        custom_additional_ai_weight avoid_redundant_debuffs
-    }
-}
-Smolder.merge {
-    damage_instance {
-        ai_base_score 30
-        custom_additional_ai_weight avoid_redundant_debuffs
-    }
-}
-Smolder2.merge {
-    damage_instance {
-        ai_base_score 35
-        custom_additional_ai_weight avoid_redundant_debuffs
-    }
-}
-
-FireSurge.merge { damage_instance { ai_base_score 30 } }
-FireSurge2.merge { damage_instance { ai_base_score 35 } }
-IceSurge.merge { damage_instance { ai_base_score 30 } }
-IceSurge2.merge { damage_instance { ai_base_score 35 } }
-LightningSurge.merge { damage_instance { ai_base_score 30 } }
-LightningSurge2.merge { damage_instance { ai_base_score 35 } }
-Creshendo.merge { damage_instance { ai_base_score 30 } }
-Creshendo2.merge { damage_instance { ai_base_score 35 } }
-HomingBlasts.merge { damage_instance { ai_base_score 30 } }
-HomingBlasts2.merge { damage_instance { ai_base_score 35 } }
-
-Inferno.merge { damage_instance { ai_base_score 40 } }
-Inferno2.merge { damage_instance { ai_base_score 50 } }
-MegaBlast.merge { damage_instance { ai_base_score 40 } }
-MegaBlast2.merge { damage_instance { ai_base_score 50 } }
-MeteorStorm.merge { damage_instance { ai_base_score 45 } }
-MeteorStorm2.merge { damage_instance { ai_base_score 55 } }
-HyperBeam.merge { damage_instance { ai_base_score 50 } }
-HyperBeam2.merge { damage_instance { ai_base_score 60 } }
-
-
-// --- 6. UTILITAIRES ET SOUTIEN ---
-Absorb.merge {
-    damage_instance {
-        custom_additional_ai_weight must_heal_most_missing_health
-    }
-}
-Absorb2.merge {
-    damage_instance {
-        custom_additional_ai_weight must_heal_most_missing_health
-    }
-}
-
-Inspire.merge { damage_instance { ai_base_score 0 } }
-Inspire2.merge { damage_instance { ai_base_score 0 } }
-ManaMeld.merge { damage_instance { ai_base_score -5 } }
-ManaMeld2.merge { damage_instance { ai_base_score -5 } }
-Magnify.merge { damage_instance { ai_base_score 0 } }
-Magnify2.merge { damage_instance { ai_base_score 0 } }
-Teach.merge { damage_instance { ai_base_score 0 } }
-Teach2.merge { damage_instance { ai_base_score 0 } }
-Enlarge.merge { damage_instance { ai_base_score 15 } }
-Enlarge2.merge { damage_instance { ai_base_score 15 } }
-CryoHeal.merge { damage_instance { ai_base_score 15 } }
-CryoHeal2.merge { damage_instance { ai_base_score 15 } }
-
-// Les téléportations de mobilité (gérées organiquement par le moteur spatial)
-MageTeleport.merge {}
-MageTeleport2.merge {}
-Warp.merge {}
-Warp2.merge {}
-MageSwap.merge {}
-MageSwap2.merge {}
+ForbiddenFulmination.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } } } } }
+ForbiddenFulmination2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } } } } }
+ForbiddenFrost.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+ForbiddenFrost2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BlackMagic.merge { damage_instance { ai_base_score -99999 } }
+BlackMagic2.merge { damage_instance { ai_base_score -99999 } }
