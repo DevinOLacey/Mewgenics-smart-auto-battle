@@ -1,11 +1,11 @@
-HealingAura.merge {
+Micronaps.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -14,21 +14,21 @@ HealingAura.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-NaturalHealer.merge {
+HolyMantel.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -37,21 +37,21 @@ NaturalHealer.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-Eternal.merge {
+Shrapnel.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -60,21 +60,21 @@ Eternal.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-Blessed.merge {
+BurningPaws.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -83,21 +83,21 @@ Blessed.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-EvilPatron.merge {
+LightningPaws.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -106,21 +106,21 @@ EvilPatron.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-AngelicInspiration.merge {
+IcePaws.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -129,21 +129,21 @@ AngelicInspiration.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-TopOff.merge {
+PawMissile.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -152,21 +152,21 @@ TopOff.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-SharingIsCaring.merge {
+Overload.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -175,21 +175,21 @@ SharingIsCaring.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-Caretaker.merge {
+ChargeUp.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -198,21 +198,21 @@ Caretaker.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-MoraleBoost.merge {
+Recharged.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -221,21 +221,21 @@ MoraleBoost.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-RangedMedic.merge {
+EnergyStorm.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -244,21 +244,21 @@ RangedMedic.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-Godspeed.merge {
+FireArmor.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -267,21 +267,21 @@ Godspeed.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-GodWarrior.merge {
+IceArmor.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -290,21 +290,21 @@ GodWarrior.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-BreathOfLife.merge {
+Resonance.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -313,21 +313,21 @@ BreathOfLife.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-ThouShaltNotKill.merge {
+LearnFromMe.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -336,21 +336,21 @@ ThouShaltNotKill.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-ThouShaltNotCovet.merge {
+LightningArmor.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -359,21 +359,21 @@ ThouShaltNotCovet.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-BlessingOfHolyFire.merge {
+LongCast.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -382,21 +382,21 @@ BlessingOfHolyFire.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-AlmsForThePoor.merge {
+LightUpTheStage.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -405,21 +405,21 @@ AlmsForThePoor.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-Purifier.merge {
+ElementalAttunement.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -428,21 +428,21 @@ Purifier.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-VeneratedTouch.merge {
+LatentEnergy.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -451,21 +451,21 @@ VeneratedTouch.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-ProtectTheWeak.merge {
+Five.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -474,21 +474,21 @@ ProtectTheWeak.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-ThouShaltObey.merge {
+MagicGuru.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -497,21 +497,21 @@ ThouShaltObey.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-EnchantedRelic.merge {
+One.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -520,21 +520,21 @@ EnchantedRelic.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-BlessingOfSpirit.merge {
+Two.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -543,21 +543,21 @@ BlessingOfSpirit.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
 }
 
-Heathens.merge {
+Four.merge {
     1 {
         passives.append {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }
@@ -566,8 +566,8 @@ Heathens.merge {
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
-                decision_weights smart_cleric
-                move_weights smart_cleric_move
+                decision_weights smart_mage
+                move_weights smart_mage_move
             }
         }
     }

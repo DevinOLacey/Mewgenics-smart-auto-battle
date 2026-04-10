@@ -1,1 +1,574 @@
-// Disabled while testing the original class innate_passives hook.
+BloodLust.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+Avenger.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+Scars.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+FasterWhenHit.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+KillsHeal.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+Vengeful.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+HamsterStyle.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+WeaponMaster.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+ShoulderCheck.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+SkullSmash.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+TurtleStyle.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+Overpowered.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+FightMe.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+HighAsYouCanCount.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+DumbMuscle.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+ThickSkull.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+MostValuableCat.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+RatStyle.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+Boned.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+DualWield.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+ReflexPunch.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+HitMe.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+Smash.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+PunchFace.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
+
+Recoil.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_fighter
+                move_weights smart_fighter_move
+            }
+        }
+    }
+}
