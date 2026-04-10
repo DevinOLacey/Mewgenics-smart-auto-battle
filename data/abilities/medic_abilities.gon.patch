@@ -1,32 +1,22 @@
 // =====================================================================
-// SMART_AUTOBATTLE : MEDIC_ABILITIES.GON.PATCH (FINAL REVISION V2)
+// SMART_AUTOBATTLE : MEDIC_ABILITIES.GON.PATCH (REVISION ULTIME V2)
 // =====================================================================
-// Wiki-backed effect notes added from https://mewgenics.wiki.gg/wiki/Cleric and
-// individual ability pages where needed. Keep these short and descriptive.
 
-// --- 1. REVIVES AND HEALING (Score 0: handled by the natural AI preset) ---
-// Healing Fall: Jump to an open tile, then heal each adjacent unit; upgrade costs less.
-// Healing Salve: You or an adjacent unit gains +1 Health Regen; upgrade gives +2.
-// Existing regen only applies a small penalty so stackable sustain is still considered.
-// Revive: Revive a body to 50% HP and cure one injury.
-// Born Again: Revive a body to 100% HP and give it All Stats Up; base also puts you to sleep.
-// Guardian Angel: Make a unit The Alpha; The Alpha gets +50% Dodge Chance. Upgrade gains infinite range and costs less.
-// Reverse Damage: Reverse the last damage an adjacent unit took; upgrade works at range.
-// Cleanse: Remove all debuffs from units in an area; upgrade grants Holy Shield per debuff removed.
+// --- 1. REANIMATIONS ET SOINS (Score 0 : geres par le preset IA naturel) ---
 RangedHeal.merge { damage_instance { ai_base_score 0 } }
 RangedHeal2.merge { damage_instance { ai_base_score 0 } }
 MeleeHeal.merge { damage_instance { ai_base_score 0 } }
 MeleeHeal2.merge { damage_instance { ai_base_score 0 } }
 HealingFall.merge { damage_instance { ai_base_score 0 } }
 HealingFall2.merge { damage_instance { ai_base_score 0 } }
-HealingSalve.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status HealthRegenUp FlatAIBonus -12 } } } } }
-HealingSalve2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status HealthRegenUp FlatAIBonus -12 } } } } }
-Revive.merge { damage_instance { ai_base_score 25 } }
-Revive2.merge { damage_instance { ai_base_score 25 } }
-BornAgain.merge { damage_instance { ai_base_score 20 effects { Conditional_Speculative { Conditional_HasStatus { status AllStatsUp FlatAIBonus -999999 } } } } }
-BornAgain2.merge { damage_instance { ai_base_score 20 effects { Conditional_Speculative { Conditional_HasStatus { status AllStatsUp FlatAIBonus -999999 } } } } }
-Emergency.merge { damage_instance { ai_base_score 20 } }
-Emergency2.merge { damage_instance { ai_base_score 20 } }
+HealingSalve.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status HealthRegenUp FlatAIBonus -999999 } } } } }
+HealingSalve2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status HealthRegenUp FlatAIBonus -999999 } } } } }
+Revive.merge { damage_instance { ai_base_score 0 } }
+Revive2.merge { damage_instance { ai_base_score 0 } }
+BornAgain.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status AllStatsUp FlatAIBonus -999999 } } } } }
+BornAgain2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status AllStatsUp FlatAIBonus -999999 } } } } }
+Emergency.merge { damage_instance { ai_base_score 0 } }
+Emergency2.merge { damage_instance { ai_base_score 0 } }
 GuardianAngel.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status AlphaCat FlatAIBonus -999999 } } } } }
 GuardianAngel2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status AlphaCat FlatAIBonus -999999 } } } } }
 ReverseDamage.merge { damage_instance { ai_base_score 0 } }
@@ -35,39 +25,16 @@ Cleanse.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculat
 Cleanse2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Weakness FlatAIBonus -999999 Else { Conditional_HasStatus { status Poison FlatAIBonus -999999 Else { Conditional_HasStatus { status Blind FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 Else { Conditional_HasStatus { status Charmed FlatAIBonus -999999 Else { Conditional_HasStatus { status HereticMark FlatAIBonus -999999 Else { Conditional_HasStatus { status Bleed FlatAIBonus -999999 } } } } } } } } } } } } } } } } }
 
 
-// --- 2. SPECIFIC BUFFS (Enemy check + duplicate check) ---
-// Haste: Give +10 Speed until end of next turn; upgrade affects units in an area.
-// Existing speed only applies a small penalty so haste can still be refreshed when useful.
-// Divine Protection: Give a unit +1 Holy Shield and +1 Kinetic Spikes. That unit becomes The Alpha.
-// Existing Shield only applies a small penalty so clerics can still stack protection when needed.
-// Circle of Protection: Give nearby units +1 Holy Shield; upgrade also gives +1 Health Regen.
-Haste.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Haste FlatAIBonus -8 } } } } }
-Haste2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Haste FlatAIBonus -8 } } } } }
-DivineProtection.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -8 } } } } }
-DivineProtection2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -8 } } } } }
-CircleOfProtection.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -8 } } } } }
-CircleOfProtection2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -8 } } } } }
+// --- 2. BUFFS SPECIFIQUES (Check d'ennemi + Check de doublon) ---
+Haste.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Haste FlatAIBonus -999999 } } } } }
+Haste2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Haste FlatAIBonus -999999 } } } } }
+DivineProtection.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -999999 } } } } }
+DivineProtection2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -999999 } } } } }
+CircleOfProtection.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -999999 } } } } }
+CircleOfProtection2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Shield FlatAIBonus -999999 } } } } }
 
 
-// --- 3. GENERAL TEAM BUFFS (Enemy check only to save mana) ---
-// Prayer: Heal units in an area; upgrade uses a larger area and infinite range.
-// Buddy Up: Jump to an open tile next to an ally; upgrade costs less.
-// Ethereal: Gain 4 Holy Shield, 3 Shield, heal 2 HP, and Brace 1.
-// Benediction: Heal EVERYTHING for 2 HP; upgrade costs less.
-// Crusade: You and your allies move toward the nearest enemy; upgrade also gives +1 Strength.
-// Rally: Force a unit to attack one of its enemies; upgrade affects an area.
-// Anoint: Give +2 diminishing Health Regen and random stat ups; upgrade increases targets/stats.
-// Chosen Warrior: Buff a unit's Damage and mark it The Alpha; upgrade also grants Magic Damage and costs less.
-// SwiftSanctify / Swift Servant: Give a unit +1 Bonus Move and make it The Alpha; upgraded version gains infinite range, costs less, and also gives you +1 Bonus Move when targeting the Alpha.
-// Divine Gift: Gain All Stats Up; mana cost is reduced by HP healed this turn. Upgrade also gives +1 Holy Shield.
-// Holy Weapon: Free once-per-turn dash attack whose range/damage/knockback scale with HP you healed this turn; upgrade doubles the scaling.
-// Adoubement: Heal and cleanse a unit, then make it The Alpha with random stat ups; upgrade can also revive and grants more stats.
-// Awaken: Revive a body to 1 HP; upgrade also gives Holy Shield and All Stats Up.
-// Pray: Give another unit +5 Luck until the end of its next turn; upgrade swings Luck in an area for allies and enemies.
-// Booster: Heal a unit; excess healing becomes random stat ups. Upgrade adds range.
-// Stimulants: You and adjacent units gain +2 Speed; upgrade also gives +1 Intelligence.
-// Existing speed/intel only applies a small penalty so the AI does not over-fixate on rebuffing.
-// Grace: Apply a random positive effect; upgrade also heals and grants a random stat up.
+// --- 3. BUFFS GENERAUX D'EQUIPE (Check d'ennemi uniquement pour economiser le mana) ---
 Prayer.merge { damage_instance { ai_base_score 0  } }
 Prayer2.merge { damage_instance { ai_base_score 0  } }
 Baptism.merge { damage_instance { ai_base_score 0  } }
@@ -108,11 +75,7 @@ Grace.merge { damage_instance { ai_base_score 0  } }
 Grace2.merge { damage_instance { ai_base_score 0  } }
 
 
-// --- 4. MAGICAL AREA ATTACKS (Consider AoE + Anti-Ally + Anti-Freeze) ---
-// Wrath of God: Holy damage + Blind in a large area; upgrade hits all enemies and both versions vaporize kills.
-// Holy Light: Heal allies and damage enemies in an area; outer tiles have half effect. Upgrade costs less.
-// Blinding Light / Blinding Lights: Inflict Blind in an area; upgrade increases Blind and area.
-// Hallowed Ground: Spawn a blessing pickup on an empty tile; upgrade can use any empty tile.
+// --- 4. ATTAQUES DE ZONE MAGIQUES (Consider AoE + Anti-Ally + Anti-Freeze) ---
 WrathOfGod.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 WrathOfGod2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 HolyLight.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
@@ -123,13 +86,9 @@ HallowedGround.merge { damage_instance { ai_base_score 0 custom_additional_ai_we
 HallowedGround2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
 
-// --- 5. STRICT DEBUFFS (Nested anti-duplicate WITH Anti-Freeze + Anti-Ally) ---
-// Open Wounds: Attack that deals more damage the lower the target's health percent; upgrade scales harder.
-// Convert: Inflict Charm 2 on an adjacent unit; upgrade can permanently recruit low-health non-boss enemies.
-// Turn Foe: Force a nearby unit to move away; upgrade also inflicts Madness 1 and Confusion 1 on enemies.
-// Heretic Mark: Inflict Ostracized 2; upgrade increases it to Ostracized 4.
-OpenWounds.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 8 Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-OpenWounds2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 8 Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+// --- 5. DEBUFFS STRICTS (Anti-Doublon imbrique AVEC Anti-Freeze + Anti-Ally) ---
+OpenWounds.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Bleed FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+OpenWounds2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Bleed FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 
 Convert.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 Convert2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
@@ -141,22 +100,15 @@ HereticMark.merge { damage_instance { ai_base_score 0 effects { Conditional_Spec
 HereticMark2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status HereticMark FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 
 
-// --- 6. DIRECT ATTACKS AND OTHER DEBUFFS (Anti-Ally, Anti-Freeze) ---
-// Malaise: Inflict Weakness in an area; upgrade also inflicts Poison.
-// Purge: Remove all buffs from a unit; upgrade deals 3 damage per unique status removed. Wiki marks this cleric version as currently unused/cut.
-// Zealot: Gain +1 Holy Shield; upgrade costs less.
-// Rebuke: Deal damage equal to the target's last damage dealt; upgrade doubles it.
-// Witch Hunt: Mark a unit so its killer gains All Stats Up; upgrade also turns the target into meat and costs less.
-// Eye For An Eye: Melee attack that inflicts Blind 5 and Bleed 1; upgrade also adds Madness 1.
-// Heathens: Cleric passive effect starts battle by inflicting Weakness; upgrade adds Magic Weakness.
+// --- 6. ATTAQUES DIRECTES ET AUTRES DEBUFFS (Anti-Ally, Anti-Freeze) ---
 Malaise.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Weakness FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 Malaise2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Weakness FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 Purge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 Purge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-Zealot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status DivineShield FlatAIBonus -999999 } } } } }
-Zealot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status DivineShield FlatAIBonus -999999 } } } } }
-RallyCharge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status RandomStatUp FlatAIBonus -6 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-RallyCharge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status RandomStatUp FlatAIBonus -6 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Zealot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status DivineShield FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Zealot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status DivineShield FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+RallyCharge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status RandomStatUp FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+RallyCharge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status RandomStatUp FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 Rebuke.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 Rebuke2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 WitchHunt.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
@@ -167,7 +119,7 @@ Heathens.merge { damage_instance { ai_base_score 0 effects { Conditional_Specula
 Heathens2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Weakness FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 
 
-// --- 7. BLACKLIST (Chaotic, random, or positioning-dangerous spells) ---
+// --- 7. BLACKLIST (Sorts chaotiques, aleatoires ou dangereux pour le placement) ---
 FriendOrFoe.merge { damage_instance { ai_base_score -99999 } }
 FriendOrFoe2.merge { damage_instance { ai_base_score -99999 } }
 Wish.merge { damage_instance { ai_base_score -99999 } }
@@ -178,6 +130,3 @@ MedicObey.merge { damage_instance { ai_base_score -99999 } }
 MedicObey2.merge { damage_instance { ai_base_score -99999 } }
 CallOver.merge { damage_instance { ai_base_score -99999 } }
 CallOver2.merge { damage_instance { ai_base_score -99999 } }
-
-
-

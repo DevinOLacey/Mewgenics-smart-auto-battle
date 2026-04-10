@@ -1,79 +1,52 @@
 Crow.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }
 }
 
 BabySquirrel.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }
 }
 
 Squirrel.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }
 }
 
 Snake.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }
 }
 
 Turtle.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }
 }
 
 Toad.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }
 }
 
 Bear.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }
 }
 
 Catepillar.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }
 }
 
 Moth.merge {
-    passives {
-        Uncontrollable 1
-    }
     ai {
         brain GenericBrain
     }

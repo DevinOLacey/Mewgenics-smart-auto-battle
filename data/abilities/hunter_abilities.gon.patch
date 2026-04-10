@@ -1,162 +1,111 @@
 // =====================================================================
-// SMART_AUTOBATTLE : HUNTER_ABILITIES.GON.PATCH (FINAL REVISION V2)
+// SMART_AUTOBATTLE : HUNTER_ABILITIES.GON.PATCH (REVISION ULTIME V2)
 // =====================================================================
-// Wiki data note:
-// Comments below summarize mana cost, base/upgraded damage or power when available, and the wiki description.
-// Upgraded variants are handled in data as separate ability ids with the `2` suffix.
 
-// --- 1. PRECISION SHOTS AND MAJOR EXECUTIONS (Threshold: 25 Damage) ---
-// Snipe: 6 mana, 5/8 power. Exact 6-tile shot that ignores shield and cannot miss; upgrade adds more damage and 50% crit.
-// Heavy Shot: 4 mana, 10/10 power. High-damage ranged shot with 70% miss chance; upgrade adds 50% crit and more range.
-Snipe.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
-Snipe2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
-HeavyShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
-HeavyShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
+// --- 1. TIRS DE PRECISION ET EXECUTIONS MAJEURES (Seuil : 25 Degats) ---
+Snipe.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
+Snipe2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
+HeavyShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
+HeavyShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
 
-// --- 2. HEAVY EXECUTIONS (Threshold: 15 Damage) ---
-// Focus Shot: 7 mana, 4/4 power. Base marks a target and fires next turn; upgrade fires immediately, always crits, and ignores shield.
-// Last Hit: 3/2 mana, 1/1 damage. Refreshes your basic attack on kill; upgrade also ignores shield and cannot miss.
-// Harpoon: 5/3 mana, listed as 1/1 power. Movement skill that drags you in a straight line to the target.
-FocusShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
-FocusShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
-LastHit.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
-LastHit2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
-Harpoon.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
-Harpoon2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+// --- 2. EXECUTIONS LOURDES (Seuil : 15 Degats) ---
+FocusShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+FocusShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+LastHit.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+LastHit2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+Harpoon.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+Harpoon2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
 
-// --- 3. MEDIUM AND PIERCING EXECUTIONS (Threshold: 10 Damage) ---
-// Line Shot: 7 mana, 5/9 damage. Hits every tile in a straight line; the upgrade is stronger and can also hit the close blind-spot tiles.
-// Twin Shot: 9 mana, 4/4 damage. Fires twice; upgrade fires three times.
-// Cross Shot: 7 mana, 4/4 damage. Fires four projectiles in an X; upgrade makes them penetrating.
-// Arrow Flurry: 8 mana, 2x5 / 3x5 power. Five weak inaccurate shots; upgrade raises damage and gives each shot a 50% crit chance.
-LineShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-LineShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-TwinShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-TwinShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-CrossShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-CrossShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-ArrowFlurry.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-ArrowFlurry2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+// --- 3. EXECUTIONS MOYENNES ET PERFORANTES (Seuil : 10 Degats) ---
+LineShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+LineShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+TwinShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+TwinShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+CrossShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+CrossShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+ArrowFlurry.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+ArrowFlurry2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
 
-// --- 4. STANDARD ATTACKS (Threshold: 5 Damage) ---
-// Fire Shot: 7 mana, 2/2 power. Fire projectile that inflicts Burn 2; upgrade inflicts Burn 4 and gains infinite range.
-// Needle Shot: 2 mana, 1/1 power. Deals damage, grants Thorns, and ignores shield; upgrade gives bonus damage to enemies and extra Thorns to allies.
-// Flea Shot: 6 mana, 2/4 power. Fires a flea onto a target tile; upgrade uses a stronger champion flea.
-// Bounce Shot: 3 mana, direct damage not listed on the page. Bounces adjacent units back 3 tiles; upgrade adds 5 collision damage.
-// Vivisect: 4 mana, 5/5 damage. Attack that spawns a baited bear trap if it kills a unit or destroys a body; upgrade becomes lobbed.
-// Hail of Nails: 9 mana, 5/5 power. Hits a perpendicular line; upgrade also immobilizes.
-// Bramble Shot: 7 mana, damage not surfaced in the wiki snippet. Ranged shot that spawns brambles; upgrade affects a larger area.
-FireShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasTag { tag explosive FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 8 Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-FireShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasTag { tag explosive FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 8 Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-NeedleShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+// --- 4. ATTAQUES STANDARDS (Seuil : 5 Degats) ---
+FireShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasTag { tag explosive FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+FireShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_HasTag { tag explosive FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+NeedleShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
 NeedleShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Thorns FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-FleaShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-FleaShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-BounceShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-BounceShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-Vivisect.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-Vivisect2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-HailOfNails.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
+FleaShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+FleaShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+BounceShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+BounceShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Vivisect.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Vivisect2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+HailOfNails.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
 HailOfNails2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Immobile FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
 BrambleShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BrambleShot2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
-// --- 5. TARGETED DEBUFFS (Strict anti-duplicate check) ---
-// Makes sure the target does not ALREADY have the status before wasting mana.
-// Marked: 5 mana. Inflicts Marked; upgrade also marks every unit of the same type.
-// Cupid's Arrow: 12/8 mana, 6/6 damage. Damages and charms; upgrade applies Charm 2 and costs less.
-Marked.merge { damage_instance { ai_base_score 10 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Marked FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { FlatAIBonus 120 } } } } }
-Marked2.merge { damage_instance { ai_base_score 14 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Marked FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } Conditional_Boss { FlatAIBonus 120 } } } } }
+// --- 5. DEBUFFS CIBLES (Verification stricte d'anti-doublon) ---
+// On s'assure que la cible n'a pas DEJA le statut avant de gaspiller de la mana.
+Marked.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Marked FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+Marked2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Marked FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
 
 CupidsArrow.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
 CupidsArrow2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
 
 
-// --- 6. AREA ATTACKS AND GAS (Consider AoE + Ally Prohibition) ---
-// Bomb Shot: 7 mana, 5/5 power. Tosses an explosive projectile with knockback; upgrade uses a larger bomb.
-// Scatter Shot: 7 mana, 5/5 power. Fires many random arrows into an area; upgrade uses a larger area.
-// Shards: 3 mana, 1/2 power. Projectile that spawns glass; upgrade creates an area and inflicts Bleed 2.
-// Ball of Spiders: 9 mana, 2/6 power. Lobbed egg that spawns 3 spiderlings on impact; upgrade is stronger.
+// --- 6. ATTAQUES DE ZONE ET GAZ (Consider AoE + Interdiction Allies) ---
 BombShot.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BombShot2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 ScatterShot.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 ScatterShot2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 Shards.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
-Shards2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { FlatAIBonus 8 } } } } }
+Shards2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Bleed FlatAIBonus -999999 } } } } }
 BallOfSpiders.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BallOfSpiders2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
 
-// --- 7. TRAPS AND SUMMONS (High priority + nearby enemy check) ---
-// Traps stay useful, but are tuned below summons and burst shots because allied cats can path through them.
-// Bear Trap: 5 mana. Trap that damages and immobilizes; upgrade can be placed on any tile.
-// Bait Trap: 5 mana. Trap that attracts enemies; upgrade also inflicts Poison and Slow when eaten.
-// Spike Trap: 6 mana, 8/13 damage. Simple damage trap with higher upgraded damage.
-// Web Trap: 4 mana. Trap that inflicts Webbed on non-bug units; upgrade can be placed on any tile.
-// Charm Trap: 6/4 mana by wiki description. Trap that damages and inflicts Charm 1; upgrade costs less.
-// Spawn Maggot Friend: 3 mana. Summons a maggot familiar; upgrade summons a champion maggot.
-// Spawn Pooter Friend: 7 mana. Summons a pooter familiar; upgrade summons 2 pooters.
-// Call of the Wild / SpawnTomTomFriend: 9 mana. Summons a charmed Tom Tom; upgrade can place it on any tile.
-// Summon Brambles: 4 mana. Spawns brambles on a tile; upgrade spawns them in an area.
-BearTrap.merge { damage_instance { ai_base_score 10  } }
-BearTrap2.merge { damage_instance { ai_base_score 10  } }
-SpawnBaitTrap.merge { damage_instance { ai_base_score 0  } }
-SpawnBaitTrap2.merge { damage_instance { ai_base_score 0  } }
-SpikeTrap.merge { damage_instance { ai_base_score 10  } }
-SpikeTrap2.merge { damage_instance { ai_base_score 10  } }
-WebTrap.merge { damage_instance { ai_base_score 6  } }
-WebTrap2.merge { damage_instance { ai_base_score 6  } }
-CharmTrap.merge { damage_instance { ai_base_score 5 effects { Conditional_Speculative {  Conditional_HasStatus { status Charmed FlatAIBonus -999999 } } } } }
-CharmTrap2.merge { damage_instance { ai_base_score 5 effects { Conditional_Speculative {  Conditional_HasStatus { status Charmed FlatAIBonus -999999 } } } } }
+// --- 7. PIEGES ET INVOCATIONS (Priorite haute + Verification d'ennemis proches) ---
+BearTrap.merge { damage_instance { ai_base_score 60  } }
+BearTrap2.merge { damage_instance { ai_base_score 60  } }
+SpawnBaitTrap.merge { damage_instance { ai_base_score 60  } }
+SpawnBaitTrap2.merge { damage_instance { ai_base_score 60  } }
+SpikeTrap.merge { damage_instance { ai_base_score 60  } }
+SpikeTrap2.merge { damage_instance { ai_base_score 60  } }
+WebTrap.merge { damage_instance { ai_base_score 60  } }
+WebTrap2.merge { damage_instance { ai_base_score 60  } }
+CharmTrap.merge { damage_instance { ai_base_score 60 effects { Conditional_Speculative {  Conditional_HasStatus { status Charmed FlatAIBonus -999999 } } } } }
+CharmTrap2.merge { damage_instance { ai_base_score 60 effects { Conditional_Speculative {  Conditional_HasStatus { status Charmed FlatAIBonus -999999 } } } } }
 
-// Creature summons should beat normal actions whenever they are castable.
-// Ranked so the hunter prefers the most expensive creature summon first.
-SpawnMaggotFriend.merge { damage_instance { ai_base_score 90  } }
-SpawnMaggotFriend2.merge { damage_instance { ai_base_score 90  } }
-SpawnPooterFriend.merge { damage_instance { ai_base_score 100  } }
-SpawnPooterFriend2.merge { damage_instance { ai_base_score 100  } }
-SpawnTomTomFriend.merge { damage_instance { ai_base_score 110  } }
-SpawnTomTomFriend2.merge { damage_instance { ai_base_score 110  } }
-// Brambles are a hazard field, not a creature summon, so keep them below true summons.
-SummonBrambles.merge { damage_instance { ai_base_score 10  } }
-SummonBrambles2.merge { damage_instance { ai_base_score 10  } }
+SpawnMaggotFriend.merge { damage_instance { ai_base_score 75  } }
+SpawnMaggotFriend2.merge { damage_instance { ai_base_score 75  } }
+SpawnPooterFriend.merge { damage_instance { ai_base_score 75  } }
+SpawnPooterFriend2.merge { damage_instance { ai_base_score 75  } }
+SpawnTomTomFriend.merge { damage_instance { ai_base_score 75  } }
+SpawnTomTomFriend2.merge { damage_instance { ai_base_score 75  } }
+SummonBrambles.merge { damage_instance { ai_base_score 70  } }
+SummonBrambles2.merge { damage_instance { ai_base_score 70  } }
 
 
-// --- 8. BUFFS AND SUPPORT (Economy: require an enemy, Score 0) ---
-// Stake Out: 3/0 mana. Ends your turn to double ranged ability damage next turn; upgrade costs 0 if used under its movement-only restriction.
-// Sentry Mode: 6 mana. Fires when an enemy ends movement in your basic-attack range; upgrade lasts until your next turn.
-// Arrowsmith: 5 mana. Grants +1 Bonus Attack next turn; upgrade can target another unit.
-// Craft Arrow: 2/1 mana. Converts nearby pickups into Bonus Attacks instead of normal pickup effects.
-// Collect Pelt: 4/2 mana. Destroys a body to equip Cat Hide armor; upgrade also creates a big food pickup.
-// Pheromones: 5 mana. Charms a unit; on enemies the base version grants an immediate extra turn, while the upgrade does this to any target.
-// Poison Lace: 5 mana. Grants Poison Lace to self or an adjacent unit; upgrade removes the adjacency requirement.
-// Persistent Hunt: 0 mana. Inflicts Marked 5 and reloads on kill; upgrade starts the battle already reloaded.
-// Picnic: 7 mana, heals 5/5. Heals you and adjacent units; upgrade also grants +1 Damage.
-// Soothing Shot: 7 mana, 10/10 power. Healing ranged shot that applies Charm; the upgrade improves the charm effect and cleanses allies.
-// SpiderInjector / Bunker: no matching Hunter ability page surfaced during wiki lookup; left unannotated beyond this note.
+// --- 8. BUFFS ET SOUTIEN (Economie : Exigent un ennemi, Score 0) ---
 StakeOut.merge { damage_instance { ai_base_score 0  } }
 StakeOut2.merge { damage_instance { ai_base_score 0  } }
 SentryMode.merge { damage_instance { ai_base_score 0  } }
 SentryMode2.merge { damage_instance { ai_base_score 0  } }
-ArrowSmith.merge { damage_instance { ai_base_score 2  } }
-ArrowSmith2.merge { damage_instance { ai_base_score 4  } }
+ArrowSmith.merge { damage_instance { ai_base_score 0  } }
+ArrowSmith2.merge { damage_instance { ai_base_score 0  } }
 CraftArrow.merge { damage_instance { ai_base_score 0  } }
 CraftArrow2.merge { damage_instance { ai_base_score 0  } }
 CollectPelt.merge { damage_instance { ai_base_score 0  } }
 CollectPelt2.merge { damage_instance { ai_base_score 0  } }
-Pheromones.merge { damage_instance { ai_base_score 2 effects { Conditional_Speculative {  Conditional_HasStatus { status Charmed FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 8 } } } } }
-Pheromones2.merge { damage_instance { ai_base_score 4 effects { Conditional_Speculative {  Conditional_HasStatus { status Charmed FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 10 } } } } }
+Pheromones.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Charmed FlatAIBonus -999999 } } } } }
+Pheromones2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Charmed FlatAIBonus -999999 } } } } }
 
-// Poison Lace is a premium scaling buff for poison-stacking lines, especially into bosses.
-// Do not discourage repeat use here: stacking poison is often the point.
-PoisonLace.merge { damage_instance { ai_base_score 4 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus 16 } } } } }
-PoisonLace2.merge { damage_instance { ai_base_score 6 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus 20 } } } } }
-SpiderInjector.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus 8 } } } } }
-SpiderInjector2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus 8 } } } } }
+// Ces sorts appliquent du Poison, on utilise avoid_redundant_debuffs pour eviter le doublon naturel
+PoisonLace.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs  } }
+PoisonLace2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs  } }
+SpiderInjector.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs  } }
+SpiderInjector2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs  } }
 
-// Persistent Hunt is a premium boss-marking tool and should beat routine filler actions.
-PersistentHunt.merge { damage_instance { ai_base_score 6 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus 20 } } } } }
-PersistentHunt2.merge { damage_instance { ai_base_score 8 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus 24 } } } } }
+PersistentHunt.merge { damage_instance { ai_base_score 0  } }
+PersistentHunt2.merge { damage_instance { ai_base_score 0  } }
 Bunker.merge { damage_instance { ai_base_score 0  } }
 Bunker2.merge { damage_instance { ai_base_score 0  } }
 Picnic.merge { damage_instance { ai_base_score 0 } }
@@ -165,30 +114,20 @@ SoothingShot.merge { damage_instance { ai_base_score 0 } }
 SoothingShot2.merge { damage_instance { ai_base_score 0 } }
 
 
-// --- 9. MOBILITY AND UTILITIES (Natural zero scores) ---
-// Terrain Walk: 4 mana. Teleports to any grass or water tile; upgrade also grants Stealth.
-// Tactical Retreat: 6 mana. Teleports up to 5 tiles away and leaves a bear trap behind; upgrade leaves a baited bear trap.
-// Diversion: 4 mana, 1/1 power. Pebble shot that pulls nearby enemies toward the target tile; upgrade also inflicts Confusion.
-// Extend: 3 mana. Gives a unit +3 range and reach until the end of its next turn; upgrade changes that to +20.
-// Trail Blazer: the current wiki entry surfaced as a Hunter sub-ability, but the page/snippet was still missing its description during lookup.
+// --- 9. MOBILITE ET UTILITAIRES (Scores nuls naturels) ---
 TerrainWalk.merge { damage_instance { ai_base_score 0 } }
 TerrainWalk2.merge { damage_instance { ai_base_score 0 } }
 TacticalRetreat.merge { damage_instance { ai_base_score 0 } }
 TacticalRetreat2.merge { damage_instance { ai_base_score 0 } }
-Diversion.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe } }
-Diversion2.merge { damage_instance { ai_base_score 1 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Confusion FlatAIBonus -999999 } } } } }
+Diversion.merge { damage_instance { ai_base_score 0 } }
+Diversion2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Confusion FlatAIBonus -999999 } } } } }
 Extend.merge { damage_instance { ai_base_score 0 } }
 Extend2.merge { damage_instance { ai_base_score 0 } }
 TrailBlazer.merge { damage_instance { ai_base_score 0 } }
 TrailBlazer2.merge { damage_instance { ai_base_score 0 } }
 
 
-// --- 10. BLACKLIST (Random spells, markings too complex for the AI, or suicides) ---
-// Chaos Shot: 3 mana, 4 / 4x2 power. Randomly shoots a unit in range; upgrade shoots twice.
-// Scout Me: 7/0 mana. Grants allies the Shoot Here! bonus ability until next turn; the upgrade makes Scout Me free.
-// Shoot Here!: 0 mana bonus ability from Scout Me. Lets an ally designate an adjacent tile for the Scout Me user to attack.
-// Infest: 4 mana, 1/1 power. Spider egg projectile that deals low damage and inflicts Infested; upgrade applies Infested 2.
-// Slop the Pigs: 6/5 mana, 2/2 power. Area buff/heal for familiars and a smaller buff/heal for other units; upgrade costs less.
+// --- 10. BLACKLIST (Sorts aleatoires, marquages complexes pour l'IA ou suicides) ---
 ChaosShot.merge { damage_instance { ai_base_score -99999 } }
 ChaosShot2.merge { damage_instance { ai_base_score -99999 } }
 ScoutMe.merge { damage_instance { ai_base_score -99999 } }
@@ -198,6 +137,3 @@ Infest.merge { damage_instance { ai_base_score -99999 } }
 Infest2.merge { damage_instance { ai_base_score -99999 } }
 SlopThePigs.merge { damage_instance { ai_base_score -99999 } }
 SlopThePigs2.merge { damage_instance { ai_base_score -99999 } }
-
-
-

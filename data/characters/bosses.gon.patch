@@ -1,2 +1,5 @@
-// Intentionally left blank.
-// Boss-specific brains should remain untouched unless we have a verified boss-safe override.
+GeminiCats.merge {
+    ai {
+        brain GenericBrain
+    }
+}

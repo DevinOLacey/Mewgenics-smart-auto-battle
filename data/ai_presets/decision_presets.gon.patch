@@ -29,7 +29,7 @@ smart_default.merge {
     consider_overkill true
 }
 
-// --- HUNTER Ranged Control / Familiars ---
+// --- HUNTER Sniper & Traps ---
 smart_hunter.merge {
     damage_ally -9999
     damage_enemy 2
@@ -38,29 +38,25 @@ smart_hunter.merge {
     kill_enemy 20
     kill_ally -9999
     debuff_ally -100
-    buff_ally 1
+    buff_ally -100
     debuff_enemy 2
     buff_enemy -100
     damage_self -2
     heal_self 1
-    buff_self 1
+    buff_self 2
     debuff_self -2
     damage_ally_corpse 0
     damage_enemy_corpse 2
     revive_ally_corpse 1
     revive_enemy_corpse -1
-    // Hunters should value deployables, but creature summons and hazards are mainly sorted by their per-ability scores.
-    spawn_object 1
-    spawn_object_distance_to_enemy -.05
-    // Favor placing traps farther from allies to reduce accidental self-triggering.
-    spawn_object_distance_to_ally 1
+    spawn_object 5
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
     spawn_object_preferred_distance 4
     negative_weight_scale .99
-    // Be less stingy with mana so high-value summons are not skipped too easily.
-    spend_mana_scale .10
+    spend_mana_scale .30
     consider_total_damage true
     consider_secondary_damage true
-    consider_aoe true
     accurate_knockback false
     consider_overkill true
 }
@@ -71,16 +67,15 @@ smart_fighter.merge {
     damage_enemy 1
     heal_ally 0
     heal_enemy -100
-    kill_enemy 15
+    kill_enemy 100
     kill_ally -9999
     debuff_ally -100
     buff_ally 0
-    // Fighters should pressure stackable debuffs like Bruise instead of treating them like filler.
-    debuff_enemy 3
+    debuff_enemy 1
     buff_enemy -100
     damage_self -0.5
     heal_self 1
-    buff_self 3
+    buff_self 2
     debuff_self -2
     damage_ally_corpse 0
     damage_enemy_corpse 0
@@ -103,10 +98,10 @@ smart_tank.merge {
     damage_enemy 1
     heal_ally 1
     heal_enemy -100
-    kill_enemy 5
+    kill_enemy 8
     kill_ally -9999
     debuff_ally -100
-    buff_ally 3
+    buff_ally 1
     debuff_enemy 5
     buff_enemy -100
     damage_self -0.1
@@ -164,14 +159,12 @@ smart_mage.merge {
 smart_cleric.merge {
     damage_ally -9999
     damage_enemy 1
-    // Healing is important, but reviving a fallen ally should win whenever it is safely available.
-    heal_ally 60
+    heal_ally 100
     heal_enemy -100
     kill_enemy 2
     kill_ally -9999
     debuff_ally -100
-    // Keep support-focused behavior, but avoid tunneling too hard on repeated buff stacking.
-    buff_ally 8
+    buff_ally 10
     debuff_enemy 2
     buff_enemy -100
     damage_self -1
@@ -180,7 +173,7 @@ smart_cleric.merge {
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0
-    revive_ally_corpse 250
+    revive_ally_corpse 100
     revive_enemy_corpse -1
     spawn_object 1
     spawn_object_distance_to_enemy -.01
@@ -199,7 +192,7 @@ smart_thief.merge {
     damage_enemy 2
     heal_ally 0
     heal_enemy -100
-    kill_enemy 15
+    kill_enemy 100
     kill_ally -9999
     debuff_ally -100
     buff_ally 0
@@ -230,7 +223,7 @@ smart_butcher.merge {
     damage_enemy 1
     heal_ally 0
     heal_enemy -100
-    kill_enemy 15
+    kill_enemy 100
     kill_ally -9999
     debuff_ally -100
     buff_ally 0
