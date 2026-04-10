@@ -1,0 +1,22 @@
+// =====================================================================
+// SMART_AUTOBATTLE : JESTER_ABILITIES.GON.PATCH (FULL VERSION)
+// =====================================================================
+
+// --- 1. RANDOM AND AREA ATTACKS (Maximum safety) ---
+// RNGCannon can have unexpected effects, so it is blocked on allies and frozen targets.
+RNGCannon.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+RNGCannon2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+
+// --- 2. CLASS SKILLS: METRONOME ---
+// Should only be cast if there are nearby enemies to avoid wasting mana.
+SmartMetronome.merge { damage_instance { ai_base_score 0  } }
+SmartMetronome2.merge { damage_instance { ai_base_score 0  } }
+
+// --- 3. LIGHT ATTACKS / KNOCKBACK ---
+Bump.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
+Bump2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
+
+// --- 4. BUFFS ---
+// No need to spam PowerUp if there is no danger.
+PowerUp.merge { damage_instance { ai_base_score 10  } }
+PowerUp2.merge { damage_instance { ai_base_score 10  } }

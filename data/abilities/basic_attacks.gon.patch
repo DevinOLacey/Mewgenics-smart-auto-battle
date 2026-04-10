@@ -1,0 +1,58 @@
+// =====================================================================
+// SMART_AUTOBATTLE : BASIC_ATTACKS.GON.PATCH
+// =====================================================================
+// Prevents the AI from using basic attacks on frozen enemies
+// (frozen enemies are immune to damage)
+
+// --- BASIC MELEE ATTACKS ---
+BasicMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicMelee_Fighter.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicBigMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+
+// --- BASIC RANGED ATTACKS ---
+BasicRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicRanged_Hunter.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicRanged_1DMG.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicShortRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicMagicShortRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicShortLobbed.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicStraightShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicStraightShot_Thief.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+
+// --- CLASS-SPECIFIC BASIC ATTACKS ---
+// Medic
+// Give ally-targeted medic basics a direct AI bonus so clerics reliably use them as cheap spot heals.
+BasicMedicMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus 12 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicMedicRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus 12 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+// Tank
+BasicTankMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicSuplex.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+// Monk
+BasicMonkMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicMonkRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+// Butcher
+BasicButcherMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicButcherMeleeWide.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicButcherMeleeWideSpin.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicButcherMeleeWideDoubleSpin.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+// Druid
+BasicDruidAbility.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicDruidAbilityVersatile.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+// Tinkerer
+TinkererThrow.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+// Psychic
+BasicPsychicPull.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+// Necromancer
+BasicNecroRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+
+// --- UNIVERSAL BASIC ATTACKS ---
+BasicDrainMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicHook.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicMagicMissile.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicTwoHitMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicPuke.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicExplosiveShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicPoke.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+GerdShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicSpin.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicMetronome.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }

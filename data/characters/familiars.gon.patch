@@ -1,0 +1,143 @@
+FamiliarMaggot.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarTumorousMaggot.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarChargeyMaggot.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarSwappyMaggot.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarPooter.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+BuffFamiliarMaggot.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+BuffFamiliarPooter.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+BuffFamiliarFlea.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+BuffFamiliarFly.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+BestBuddy.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarFetus.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarFetusGusher.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarBrainDrain.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarKirbyFetus.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+CharmedHyde.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}
+
+FamiliarFleshLad.merge {
+    passives {
+        Uncontrollable 1
+    }
+    ai {
+        brain GenericBrain
+    }
+}

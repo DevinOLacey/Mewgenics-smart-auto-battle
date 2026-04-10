@@ -1,0 +1,16 @@
+smart_ai_disorders [
+    SmartHunter
+    SmartFighter
+    SmartTank
+    SmartMage
+    SmartCleric
+    SmartThief
+    SmartColorless
+    SmartButcher
+    SmartPsychic
+    SmartMonk
+    SmartNecromancer
+    SmartTinkerer
+    SmartDruid
+    SmartJester
+]

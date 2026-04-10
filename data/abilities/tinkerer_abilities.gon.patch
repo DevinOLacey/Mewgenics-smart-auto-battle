@@ -1,0 +1,145 @@
+// =====================================================================
+// SMART_AUTOBATTLE : TINKERER_ABILITIES.GON.PATCH (FULL VERSION)
+// =====================================================================
+
+// --- 1. SUMMONS AND MACHINES (Maximum Priority) ---
+// The Tinkerer should flood the field with its creations.
+BuildTurret.merge { damage_instance { ai_base_score 80 } }
+BuildTurret2.merge { damage_instance { ai_base_score 80 } }
+PunchBot.merge { damage_instance { ai_base_score 80 } }
+PunchBot2.merge { damage_instance { ai_base_score 80 } }
+Catbot.merge { damage_instance { ai_base_score 80 } }
+Catbot2.merge { damage_instance { ai_base_score 80 } }
+NurseBot.merge { damage_instance { ai_base_score 80 } }
+NurseBot2.merge { damage_instance { ai_base_score 80 } }
+RoboVac.merge { damage_instance { ai_base_score 75 } }
+RoboVac2.merge { damage_instance { ai_base_score 75 } }
+Bombchu.merge { damage_instance { ai_base_score 75 } }
+Bombchu2.merge { damage_instance { ai_base_score 75 } }
+TeslaCoil.merge { damage_instance { ai_base_score 80 } }
+TeslaCoil2.merge { damage_instance { ai_base_score 80 } }
+MechSuit.merge { damage_instance { ai_base_score 85 } }
+MechSuit2.merge { damage_instance { ai_base_score 85 } }
+BuildNuke.merge { damage_instance { ai_base_score 85 } }
+BuildNuke2.merge { damage_instance { ai_base_score 85 } }
+InstantBarrier.merge { damage_instance { ai_base_score 75 } }
+InstantBarrier2.merge { damage_instance { ai_base_score 75 } }
+SpawnDecoy.merge { damage_instance { ai_base_score 70 } }
+SpawnDecoy2.merge { damage_instance { ai_base_score 70 } }
+
+
+// --- 2. HEAVY EXECUTIONS AND MECH ATTACKS (Threshold: 15 Damage) ---
+BatteryNuke.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 8 } } } } }
+BatteryNuke2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 8 } } } } }
+MechSuitBarrage.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+VoltTackle.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+VoltTackle2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+Smash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+Smash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+
+// --- 3. MEDIUM EXECUTIONS (Threshold: 10 Damage) ---
+DrillDown.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+DrillDown2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+ElectricNail.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+ElectricNail2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+ShockTherapy.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+ShockTherapy2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+UnreliableMissile.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+UnreliableMissile2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+
+
+// --- 4. STANDARD ATTACKS (Including turret and robot attacks) ---
+TurretShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+RocketTurretShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+MechSuitPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Roomba_Bump.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Sparks.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+Sparks2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+
+
+// --- 5. AREA ATTACKS, EXPLOSIVES, AND GAS (Consider AoE + Anti-Ally) ---
+Discharge.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+Discharge2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+Shockwave.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+Shockwave2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+Firecrackers.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+Firecrackers2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+ShortCircuit.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+ShortCircuit2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+DecoyExplode.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+MechExplode.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+TeslaBolt.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 Else { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } } } }
+Flamethrower.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus 8 } } } } }
+
+
+// --- 6. BUFFS, REPAIRS, AND ENGINEERING (Requires an enemy in range) ---
+Research.merge { damage_instance { ai_base_score 10  } }
+Research2.merge { damage_instance { ai_base_score 10  } }
+Repair.merge { damage_instance { ai_base_score 15 } }
+Repair2.merge { damage_instance { ai_base_score 15 } }
+RepairArmor.merge { damage_instance { ai_base_score 15 } }
+RepairArmor2.merge { damage_instance { ai_base_score 15 } }
+NurseBotHeal.merge { damage_instance { ai_base_score 15 } }
+NurseBotHealCat.merge { damage_instance { ai_base_score 15 } }
+ArmorUp.merge { damage_instance { ai_base_score 10  } }
+ArmorUp2.merge { damage_instance { ai_base_score 10  } }
+FreshOffTheForge.merge { damage_instance { ai_base_score 10 effects { Conditional_Speculative {  Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+FreshOffTheForge2.merge { damage_instance { ai_base_score 10 effects { Conditional_Speculative {  Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+Craft.merge { damage_instance { ai_base_score 10  } }
+Craft2.merge { damage_instance { ai_base_score 10  } }
+Math.merge { damage_instance { ai_base_score 10  } }
+Math2.merge { damage_instance { ai_base_score 10  } }
+Improve.merge { damage_instance { ai_base_score 10  } }
+Improve2.merge { damage_instance { ai_base_score 10  } }
+Upgrade.merge { damage_instance { ai_base_score 10  } }
+Upgrade2.merge { damage_instance { ai_base_score 10  } }
+Eureka.merge { damage_instance { ai_base_score 10  } }
+Eureka2.merge { damage_instance { ai_base_score 10  } }
+FastHands.merge { damage_instance { ai_base_score 10  } }
+FastHands2.merge { damage_instance { ai_base_score 10  } }
+ShedScrap.merge { damage_instance { ai_base_score 10  } }
+ShedScrap2.merge { damage_instance { ai_base_score 10  } }
+RefineMaterials.merge { damage_instance { ai_base_score 10  } }
+RefineMaterials2.merge { damage_instance { ai_base_score 10  } }
+Fabricate.merge { damage_instance { ai_base_score 10  } }
+Fabricate2.merge { damage_instance { ai_base_score 10  } }
+Hone.merge { damage_instance { ai_base_score 10  } }
+Hone2.merge { damage_instance { ai_base_score 10  } }
+Electrolyze.merge { damage_instance { ai_base_score 10  } }
+Electrolyze2.merge { damage_instance { ai_base_score 10  } }
+SpareParts.merge { damage_instance { ai_base_score 10  } }
+SpareParts2.merge { damage_instance { ai_base_score 10  } }
+UnreliableShield.merge { damage_instance { ai_base_score 10  } }
+UnreliableShield2.merge { damage_instance { ai_base_score 10  } }
+
+
+// --- 7. MOBILITY (Natural score) ---
+ShoddyJetpack.merge { damage_instance { ai_base_score 0 } }
+ShoddyJetpack2.merge { damage_instance { ai_base_score 0 } }
+SpringShoes.merge { damage_instance { ai_base_score 0 } }
+SpringShoes2.merge { damage_instance { ai_base_score 0 } }
+RocketSkates.merge { damage_instance { ai_base_score 0 } }
+RocketSkates2.merge { damage_instance { ai_base_score 0 } }
+RocketSkates_Bombchu.merge { damage_instance { ai_base_score 0 } }
+RocketRide.merge { damage_instance { ai_base_score 0 } }
+RocketRide2.merge { damage_instance { ai_base_score 0 } }
+MechSuitDash.merge { damage_instance { ai_base_score 0 } }
+
+
+// --- 8. ABSOLUTE BLACKLIST (Broken inventions, pathfinding bugs, or suicides) ---
+Switcheroo.merge { damage_instance { ai_base_score -99999 } }
+Switcheroo2.merge { damage_instance { ai_base_score -99999 } }
+DecoySwap.merge { damage_instance { ai_base_score -99999 } }
+ExperimentalTeleporter.merge { damage_instance { ai_base_score -99999 } }
+ExperimentalTeleporter2.merge { damage_instance { ai_base_score -99999 } }
+RemoteDetonator.merge { damage_instance { ai_base_score -99999 } }
+RemoteDetonator2.merge { damage_instance { ai_base_score -99999 } }
+AutoPilot.merge { damage_instance { ai_base_score -99999 } }
+AutoPilot2.merge { damage_instance { ai_base_score -99999 } }
+Recycle.merge { damage_instance { ai_base_score -99999 } }
+Recycle2.merge { damage_instance { ai_base_score -99999 } }
+EjectButton.merge { damage_instance { ai_base_score -99999 } }
+EjectButton2.merge { damage_instance { ai_base_score -99999 } }
+MechSuitEject.merge { damage_instance { ai_base_score -99999 } }
+Reprogram.merge { damage_instance { ai_base_score -99999 } }
+Reprogram2.merge { damage_instance { ai_base_score -99999 } }

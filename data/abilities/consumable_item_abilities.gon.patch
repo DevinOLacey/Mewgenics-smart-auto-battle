@@ -1,0 +1,111 @@
+cm_FighterSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartFighter
+        }
+    }
+}
+
+cm_HunterSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartHunter
+        }
+    }
+}
+
+cm_MageSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartMage
+        }
+    }
+}
+
+cm_TankSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartTank
+        }
+    }
+}
+
+cm_ClericSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartCleric
+        }
+    }
+}
+
+cm_ThiefSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartThief
+        }
+    }
+}
+
+cm_ButcherSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartButcher
+        }
+    }
+}
+
+cm_PsychicSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartPsychic
+        }
+    }
+}
+
+cm_DruidSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartDruid
+        }
+    }
+}
+
+cm_NecromancerSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartNecromancer
+        }
+    }
+}
+
+cm_MonkSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartMonk
+        }
+    }
+}
+
+cm_TinkererSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartTinkerer
+        }
+    }
+}
+
+cm_JesterSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartJester
+        }
+    }
+}
+
+cm_ColorlessSeal.merge {
+    damage_instance {
+        effects {
+            GainDisorder SmartColorless
+        }
+    }
+}
