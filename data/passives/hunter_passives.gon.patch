@@ -485,12 +485,7 @@ SleepDarts.merge {
     1 {
         passives.overwrite {
             AddStatusToBasicAttack {
-                Sleep [1 .1]
-            }
-            StatusAlliesOnBattleStart {
-                AddStatusToBasicAttack {
-                    Sleep [1 .1]
-                }
+                Sleep [1 .9]
             }
             Uncontrollable 1
             ReplaceBrain {
@@ -503,12 +498,7 @@ SleepDarts.merge {
     2 {
         passives.overwrite {
             AddStatusToBasicAttack {
-                Sleep [1 .2]
-            }
-            StatusAlliesOnBattleStart {
-                AddStatusToBasicAttack {
-                    Sleep [1 .2]
-                }
+                Sleep [1 .5]
             }
             Uncontrollable 1
             ReplaceBrain {

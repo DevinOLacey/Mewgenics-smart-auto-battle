@@ -14,7 +14,7 @@ BasicRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Spec
 BasicRanged_Hunter.merge { damage_instance { ai_base_score 2 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicRanged_1DMG.merge { damage_instance { ai_base_score 1 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicShortRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
-BasicMagicShortRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicMagicShortRanged.merge { target { restrictions none aoe_restrictions none } damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicShortLobbed.merge { damage_instance { ai_base_score 1 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicStraightShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicStraightShot_Thief.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }

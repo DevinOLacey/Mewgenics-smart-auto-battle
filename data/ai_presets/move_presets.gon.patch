@@ -16,7 +16,7 @@ smart_hunter_move.merge {
 }
 
 smart_mage_move.merge {
-    distance_to_enemy 3
+    distance_to_enemy -10
     distance_to_ally 0
     distance_to_character 0
     // Maximum kiting

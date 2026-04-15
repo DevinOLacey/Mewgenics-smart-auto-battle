@@ -21,10 +21,10 @@ HealingFall.merge { damage_instance { ai_base_score 0 } }
 HealingFall2.merge { damage_instance { ai_base_score 0 } }
 HealingSalve.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status HealthRegenUp FlatAIBonus -4 } } } } }
 HealingSalve2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status HealthRegenUp FlatAIBonus -4 } } } } }
-Revive.merge { target { max_range 5 } damage_instance { ai_base_score 8 effects { Conditional_Corpse { Revive 25% HealRandomInjury 1 } } } }
-Revive2.merge { target { max_range 5 } damage_instance { ai_base_score 8 effects { Conditional_Corpse { Revive 50% Conditional_Enemy { PermanentCharm 1 } } } } }
-BornAgain.merge { target { max_range 5 } damage_instance { ai_base_score 8 effects { Conditional_Corpse { Revive 50% AllStatsUp 1 } Conditional_Speculative { Conditional_HasStatus { status AllStatsUp FlatAIBonus -4 } } } } }
-BornAgain2.merge { target { max_range 5 } damage_instance { ai_base_score 8 effects { Conditional_Corpse { Revive 50% AllStatsUp 1 } Conditional_Speculative { Conditional_HasStatus { status AllStatsUp FlatAIBonus -4 } } } } }
+Revive.merge { target { max_range 5 } damage_instance { ai_base_score 8 effects { Conditional_Corpse { Revive 25% HealRandomInjury 1 } Conditional_Speculative { Conditional_Ally { FlatAIBonus 99999 } } } } }
+Revive2.merge { target { max_range 5 } damage_instance { ai_base_score 8 effects { Conditional_Corpse { Revive 50% Conditional_Enemy { PermanentCharm 1 } } Conditional_Speculative { Conditional_Enemy { FlatAIBonus 99999 } } } } }
+BornAgain.merge { target { max_range 5 aoe_restrictions [must_have_corpse allies_only] restrictions aoe_must_exist } damage_instance { ai_base_score 8 effects { Conditional_Corpse { Revive 50% AllStatsUp 1 } Conditional_Speculative { Conditional_HasStatus { status AllStatsUp FlatAIBonus -4 } } } } }
+BornAgain2.merge { target { max_range 5 aoe_restrictions [must_have_corpse allies_only] restrictions aoe_must_exist } damage_instance { ai_base_score 8 effects { Conditional_Corpse { Revive 50% AllStatsUp 1 } Conditional_Speculative { Conditional_HasStatus { status AllStatsUp FlatAIBonus -4 } } } } }
 Emergency.merge { damage_instance { ai_base_score 8 } }
 Emergency2.merge { damage_instance { ai_base_score 8 } }
 GuardianAngel.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status AlphaCat FlatAIBonus -4 } } } } }

@@ -134,7 +134,7 @@ smart_mage.merge {
     damage_enemy 3
     heal_ally 1
     heal_enemy -8
-    kill_enemy 8
+    kill_enemy 15
     kill_ally -12
     debuff_ally -8
     buff_ally 2
@@ -152,7 +152,7 @@ smart_mage.merge {
     spawn_object_distance_to_enemy -.01
     spawn_object_distance_to_ally .0001
     negative_weight_scale .99
-    spend_mana_scale .30
+    spend_mana_scale .10
     consider_total_damage true
     consider_secondary_damage true
     accurate_knockback false
