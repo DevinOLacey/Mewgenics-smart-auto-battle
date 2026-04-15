@@ -483,7 +483,15 @@ AnimalControl.merge {
 
 SleepDarts.merge {
     1 {
-        passives.append {
+        passives.overwrite {
+            AddStatusToBasicAttack {
+                Sleep [1 .1]
+            }
+            StatusAlliesOnBattleStart {
+                AddStatusToBasicAttack {
+                    Sleep [1 .1]
+                }
+            }
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
@@ -493,7 +501,15 @@ SleepDarts.merge {
         }
     }
     2 {
-        passives.append {
+        passives.overwrite {
+            AddStatusToBasicAttack {
+                Sleep [1 .2]
+            }
+            StatusAlliesOnBattleStart {
+                AddStatusToBasicAttack {
+                    Sleep [1 .2]
+                }
+            }
             Uncontrollable 1
             ReplaceBrain {
                 brain GenericBrain
