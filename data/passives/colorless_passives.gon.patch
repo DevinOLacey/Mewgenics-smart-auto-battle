@@ -1,0 +1,468 @@
+SelfAssured.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+LuckDrain.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Infested.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Worms.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Amped.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Furious.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Deathless.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+MetalDetector.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+DeathProof.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Leader.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Mange.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+ETank.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Careful.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+DirtyClaws.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+LateBloomer.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Study.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+SkillShare.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+NaturalHealing.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+LongShot.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+FastFooted.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Slugger.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Pulp.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Amplify.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+DeathBoon.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+SantaSangre.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Untouched.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Daunt.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+AnimalHandler.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+WhipCracker.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+PressurePoints.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Gassy.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Dealer.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Patience.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Wiggly.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+MiniMe.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+BareMinimum.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Unrestricted.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+DeathsDoor.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+OverConfident.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+SerialKiller.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+StrengthInNumbers.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+FightersSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+HuntersSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+MagesSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+ClericsSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+TanksSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+ThiefsSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+MonksSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+ButchersSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+DruidsSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+TinkerersSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+NecromancersSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+PsychicsSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Charming.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+FirstImpression.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Scavenger.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+ZenkaiBoost.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Protection.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Rockin.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Mania.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+Lucky.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+OneEighty.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+JestersSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+HotBlooded.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+ToxicBlooded.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+BloodBlooded.merge {
+    1 {
+    }
+    2 {
+    }
+}
+
+VoidSoul.merge {
+    1 {
+    }
+    2 {
+    }
+}

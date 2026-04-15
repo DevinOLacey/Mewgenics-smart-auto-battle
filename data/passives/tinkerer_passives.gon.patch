@@ -1,0 +1,574 @@
+VersionTwo.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+WeaponProficiency.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+LivingBattery.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+FuzzyFeet.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+ArmorSpecialist.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+EMP.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+MrMega.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+EscapeSequence.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+ItemProxy.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+LightningRod.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+ItsAlive.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+Energizer.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+ReactiveArmor.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+Nanobots.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+Scrapper.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+DemoMan.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+DuctTape.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+ArmoredPlating.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+BoobyTrap.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+RobotArms.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+Conductor.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+Napalm.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+Ingenuity.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+Shrapnel_Tinkerer.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}
+
+Blacksmith.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_tinkerer
+                move_weights smart_tinkerer_move
+            }
+        }
+    }
+}

@@ -1,28 +1,29 @@
 // =====================================================================
 // SMART_AUTOBATTLE : BASIC_ATTACKS.GON.PATCH
 // =====================================================================
-// Empêche l'IA d'utiliser les attaques de base sur des ennemis gelés
-// (les ennemis gelés sont immunisés aux dommages)
+// Prevents the AI from using basic attacks on frozen enemies
+// (frozen enemies are immune to damage)
 
-// --- ATTAQUES DE BASE MELÉE ---
+// --- BASIC MELEE ATTACKS ---
 BasicMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicMelee_Fighter.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicBigMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
-// --- ATTAQUES DE BASE À DISTANCE ---
+// --- BASIC RANGED ATTACKS ---
 BasicRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
-BasicRanged_Hunter.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
-BasicRanged_1DMG.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicRanged_Hunter.merge { damage_instance { ai_base_score 2 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicRanged_1DMG.merge { damage_instance { ai_base_score 1 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicShortRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicMagicShortRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
-BasicShortLobbed.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicShortLobbed.merge { damage_instance { ai_base_score 1 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicStraightShot.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicStraightShot_Thief.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
-// --- ATTAQUES DE BASE PAR CLASSE ---
+// --- CLASS-SPECIFIC BASIC ATTACKS ---
 // Medic
-BasicMedicMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
-BasicMedicRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+// Give ally-targeted medic basics a direct AI bonus so clerics reliably use them as cheap spot heals.
+BasicMedicMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus 12 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+BasicMedicRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus 12 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 // Tank
 BasicTankMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicSuplex.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
@@ -44,7 +45,7 @@ BasicPsychicPull.merge { damage_instance { ai_base_score 0 effects { Conditional
 // Necromancer
 BasicNecroRanged.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
-// --- ATTAQUES DE BASE UNIVERSELLES ---
+// --- UNIVERSAL BASIC ATTACKS ---
 BasicDrainMelee.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicHook.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 BasicMagicMissile.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }

@@ -1,0 +1,574 @@
+Flying.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+SoulShatter.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Glow.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Blink.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+FullPower.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+RealityShatter.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+MentalStorm.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Wither.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Flourish.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+PsySmack.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Beckon.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+MindTempest.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Overflow.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Omniscience.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+PsionicRepel.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Enlightened.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+MadVisage.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+PowerUp.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+TrueSight.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Radiation.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+GravityWell.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Drag.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+Twiddle.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+RepressedMemories.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}
+
+EldritchVisage.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_psychic
+                move_weights smart_psychic_move
+            }
+        }
+    }
+}

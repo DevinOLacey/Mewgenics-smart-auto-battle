@@ -1,78 +1,78 @@
 // =====================================================================
-// SMART_AUTOBATTLE : FIGHTER_ABILITIES.GON.PATCH (REVISION ULTIME)
+// SMART_AUTOBATTLE : FIGHTER_ABILITIES.GON.PATCH (FINAL REVISION)
 // =====================================================================
 
-// --- 1. EXECUTIONS MAJEURES (Seuil : 25 Degats) ---
-FalconPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
-FalconPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 Else { FlatAIBonus -999999 } } } } } } }
+// --- 1. MAJOR EXECUTIONS (Threshold: 25 Damage) ---
+FalconPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 FlatAIBonus 4 } } } } } }
+FalconPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 FlatAIBonus 4 } } } } } }
 
-// --- 2. EXECUTIONS LOURDES (Seuil : 15 Degats) ---
-Pawbreaker.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
-Pawbreaker2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 Else { FlatAIBonus -999999 } } } } } } }
+// --- 2. HEAVY EXECUTIONS (Threshold: 15 Damage) ---
+Pawbreaker.merge { damage_instance { ai_base_score 1 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_HasStatus { status Bruise FlatAIBonus 4 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 FlatAIBonus 4 } } } } } }
+Pawbreaker2.merge { damage_instance { ai_base_score 1 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_HasStatus { status Bruise FlatAIBonus 4 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 FlatAIBonus 4 } } } } } }
 
-// --- 3. EXECUTIONS MOYENNES (Seuil : 10 Degats) ---
-BigPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-BigPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-CosmicPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-CosmicPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
-IcePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 Else { FlatAIBonus -999999 } } } } } } }
+// --- 3. MEDIUM EXECUTIONS (Threshold: 10 Damage) ---
+BigPunch.merge { target { restrictions [aoe_must_exist must_have_enemy] } damage_instance { ai_base_score 1 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_HasStatus { status Bruise FlatAIBonus 2 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 12 FlatAIBonus 4 } } } } } }
+BigPunch2.merge { target { restrictions [aoe_must_exist must_have_enemy] } damage_instance { ai_base_score 1 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_HasStatus { status Bruise FlatAIBonus 2 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 12 FlatAIBonus 4 } } } } } }
+CosmicPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 FlatAIBonus 4 } } } } } }
+CosmicPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 FlatAIBonus 4 } } } } } }
+IcePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 FlatAIBonus 4 } } } } } }
 
-// --- 4. ATTAQUES STANDARDS (Seuil : 5 Degats) ---
-FirePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-FirePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-IcePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-ThunderPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-ThunderPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Stun FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-SideSlash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-SideSlash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Bruise FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-Uppercut.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-Uppercut2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-TailWhip.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-TailWhip2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-MuscleMemory.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-MuscleMemory2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-BreakingPoint.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-BreakingPoint2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-SuckerPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-SuckerPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-Lacerate2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
-RagePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 Else { FlatAIBonus -999999 } } } } } } }
+// --- 4. STANDARD ATTACKS (Threshold: 5 Damage) ---
+FirePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { FlatAIBonus 8 Conditional_HealthThreshold { threshold_flat 8 FlatAIBonus 4 } } } } } }
+FirePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { FlatAIBonus 8 Conditional_HealthThreshold { threshold_flat 8 FlatAIBonus 4 } } } } } }
+IcePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 8 FlatAIBonus 4 } } } } } }
+ThunderPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_HasStatus { status Stun FlatAIBonus -4 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 8 FlatAIBonus 4 } } } } } }
+ThunderPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_HasStatus { status Stun FlatAIBonus -4 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 8 FlatAIBonus 4 } } } } } }
+SideSlash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 FlatAIBonus 4 } } } } } }
+SideSlash2.merge { damage_instance { ai_base_score 3 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 FlatAIBonus 4 } } } } } }
+Uppercut.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+Uppercut2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+TailWhip.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+TailWhip2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+MuscleMemory.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+MuscleMemory2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+BreakingPoint.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+BreakingPoint2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+SuckerPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+SuckerPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 7 FlatAIBonus 4 } } } } } }
+Lacerate2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 FlatAIBonus 4 } } } } } }
+RagePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 FlatAIBonus 4 } } } } } }
 
-// --- 5. ATTAQUES LEGERES (Seuil : 3 Degats) ---
-Dash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
-Dash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
-Lacerate.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Bleed FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
-OneTwoPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Bruise FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
-OneTwoPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Bruise FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
-Ram2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 Else { FlatAIBonus -999999 } } } } } } }
+// --- 5. LIGHT ATTACKS (Threshold: 3 Damage) ---
+Dash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 FlatAIBonus 4 } } } } } }
+Dash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 FlatAIBonus 4 } } } } } }
+Lacerate.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { FlatAIBonus 8 Conditional_HealthThreshold { threshold_flat 3 FlatAIBonus 4 } } } } } }
+OneTwoPunch.merge { damage_instance { ai_base_score 4 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 2 FlatAIBonus 4 } } } } } }
+OneTwoPunch2.merge { damage_instance { ai_base_score 4 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 2 FlatAIBonus 4 } } } } } }
+Ram2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 FlatAIBonus 4 } } } } } }
 
-// --- 6. ATTAQUES TRES LEGERES (Seuil : 1 Degat) ---
-FurySwipes.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-FurySwipes2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-Poke.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-Poke2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-Nip2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Bruise FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-BerserkDash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-BerserkDash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-Slap.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-AssertDominance.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-AssertDominance2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
-RagePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 Else { FlatAIBonus -999999 } } } } } } }
+// --- 6. VERY LIGHT ATTACKS (Threshold: 1 Damage) ---
+FurySwipes.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
+FurySwipes2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
+Poke.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
+Poke2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
+Nip2.merge { damage_instance { ai_base_score 2 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
+BerserkDash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 4 FlatAIBonus 4 } } } } } }
+BerserkDash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 4 FlatAIBonus 4 } } } } } }
+Slap.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
+AssertDominance.merge { target { restrictions [aoe_must_exist must_have_enemy] } damage_instance { ai_base_score 2 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 8 } Conditional_SourceHasStatus { status AlphaCat FlatAIBonus 10 Conditional_HealthThreshold { threshold_flat 6 FlatAIBonus 6 } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
+AssertDominance2.merge { target { restrictions [aoe_must_exist must_have_enemy] } damage_instance { ai_base_score 3 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 10 } Conditional_SourceHasStatus { status AlphaCat FlatAIBonus 12 Conditional_HealthThreshold { threshold_flat 6 FlatAIBonus 8 } } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
+RagePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 FlatAIBonus 4 } } } } } }
 
-// --- 7. ATTAQUES DE ZONE (Consider AoE + Anti-Ally + Anti-Freeze) ---
-Spin.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
-Spin2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
-MeteorSlam.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
-MeteorSlam2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Burn FlatAIBonus -999999 } } } } }
+// --- 7. AREA ATTACKS (Consider AoE + Anti-Ally + Anti-Freeze) ---
+Spin.merge { damage_instance { ai_base_score 5 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+Spin2.merge { damage_instance { ai_base_score 5 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
+MeteorSlam.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { FlatAIBonus 8 } } } } }
+MeteorSlam2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } Conditional_HasStatus { status Charmed FlatAIBonus -8 } Conditional_Boss { FlatAIBonus 8 } } } } }
 GravitySlam.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 GravitySlam2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight consider_aoe effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Freeze FlatAIBonus -999999 } } } } }
 
 
-// --- 8. REPOUSSEMENTS, LANCERS ET DEPLACEMENTS (Interdiction stricte des allies) ---
+// --- 8. KNOCKBACKS, THROWS, AND MOVEMENT (Strict ally prohibition) ---
 Push.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
 Push2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
-Hurl.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
-Hurl2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
+Hurl.merge { damage_instance { ai_base_score -99999 } }
+Hurl2.merge { damage_instance { ai_base_score -99999 } }
 FighterBonusThrow.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
 Stick.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
 Stick2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } } } } }
@@ -83,15 +83,15 @@ Reposition.merge { damage_instance { ai_base_score 0 } }
 Reposition2.merge { damage_instance { ai_base_score 0 } }
 Tumble.merge { damage_instance { ai_base_score 0 } }
 Tumble2.merge { damage_instance { ai_base_score 0 } }
-FighterLeap.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Bruise FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus -999999 } } } } }
-FighterLeap2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Bruise FlatAIBonus -999999 } Conditional_Boss { FlatAIBonus -999999 } } } } }
+FighterLeap.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Bruise FlatAIBonus -4 } Conditional_Boss { FlatAIBonus -6 } } } } }
+FighterLeap2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Ally { FlatAIBonus -999999 } Conditional_HasStatus { status Bruise FlatAIBonus -4 } Conditional_Boss { FlatAIBonus -6 } } } } }
 
 
-// --- 9. BUFFS, POSTURES ET CONTRES (Economie : Exigent un ennemi, Score = 0) ---
-Juiced.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status TempMovement FlatAIBonus -999999 } } } } }
-Juiced2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status TempMovement FlatAIBonus -999999 } } } } }
-Berserk.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Berserk FlatAIBonus -999999 } } } } }
-Berserk2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status Berserk FlatAIBonus -999999 } } } } }
+// --- 9. BUFFS, STANCES, AND COUNTERS (Economy: require an enemy, Score = 0) ---
+Juiced.merge { damage_instance { ai_base_score 0 } }
+Juiced2.merge { damage_instance { ai_base_score 0 } }
+Berserk.merge { damage_instance { ai_base_score 3 } }
+Berserk2.merge { damage_instance { ai_base_score 7 } }
 
 TeamFlex.merge { damage_instance { ai_base_score 0  } }
 TeamFlex2.merge { damage_instance { ai_base_score 0  } }
@@ -100,8 +100,8 @@ TeamFlex_Impl2.merge { damage_instance { ai_base_score 0  } }
 Huddle.merge { damage_instance { ai_base_score 0  } }
 Huddle2.merge { damage_instance { ai_base_score 0  } }
 Huddle_Impl.merge { damage_instance { ai_base_score 0  } }
-Confront.merge { damage_instance { ai_base_score 0  } }
-Confront2.merge { damage_instance { ai_base_score 0  } }
+Confront.merge { damage_instance { ai_base_score 6 } }
+Confront2.merge { damage_instance { ai_base_score 8 } }
 Challenge.merge { damage_instance { ai_base_score 0  } }
 Challenge2.merge { damage_instance { ai_base_score 0  } }
 FighterTaunt.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs  } }
@@ -111,13 +111,13 @@ LastThought2.merge { damage_instance { ai_base_score 0  } }
 Zoomzerk.merge { damage_instance { ai_base_score 0  } }
 Zoomzerk2.merge { damage_instance { ai_base_score 0  } }
 
-Counter.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status TempCounterAttack FlatAIBonus -999999 } } } } }
-Counter2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status TempPreEmptiveCounterAttack FlatAIBonus -999999 } } } } }
+Counter.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status TempCounterAttack FlatAIBonus -4 } } } } }
+Counter2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative {  Conditional_HasStatus { status TempPreEmptiveCounterAttack FlatAIBonus -4 } } } } }
 ReflexPunchJab.merge { damage_instance { ai_base_score 0  } }
 ReflexPunchJab2.merge { damage_instance { ai_base_score 0  } }
 
 
-// --- 10. BLACKLIST ABSOLUE (Mouvements chaotiques, suicides, et echanges de coups allies) ---
+// --- 10. ABSOLUTE BLACKLIST (Chaotic moves, suicides, and allied hit-trades) ---
 ChaosRampage.merge { damage_instance { ai_base_score -99999 } }
 ChaosRampage2.merge { damage_instance { ai_base_score -99999 } }
 TeamSpin.merge { damage_instance { ai_base_score -99999 } }
@@ -137,8 +137,8 @@ ThinkTooHard.merge { damage_instance { ai_base_score -99999 } }
 ThinkTooHard2.merge { damage_instance { ai_base_score -99999 } }
 Bloodzerk.merge { damage_instance { ai_base_score -99999 } }
 Bloodzerk2.merge { damage_instance { ai_base_score -99999 } }
-Exert.merge { damage_instance { ai_base_score -99999 } }
-Exert2.merge { damage_instance { ai_base_score -99999 } }
+Exert.merge { damage_instance { ai_base_score -2 } }
+Exert2.merge { damage_instance { ai_base_score -2 } }
 Nip.merge { damage_instance { ai_base_score -99999 } }
 Grapple.merge { damage_instance { ai_base_score -99999 } }
 Grapple2.merge { damage_instance { ai_base_score -99999 } }

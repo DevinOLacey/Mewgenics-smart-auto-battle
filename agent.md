@@ -1,230 +1,195 @@
-# Smart_AutoBattle - Developer Guide
+# Smart AutoBattle - Current State
 
-This mod makes cats play intelligently in auto-battle with class-specific AI behavior.
+This document describes the live state of the mod in this folder.
 
----
+## Mod Goal
 
-## Mod Objective
+- Give classes distinct smart AI presets.
+- Keep the smart AI logic readable and tunable through per-class presets plus per-ability scoring.
+- Apply smart AI to player cats through real class passive instances rather than broad class hooks.
 
-- Each class uses its own decision and movement presets.
-- **Cats never hit allies** (via `damage_ally` penalty).
-- Applied automatically at game start.
+## Current Live Hooks
 
----
+### 1. Passive-instance routing is active
 
-## File Structure
+Files:
+- `data/passives/fighter_passives.gon.patch`
+- `data/passives/hunter_passives.gon.patch`
+- `data/passives/medic_passives.gon.patch`
+- `data/passives/mage_passives.gon.patch`
+- `data/passives/tank_passives.gon.patch`
+- `data/passives/thief_passives.gon.patch`
+- `data/passives/butcher_passives.gon.patch`
+- `data/passives/psychic_passives.gon.patch`
+- `data/passives/colorless_passives.gon.patch`
+- `data/passives/jester_passives.gon.patch`
+- `data/passives/druid_passives.gon.patch`
+- `data/passives/monk_passives.gon.patch`
+- `data/passives/necromancer_passives.gon.patch`
+- `data/passives/tinkerer_passives.gon.patch`
 
-```text
-mods/Smart_AutoBattle/
-|-- agent.md                              # This file
-|-- data/                                 # Patch files
-|   |-- abilities/                        # Ability AI patches by class
-|   |   `-- <class>_abilities.gon.patch   # All abilities patched with ai_base_score
-|   |-- ai_presets/
-|   |   |-- decision_presets.gon.patch    # Decision weights per class
-|   |   `-- move_presets.gon.patch        # Movement behavior per class
-|   |-- characters/
-|   |   `-- player_cat.gon.patch          # Universal fallback (GenericBrain)
-|   `-- classes/
-|       |-- classes.gon.patch             # Base classes (Fighter, Hunter, Tank, Mage, Medic, Thief, Colorless)
-|       `-- advanced_classes.gon.patch    # Advanced classes (Monk, Butcher, Druid, Tinkerer, Necromancer, Psychic, Jester)
-`-- dataGame/                             # GAME REFERENCE - NEVER MODIFY
-    |-- abilities/                        # Ability definitions (read-only reference)
-    |-- ai_presets/                       # Valid preset fields
-    `-- classes/                          # Class definitions
-```
+Current behavior:
+- `Uncontrollable 1`
+- `ReplaceBrain { brain GenericBrain decision_weights smart_* move_weights smart_*_move }`
+- The AI carrier now lives on real passive records for each class.
+- This is the current player-safe routing strategy.
 
----
+### 2. PlayerCat is only a GenericBrain fallback
 
-## How AI is Applied
+File:
+- `data/characters/player_cat.gon.patch`
 
-### 1. Universal Fallback - `player_cat.gon.patch`
-
-Replaces the default `brain` for ALL player cats:
-
+Current behavior:
 ```gon
 PlayerCat.merge {
     ai {
         brain GenericBrain
-        decision_weights smart_default
-        move_weights keep_distance
     }
 }
 ```
 
-### 2. Class-Specific AI - `innate_passives` + `ReplaceBrain`
+Important:
+- This does not by itself force autobattle.
+- The active autobattle carrier logic now comes from the passive-route patches.
 
-`innate_passives` auto-applies passives to all cats of a class at combat start.
-`ReplaceBrain` is an inline passive that replaces the cat's `ai {}` block.
+## Disabled / Non-Active Experiments
 
-Pattern (identical for all classes):
+These files are currently not part of the active strategy:
+- `data/classes/classes.gon.patch`
+- `data/classes/advanced_classes.gon.patch`
 
-```gon
-ClassName.merge {
-    innate_passives {
-        ReplaceBrain {
-            brain GenericBrain
-            decision_weights smart_classname
-            move_weights smart_classname_move
-        }
-    }
-}
-```
+Those were part of the old broad class-routing path and are intentionally disabled/removed.
 
-**Priority**: `innate_passives` + `ReplaceBrain` > `player_cat.gon.patch`
+## AI Presets
 
----
+Files:
+- `data/ai_presets/decision_presets.gon.patch`
+- `data/ai_presets/move_presets.gon.patch`
 
-## Valid Field References
+Notable current tuning:
+- `smart_fighter.kill_enemy 15`
+- `smart_thief.kill_enemy 15`
+- `smart_butcher.kill_enemy 15`
+- `smart_hunter.kill_enemy 20`
+- `smart_mage.kill_enemy 15`
+- `smart_cleric.revive_ally_corpse 250`
 
-### decision_presets fields
+## AI Preset Field Reference (What values mean + allowed formats)
 
-```text
-damage_ally           heal_ally             kill_ally
-damage_enemy          heal_enemy            kill_enemy
-debuff_ally           buff_ally
-debuff_enemy          buff_enemy
-damage_self           heal_self             buff_self           debuff_self
-damage_ally_corpse    damage_enemy_corpse
-revive_ally_corpse    revive_enemy_corpse
-spawn_object          spawn_object_distance_to_enemy    spawn_object_distance_to_ally
-spawn_object_preferred_distance
-negative_weight_scale spend_mana_scale
-flat_cast_bonus
-consider_total_damage     (bool)
-consider_secondary_damage (bool)
-accurate_knockback        (bool)
-consider_overkill         (bool)
-simple                    (bool)
-consider_aoe              (bool)
-```
+This section is a quick reference for tuning the fields used in `decision_presets` and `move_presets`.
 
-### move_presets fields
+### Move preset fields (`smart_*_move`)
 
-```text
-distance_to_enemy       distance_to_ally        distance_to_character
-distance_to_corpse      distance_to_aggro_target
-distance_to_center      distance_to_water
-cap_distance_to_enemy   cap_distance_to_ally    cap_distance_to_character
-preferred_distance      (number, or: mov, reach, mov+N, mov-N, mov+reach)
-total_distance_moved    cap_total_distance_moved
-face_closest_enemy      face_aggro_target       face_camera
-randomness
-danger_avoidance        (float - 0.5 light, 3-5 normal, 20+ extreme)
-tall_grass              (float - attracts to TallGrassTile)
-lava                    (float - attracts to LavaTile, DO NOT use for players)
-count_nomove_in_eval    (bool)
-consider_aggro_target_enemy (bool)
-exclude_characters_tagged <tag>
-```
+- `distance_to_enemy`
+  - Purpose: prefer being closer/farther from enemies.
+  - Value type: number (int or decimal).
+  - Typical interpretation: lower/negative = close in, higher/positive = keep distance.
 
----
+- `distance_to_ally`
+  - Purpose: control spacing relative to allies (group up or spread out).
+  - Value type: number (int or decimal).
+  - Typical interpretation: negative = cluster, positive = separate.
 
-## Class Presets
+- `distance_to_character`
+  - Purpose: generic spacing pressure against any character body.
+  - Value type: number (int or decimal).
 
-| Class       | Source File              | Decision Preset      | Move Preset              |
-|-------------|--------------------------|----------------------|--------------------------|
-| Fighter     | classes.gon              | smart_fighter        | smart_fighter_move       |
-| Hunter      | classes.gon              | smart_hunter         | smart_hunter_move        |
-| Tank        | classes.gon              | smart_tank           | smart_tank_move          |
-| Mage        | classes.gon              | smart_mage           | smart_mage_move          |
-| Medic       | classes.gon              | smart_cleric         | smart_cleric_move        |
-| Thief       | classes.gon              | smart_thief          | smart_thief_move         |
-| Monk        | advanced_classes.gon     | smart_monk           | smart_monk_move          |
-| Butcher     | advanced_classes.gon     | smart_butcher        | smart_butcher_move       |
-| Druid       | advanced_classes.gon     | smart_druid          | smart_druid_move         |
-| Tinkerer    | advanced_classes.gon     | smart_tinkerer       | smart_tinkerer_move      |
-| Necromancer | advanced_classes.gon     | smart_necromancer    | smart_necromancer_move   |
-| Psychic     | advanced_classes.gon     | smart_psychic        | smart_psychic_move       |
-| Jester      | advanced_classes.gon     | smart_jester         | smart_jester_move        |
-| Colorless   | classes.gon              | smart_colorless      | smart_colorless_move     |
-| (fallback)  | player_cat.gon           | smart_default        | keep_distance (game)     |
+- `distance_to_corpse`
+  - Purpose: attraction/avoidance to corpses (important for necro logic).
+  - Value type: number (int or decimal).
+  - Typical interpretation: negative = seek corpses, positive = avoid corpses.
 
----
+- `preferred_distance`
+  - Purpose: target spacing band in tiles.
+  - Allowed formats:
+    - Numeric distance: `0`, `1`, `3`, `8`, etc.
+    - Dynamic keywords/expressions used by vanilla and this mod: `reach`, `mov`, `mov+reach`, `mov+N`, `mov-N`.
 
-## Ability Patching
+- `total_distance_moved`
+  - Purpose: how much the AI values moving at all on its turn.
+  - Value type: number (int or decimal, usually `0.0` to `1.5` in practice).
+  - Practical note: `0` minimizes idle drift/burned bonus-move repositioning.
 
-### Format
+- `face_closest_enemy`
+  - Purpose: orientation preference toward nearest enemy.
+  - Value type: numeric weight (commonly `0` or `1`).
 
-```gon
-AbilityName.merge {
-    damage_instance {
-        ai_base_score N              // Direct score modifier
-        // OR
-        custom_additional_ai_weight <keyword>  // can be use with ai_base_score or not
-    }
-}
-```
+- `danger_avoidance`
+  - Purpose: avoid dangerous tiles/paths.
+  - Value type: number (int or decimal), usually non-negative.
+  - Higher = safer movement preference.
 
-### ai_base_score Guidelines
+- `tall_grass`
+  - Purpose: preference for tall-grass tiles.
+  - Value type: number (int or decimal), usually non-negative.
 
-| Score  | Usage |
-|--------|-------|
-| 0      | Normal priority (useful attacks/buffs) |
-| -5 to -20 | Slight penalty (situational/self-damage) |
-| -50    | Heavy penalty (AoE that might hit allies) |
-| -99999 | Disabled (dangerous to team) |
+- `randomness`
+  - Purpose: inject non-deterministic path choice.
+  - Value type: number (int or decimal), usually non-negative.
 
-### custom_additional_ai_weight Keywords
+### Decision preset fields (`smart_*`)
 
-- `tile_close_to_enemy` - Only use near enemies
-- `tile_close_to_enemy_soft` - Soft preference near enemies
-- `must_heal_most_missing_health` - Only when hurt
-- `toss_towards_buddy`
-- `toss_far`
-- `magnetize_favorlineup`
-- `tile_has_no_known_traps`
-- `avoid_redundant_debuffs_strict`
-- `target_farthest`
-- `target_closest`
-- `pyrophina_throw_to_lava`
-- `tile_close_to_enemy_soft`
-- `tile_exists`
-- `favor_tile_far_away`
-- `no_coins_on_map`
-- `favor_enemy_already_moved`
-- `avoid_redundant_debuffs`
-- `enemy_is_webbed`
-- `favor_tile_far_away`
-- `one_charmed_enemy_at_a_time`
-- `must_target_buddy`
-- `must_not_target_buddy`
-- `toss_farthest`
-- `moonhead_punchself`
-- `moonhead_use_if_cracked`
-- `toss_towards_bottomleft`
-- `dont_target_rock`
-- `tutorial_boulderdrop_miss_if_one_left`
-- `pills_only`
-- `no_redundant_formchange`
-- `dybbuk_possession`
-- `thiefcat_coinroll`
-- `thiefcat_roll`
-- `non_bramble_tile_close_to_enemy`
-- `spread_grenades`
-- `avoid_target_map_top`
-- `teslacoil_priorities`
+- Core action-category weights (all numeric int/decimal):
+  - `damage_ally`, `damage_enemy`
+  - `heal_ally`, `heal_enemy`
+  - `kill_enemy`, `kill_ally`
+  - `debuff_ally`, `debuff_enemy`
+  - `buff_ally`, `buff_enemy`
+  - `damage_self`, `heal_self`
+  - `buff_self`, `debuff_self`
+  - `damage_ally_corpse`, `damage_enemy_corpse`
+  - `revive_ally_corpse`, `revive_enemy_corpse`
+  - `spawn_object`
+  - Typical interpretation: positive = incentivize, negative = penalize.
 
-### CRITICAL: `custom_additional_ai_weight` MUST be prefixed
+- Spawn placement helpers:
+  - `spawn_object_distance_to_enemy`
+  - `spawn_object_distance_to_ally`
+  - `spawn_object_preferred_distance`
+  - Value type: number (int or decimal).
+  - Purpose: where deployables/traps/summons should be placed.
 
-```gon
-// CORRECT
-custom_additional_ai_weight tile_close_to_enemy
+- Global scaling knobs:
+  - `negative_weight_scale` (number, usually `0` to `1`; dampens negative outcomes)
+  - `spend_mana_scale` (number, usually `0` to `1`; lower = spends mana more freely)
 
-// WRONG - causes GON error on launch
-tile_close_to_enemy
-```
+- Boolean toggles (allowed values: `true` / `false`):
+  - `consider_total_damage`
+  - `consider_secondary_damage`
+  - `consider_aoe`
+  - `accurate_knockback`
+  - `consider_overkill`
 
----
+### Practical value conventions used in this project
 
-## Development Rules
+- Strong hard-deny in ability scoring: `-99999` or `-999999`.
+- Soft discourage: around `-1` to `-8`.
+- Neutral: `0`.
+- Light encourage: `1` to `5`.
+- High priority: `8+` (context-sensitive per class and ability).
 
-1. **Never modify `dataGame/`** - Read-only reference only.
-2. **Always use `.merge`** for patches (never redefine objects entirely).
-3. **ASCII only in all `.patch` files** - GON parser does not support UTF-8.
-4. **Use `//` comments freely** - Supported by GON parser.
-5. **Verify exact names** in `dataGame/classes/` before writing patches.
-6. **Verify fields** in `dataGame/ai_presets/` before adding new fields.
-7. **The `player_cat.gon.patch` fallback is sacred** - Never weaken it. Last defense against friendly fire.
+## Current Charm-Kill Tuning
 
----
+Execution-style attacks in the main damage classes now include a moderate `Charmed` target penalty.
+
+Touched files:
+- `data/abilities/fighter_abilities.gon.patch`
+- `data/abilities/hunter_abilities.gon.patch`
+- `data/abilities/mage_abilities.gon.patch`
+
+Current intent:
+- Prefer killing a non-charmed target when a similar kill is available.
+- Still allow killing a charmed target if the alternative is only weak chip damage.
+
+## Working Assumptions
+
+At the time of this document, the intended live path is:
+- Smart AI is applied through real passive instances.
+- The disorder-based route is no longer part of the mod.
+- The old broad class-routing hook should remain disabled.
+
+## Editing Rules
+
+- Keep GON patch files ASCII.
+- Prefer `.merge` and patching over redefining vanilla objects.
+- Re-check mod load behavior in-game after any hook change; several earlier tests were confounded by injection/load issues.

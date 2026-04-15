@@ -1,0 +1,574 @@
+Vampirism.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+OneWithNothing.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+BedBugs.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+WormLord.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+InfiniteRebirth.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+SacrificialLamb.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+DeathIncarnate.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+OffloadPain.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+CambionConception.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+Leechmother.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+Infected.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+LastGasp.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+RelentlessDead.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+ChainsOfGuilt.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+DarkPriest.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+Undeath.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+NumbingLeeches.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+EternalHealth.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+Torpor.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+SoulBound.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+Superstition.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+ImmortalLeeches.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+CorpseConnoisseur.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+Parasitic.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}
+
+SpreadSorrow.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_necromancer
+                move_weights smart_necromancer_move
+            }
+        }
+    }
+}

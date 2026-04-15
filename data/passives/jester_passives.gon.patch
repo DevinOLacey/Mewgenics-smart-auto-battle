@@ -1,0 +1,45 @@
+SuperLuck.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_jester
+                move_weights smart_jester_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_jester
+                move_weights smart_jester_move
+            }
+        }
+    }
+}
+
+Goofball.merge {
+    1 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_jester
+                move_weights smart_jester_move
+            }
+        }
+    }
+    2 {
+        passives.append {
+            Uncontrollable 1
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights smart_jester
+                move_weights smart_jester_move
+            }
+        }
+    }
+}

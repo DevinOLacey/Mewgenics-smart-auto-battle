@@ -1,5 +1,7 @@
 PlayerCat.merge {
     ai {
         brain GenericBrain
+        decision_weights smart_default
+        move_weights smart_default_move
     }
 }
